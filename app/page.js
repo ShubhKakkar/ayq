@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import "./globals.css";
 
-const s = () => {
+function page() {
   return (
-    <div>s</div>
-  )
+    <div>
+      <h1 className="text-4xl">Home Page</h1>
+    </div>
+  );
 }
 
-export default s
+export default page;

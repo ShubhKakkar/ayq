@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Carousel from "../components/Carousel";
-import Contact from "../components/Contact";
+import NewsLetter from "../components/NewsLetter";
 
 function HomePage() {
   return (
@@ -10,9 +10,11 @@ function HomePage() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content="AyQ Beverages-Home" />
       </Head>
-      <section className="hero bg-[#e4e4e4] h-[calc(100vh-80px)]">
+      <section className="hero bg-[#e4e4e4] h-screen">
         <Carousel />
-        <Contact />
+      </section>
+      <section className="contact bg-dark h-[calc(100vh-80px)]">
+        <NewsLetter />
       </section>
     </main>
   );

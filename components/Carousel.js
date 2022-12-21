@@ -25,7 +25,7 @@ const Carousel = () => {
   },8000)
 
   return (
-    <div className="h-screen relative">
+    <div className="h-full relative">
       <div
         className="bg-dark hover:bg-orange-400 ease-in-out duration-300 absolute p-2 top-[50vh] cursor-pointer z-10 carousel__left"
         onClick={handlePointerLeft}

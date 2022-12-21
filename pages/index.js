@@ -13,7 +13,7 @@ function HomePage() {
       <section className="hero bg-[#e4e4e4] h-screen">
         <Carousel />
       </section>
-      <section className="contact bg-dark h-[calc(100vh-80px)]">
+      <section>
         <NewsLetter />
       </section>
     </main>

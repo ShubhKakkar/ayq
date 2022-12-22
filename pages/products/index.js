@@ -1,6 +1,7 @@
 import Head from "next/head";
 import React from "react";
 import Content from "../../components/Content";
+import NewsLetter from "../../components/NewsLetter";
 import ProductsGallery from "../../components/ProductsGallery";
 
 const index = () => {
@@ -45,6 +46,9 @@ const index = () => {
       </section>
       <section className="pb-24">
         <Content data={productsInfo} />
+      </section>
+      <section>
+        <NewsLetter />
       </section>
     </div>
   );

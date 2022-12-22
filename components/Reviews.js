@@ -37,7 +37,7 @@ const Reviews = () => {
         <h2 className="uppercase text-7xl font-bold leading-snug">
           Testimonials
         </h2>
-        <p className="text-lg font-Roboto font-medium leading-loose mt-4 mb-24">
+        <p className="text-lg font-Roboto font-medium leading-loose mt-4 pb-24">
           Don't just take our word for it - check out what others have to say
           about our products. Our blog features reviews from athletes, coaches,
           and wellness enthusiasts who have tried our energy drinks and

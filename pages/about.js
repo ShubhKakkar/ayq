@@ -75,13 +75,13 @@ const About = () => {
       <section className="mx-auto my-12">
         <Content data={ourImpact} />
       </section>
-      <section className="my-24">
+      <section className="py-24">
         <Reviews />
       </section>
-      <section className="my-24">
+      <section className="py-24">
         <BlogWidget />
       </section>
-      <section className="mx-auto mt-24">
+      <section className="mx-auto pt-24">
         <NewsLetter />
       </section>
     </main>

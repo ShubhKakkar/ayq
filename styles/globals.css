@@ -5,8 +5,18 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 .transparentText {
-    color: #121212;
-    -webkit-text-stroke: 2px #121212;
-    -webkit-text-fill-color: transparent;
+  color: #121212;
+  -webkit-text-stroke: 2px #121212;
+  -webkit-text-fill-color: transparent;
+}
+
+.transparentTextColored {
+  color: #fb923c;
+  -webkit-text-stroke: 2px #fb923c;
+  -webkit-text-fill-color: transparent;
 }

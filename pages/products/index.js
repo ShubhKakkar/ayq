@@ -13,7 +13,7 @@ const index = () => {
       "With 2,000 mg of L-citrulline and 300 mg of caffeine, this great-tasting performance energy drink is designed to optimize performance and give you a powerful energy boost that'll help you break through any challenge.",
     direction: "rtl",
     imageType: "contain",
-    buttonText: "Hydrate"
+    buttonText: "Hydrate",
   };
   return (
     <div>

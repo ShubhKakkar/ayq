@@ -34,20 +34,29 @@ const Reviews = () => {
   return (
     <section className="max-w-7xl mx-auto">
       <div className="container py-24 mx-auto">
-        <div className="flex flex-wrap">
+        <h2 className="uppercase text-7xl font-bold leading-snug">
+          Testimonials
+        </h2>
+        <p className="text-lg font-Roboto font-medium leading-loose mt-4 mb-24">
+          Don't just take our word for it - check out what others have to say
+          about our products. Our blog features reviews from athletes, coaches,
+          and wellness enthusiasts who have tried our energy drinks and
+          experienced their benefits firsthand.
+        </p>
+        <div className="flex justify-between gap-12">
           {reviews.map((review, index) => {
             return (
-              <div key={index} className="lg:w-1/3 lg:mb-0 mb-6 p-4 relative">
+              <div key={index} className="lg:mb-0 mb-6 relative">
                 <div className="h-full text-left">
-                  <img
-                    alt="testimonial"
-                    className="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100"
-                    src={review.profile}
-                  />
-                  <div>
-                    {/* <ImQuotesRight className="text-7xl text-dark absolute top-4 right-10 opacity-30"/> */}
+                  <div className="flex items-center justify-between mb-8">
+                    <img
+                      alt="testimonial"
+                      className="w-20 h-20 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100"
+                      src={review.profile}
+                    />
+                    <ImQuotesRight className="text-7xl text-gray-100" />
                   </div>
-                  <p className="text-md font-Roboto font-medium leading-loose mt-4">
+                  <p className="text-md font-Roboto font-medium leading-loose mt-4 bg-gray-100 p-4">
                     {review.description}
                   </p>
                   <span className="inline-block h-1 w-10 rounded bg-orange-400 mt-6 mb-4"></span>

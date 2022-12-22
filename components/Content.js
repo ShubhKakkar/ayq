@@ -1,6 +1,9 @@
 import React from "react";
 
 const Content = ({ data }) => {
+  if (!data) {
+    return;
+  }
   const words = data?.title?.split(" ");
   const direction = data?.direction;
   return (
@@ -14,7 +17,11 @@ const Content = ({ data }) => {
           }
         >
           <img
-            class="object-cover h-full w-full object-center"
+            class={
+              data.imageType === "contain"
+                ? "object-contain h-full w-full object-center"
+                : "object-cover h-full w-full object-center"
+            }
             alt="about-hero"
             src={data.url ? data.url : ""}
           />
@@ -38,6 +45,13 @@ const Content = ({ data }) => {
           <p className="text-lg font-Roboto font-medium leading-loose mt-4">
             {data.description ? data.description : ""}
           </p>
+          {data.buttonText ? (
+            <button className="bg-orange-400 hover:bg-orange-500 ease-in-out duration-300 px-8 py-3 font-bold text-lg tracking-widest text-white uppercase mt-12">
+              {data.buttonText}
+            </button>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>

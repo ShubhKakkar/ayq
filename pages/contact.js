@@ -25,6 +25,36 @@ const Contact = () => {
     direction: "rtl",
     buttonText: "Become a partner",
   };
+  const videoData = {
+    url: "https://cdn.shopify.com/videos/c/o/v/988fc2c1ac884b18954c29e8f0ad0281.mp4",
+    shopNow: true,
+    subText: "Death Clock II",
+    subDescription: "Introducing a watch for the 0.1% from Liquid Death and Nixon.",
+    subButtonText1: "Watch commercial",
+    subButtonText2: "Buy Now",
+    subButton1Url: "/",
+    subButton2Url: "/",
+  };
+  const businessPartnerProgram = {
+    url: "https://cdn.shopify.com/videos/c/o/v/5a72317edb7541c5a718738fb23c918c.mp4",
+    shopNow: true,
+    subText: "Sell AYQ",
+    subDescription: "Own a business? Want to carry AyQ? Join the AyQ Business partner program.",
+    subButtonText1: "Hell Yes",
+    subButton1Url: "/",
+    subButton2Url: "/",
+    overlay: true,
+  }
+  const influencerPartnerProgram = {
+    url: "https://cdn.shopify.com/videos/c/o/v/e748ba3cc415443a9f66f685dbf182d1.mp4",
+    shopNow: true,
+    subText: "MARTHA STEWART'S DISMEMBERED MOMENTS CANDLE",
+    subDescription: "We partnered with Martha Stewart to make a life-sized severed hand candle.",
+    subButtonText1: "Watch Now",
+    subButton1Url: "/",
+    subButton2Url: "/",
+    overlay: true,
+  }
   return (
     <div>
       <Head>
@@ -34,12 +64,7 @@ const Contact = () => {
       </Head>
       <section>
         <VideoBox
-          url="https://cdn.shopify.com/videos/c/o/v/988fc2c1ac884b18954c29e8f0ad0281.mp4"
-          // text1="Death Clock"
-          shopNow={true}
-          subText="Death Clock"
-          subDescription="Introducing a watch for the 0.1%
-          from Liquid Death and Nixon."
+          data = {videoData}
         />
       </section>
       <section>
@@ -48,10 +73,16 @@ const Contact = () => {
       <section className="max-w-7xl mx-auto py-24">
         <Content data={businessPartnerProgramData} />
       </section>
+      <section>
+      <VideoBox data = {businessPartnerProgram} />
+      </section>
       <section className="max-w-7xl mx-auto mb-24 py-24">
         <Content data={influencerPartnerProgramData} />
       </section>
-      <section className="max-w-7xl mx-auto mb-24 py-24">
+      <section>
+      <VideoBox data = {influencerPartnerProgram} />
+      </section>
+      <section className="max-w-7xl mx-auto py-24">
         <FAQ />
       </section>
       <section className="mx-auto">

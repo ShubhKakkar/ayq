@@ -49,6 +49,13 @@ const About = () => {
       "Stay active and energized all day long with CELSIUS by your side. CELSIUS powers active lives every day with essential, functional energy. We're different from other energy drinks because we focus on movement. When combined with exercise, our formula is clinically proven to boost your metabolism and help you burn body fat. Whether you need an extra boost at the gym or a delicious pick-me-up to help you hustle through your workday, CELSIUS is here to help you stay active and focused on your goals. Made with only the best ingredients, CELSIUS has no artificial preservatives or flavors, no aspartame or high fructose corn syrup, and it's very low in sodium.",
     direction: "rtl",
   };
+  const videoData = {
+    url: url,
+    text1: "Refreshingly",
+    text2: "Relaxing",
+    shopNow: "true",
+    shopUrl: "/",
+  };
   return (
     <main>
       <Head>
@@ -57,7 +64,7 @@ const About = () => {
         <meta name="description" content="AyQ Beverages-About" />
       </Head>
       <section className="h-screen">
-        <VideoBox url={url} text1="Refreshingly" text2="Relaxing" shopNow="true" shopUrl="/" />
+        <VideoBox data={videoData} />
       </section>
       <section className="max-w-7xl mx-auto">
         <img

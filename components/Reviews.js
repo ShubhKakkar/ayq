@@ -33,7 +33,7 @@ const reviews = [
 const Reviews = () => {
   return (
     <section className="max-w-7xl mx-auto">
-      <div className="container py-24 mx-auto">
+      <div className="container mx-auto">
         <h2 className="uppercase text-7xl font-bold leading-snug">
           Testimonials
         </h2>

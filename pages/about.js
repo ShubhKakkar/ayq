@@ -5,8 +5,6 @@ import Content from "../components/Content";
 import Reviews from "../components/Reviews";
 import Services from "../components/Services";
 import NewsLetter from "../components/NewsLetter";
-
-// React Player
 import VideoBox from "../components/VideoBox";
 
 const About = () => {
@@ -79,13 +77,13 @@ const About = () => {
       <section className="max-w-7xl mx-auto">
         <Content data={ourStory} />
       </section>
-      <section className="mx-auto my-12">
+      <section className="mx-auto py-24">
         <Content data={ourImpact} />
       </section>
-      <section className="py-24">
+      <section className="pb-24">
         <Reviews />
       </section>
-      <section className="py-24">
+      <section className="pb-24">
         <BlogWidget />
       </section>
       <section className="mx-auto pt-24">

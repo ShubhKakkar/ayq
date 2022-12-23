@@ -5,7 +5,7 @@ function StoreLocator() {
   return (
     <div className="h-[50vh] w-full grid place-items-center bg-[url('https://cdn.shopify.com/s/files/1/0079/4289/7737/files/store-locator-map-LA_2048x_6037a122-8c99-4c9c-8191-eae6c6207202_2048x.jpg?v=1641399242')] relative">
       <div className="z-40">
-        <h2 className="uppercase text-5xl font-bold leading-snug text-white">
+        <h2 className="uppercase text-5xl font-bold leading-snug text-dark">
           FIND AYQ NEAR YOU
         </h2>
         <div className="flex items-center justify-center mt-6 z-40">
@@ -19,7 +19,7 @@ function StoreLocator() {
           </button>
         </div>
       </div>
-      <div className="h-full w-full bg-gradient-to-b from-dark via-dark to-[#121212b6] absolute top-0 left-0 opacity-70"></div>
+      {/* <div className="h-full w-full bg-gradient-to-b from-[#121212f8] to-[#12121246] absolute top-0 left-0 opacity-70"></div> */}
     </div>
   );
 }

@@ -21,7 +21,7 @@ const Contact = () => {
     title: "Influencer Partner",
     subTitle: "Become our influencer partner",
     description:
-      "Stay active and energized all day long with CELSIUS by your side. CELSIUS powers active lives every day with essential, functional energy. We're different from other energy drinks because we focus on movement. When combined with exercise, our formula is clinically proven to boost your metabolism and help you burn body fat. Whether you need an extra boost at the gym or a delicious pick-me-up to help you hustle through your workday, CELSIUS is here to help you stay active and focused on your goals. Made with only the best ingredients, CELSIUS has no artificial preservatives or flavors, no aspartame or high fructose corn syrup, and it's very low in sodium.",
+      "Stay active and energized all day long with CELSIUS by your side. CELSIUS powers active lives every day with essential, functional energy. We're different from other energy drinks because we focus on movement. When combined with exercise, our formula is clinically proven to boost your metabolism and help you burn body fat.",
     direction: "rtl",
     buttonText: "Become a partner",
   };
@@ -67,19 +67,19 @@ const Contact = () => {
           data = {videoData}
         />
       </section>
-      <section>
+      <section className="max-w-7xl mx-auto py-24">
         <StoreLocator />
       </section>
-      <section className="max-w-7xl mx-auto py-24">
+      <section className="max-w-7xl mx-auto pb-24">
         <Content data={businessPartnerProgramData} />
       </section>
-      <section className="max-w-7xl mx-auto py-24">
+      <section className="max-w-7xl mx-auto pb-24">
       <VideoBox data = {businessPartnerProgram} />
       </section>
-      <section className="max-w-7xl mx-auto mb-24 py-24">
+      <section className="max-w-7xl mx-auto pb-24">
         <Content data={influencerPartnerProgramData} />
       </section>
-      <section className="max-w-7xl mx-auto py-24">
+      <section className="max-w-7xl mx-auto pb-24">
       <VideoBox data = {influencerPartnerProgram} />
       </section>
       <section className="max-w-7xl mx-auto pb-24">

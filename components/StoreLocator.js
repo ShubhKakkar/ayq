@@ -1,7 +1,5 @@
 import React from "react";
 
-// React-Icons
-
 function StoreLocator() {
   const position = [51.505, -0.09];
   return (

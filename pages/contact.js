@@ -1,7 +1,9 @@
 import Head from "next/head";
 import React from "react";
 import Content from "../components/Content";
+import FAQ from "../components/FAQ";
 import NewsLetter from "../components/NewsLetter";
+import VideoBox from "../components/VideoBox";
 import StoreLocator from "../components/StoreLocator";
 
 const Contact = () => {
@@ -30,14 +32,27 @@ const Contact = () => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content="AyQ Beverages-About" />
       </Head>
-      <section className="max-w-7xl mx-auto">
+      <section>
+        <VideoBox
+          url="https://cdn.shopify.com/videos/c/o/v/988fc2c1ac884b18954c29e8f0ad0281.mp4"
+          // text1="Death Clock"
+          shopNow={true}
+          subText="Death Clock"
+          subDescription="Introducing a watch for the 0.1%
+          from Liquid Death and Nixon."
+        />
+      </section>
+      <section>
         <StoreLocator />
       </section>
       <section className="max-w-7xl mx-auto py-24">
-        <Content data = {businessPartnerProgramData} />
+        <Content data={businessPartnerProgramData} />
       </section>
       <section className="max-w-7xl mx-auto mb-24 py-24">
-        <Content data = {influencerPartnerProgramData} />
+        <Content data={influencerPartnerProgramData} />
+      </section>
+      <section className="max-w-7xl mx-auto mb-24 py-24">
+        <FAQ />
       </section>
       <section className="mx-auto">
         <NewsLetter />

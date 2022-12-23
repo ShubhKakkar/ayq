@@ -57,7 +57,7 @@ const About = () => {
         <meta name="description" content="AyQ Beverages-About" />
       </Head>
       <section className="h-screen">
-        <VideoBox url={url} text1="Refreshingly" text2="Relaxing" />
+        <VideoBox url={url} text1="Refreshingly" text2="Relaxing" shopNow="true" shopUrl="/" />
       </section>
       <section className="max-w-7xl mx-auto">
         <img

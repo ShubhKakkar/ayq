@@ -73,16 +73,16 @@ const Contact = () => {
       <section className="max-w-7xl mx-auto py-24">
         <Content data={businessPartnerProgramData} />
       </section>
-      <section>
+      <section className="max-w-7xl mx-auto py-24">
       <VideoBox data = {businessPartnerProgram} />
       </section>
       <section className="max-w-7xl mx-auto mb-24 py-24">
         <Content data={influencerPartnerProgramData} />
       </section>
-      <section>
+      <section className="max-w-7xl mx-auto py-24">
       <VideoBox data = {influencerPartnerProgram} />
       </section>
-      <section className="max-w-7xl mx-auto py-24">
+      <section className="max-w-7xl mx-auto pb-24">
         <FAQ />
       </section>
       <section className="mx-auto">

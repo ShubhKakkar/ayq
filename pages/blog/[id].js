@@ -18,7 +18,7 @@ const SingleBlog = () => {
           Development
         </p>
         <h1
-          className="mb-3 uppercase text-4xl font-bold leading-snug text-dark md:text-4xl"
+          className="mb-3 uppercase text-4xl font-bold leading-loose text-dark md:text-4xl"
           itemprop="headline"
           title="Rise of Tailwind - A Utility First CSS Framework"
         >

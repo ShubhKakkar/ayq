@@ -18,7 +18,7 @@ const SingleBlog = () => {
           Development
         </p>
         <h1
-          className="mb-3 text-3xl font-bold leading-tight text-gray-900 md:text-4xl"
+          className="mb-3 uppercase text-4xl font-bold leading-snug text-dark md:text-4xl"
           itemprop="headline"
           title="Rise of Tailwind - A Utility First CSS Framework"
         >
@@ -26,19 +26,19 @@ const SingleBlog = () => {
         </h1>
         <div className="flex mb-6 space-x-2">
           <a
-            className="text-gray-900 bg-gray-100 badge hover:bg-gray-200"
+            className="t-dark bg-white badge hover:bg-gray-100 ease-in-out duration-300"
             href="#"
           >
             CSS
           </a>
           <a
-            className="text-gray-900 bg-gray-100 badge hover:bg-gray-200"
+            className="t-dark bg-white badge hover:bg-gray-100 ease-in-out duration-300"
             href="#"
           >
             Tailwind
           </a>
           <a
-            className="text-gray-900 bg-gray-100 badge hover:bg-gray-200"
+            className="text-dark bg-white badge hover:bg-gray-100 ease-in-out duration-300"
             href="#"
           >
             AlpineJS
@@ -59,7 +59,7 @@ const SingleBlog = () => {
         </a>
       </div>
 
-      <div className="w-full mx-auto prose md:w-3/4 lg:w-1/2">
+      <div className="w-full mx-auto text-lg font-Roboto font-medium leading-loose md:w-3/4 lg:w-1/2">
         <p>
           What if there is an easy way to achieve responsive UI without using
           any UI kit? Can we create new and fresh designs for every project with

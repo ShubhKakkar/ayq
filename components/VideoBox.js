@@ -20,7 +20,7 @@ const VideoBox = ({ data }) => {
     <div className="h-screen w-full overflow-hidden relative">
       {overlay?<div className="h-screen w-screen absolute top-0 left-0 bg-gradient-to-b from-transparent to-dark"></div>:""}
       <video
-        autoplay="autoplay"
+        autoPlay="autoplay"
         loop={true}
         muted={true}
         className="w-screen h-screen object-cover"

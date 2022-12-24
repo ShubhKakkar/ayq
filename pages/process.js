@@ -11,7 +11,8 @@ import { BsFillCheckCircleFill } from "react-icons/bs";
 const Process = () => {
   const url =
     "https://videos.ctfassets.net/8roil6amnkw9/6cNiuzHfmR8Un66ZysPI29/1fa433bdb9dce12ca7eea7fb9a0ad003/process-sizzle.minv2.mp4";
-  const urlEnd = "https://player.vimeo.com/external/465332121.sd.mp4?s=f2bac128a75c37e0d5809f72983152e0e52e1dcc&profile_id=164&oauth2_token_id=57447761";
+  const urlEnd =
+    "https://player.vimeo.com/external/465332121.sd.mp4?s=f2bac128a75c37e0d5809f72983152e0e52e1dcc&profile_id=164&oauth2_token_id=57447761";
   const videoData = {
     url: url,
     text1: "How it's made",
@@ -23,7 +24,8 @@ const Process = () => {
     url: urlEnd,
     shopNow: true,
     subText: "Sell AYQ",
-    subDescription: "Own a business? Want to carry AyQ? Join the AyQ Business partner program.",
+    subDescription:
+      "Own a business? Want to carry AyQ? Join the AyQ Business partner program.",
     subButtonText1: "Hell Yes",
     subButton1Url: "/",
     subButton2Url: "/",
@@ -1266,15 +1268,47 @@ const Process = () => {
         </div>
       </section>
       <section className="max-w-7xl mx-auto pb-24">
-        <h2 className="uppercase text-2xl font-bold leading-snug mb-8 text-center">
-          Truly revolutionary coffee. You'll love the taste to the last drop.
-        </h2>
-        <p className="text-lg font-Roboto font-medium leading-loose pb-4 text-center max-w-5xl mx-auto">
+        <p className="text-xl font-Roboto font-medium leading-loose mt-4 max-w-5xl mx-auto text-center pb-24">
           Your cup of Lifeboost Premium Coffee comes from coffee beans that have
           been individually hand selected as the premium bean(s) of a harvest.
           Your coffee beans are lovingly cultivated by local farmers, after
           being grown slowly to full maturity in mountain shade.
         </p>
+        <div className="flex gap-16">
+          <div className="flex-1 min-h-screen w-full relative">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0838/4525/files/freshly-picked-coffee-beans_80e85b3a-a10c-48e0-9b52-fc6647314792_1728x1152.jpg?v=1633481971"
+              alt="process-2"
+              className="h-full w-full object-cover object-center"
+            />
+          </div>
+          <div className="flex-1 py-12">
+            <h2 className="uppercase text-4xl font-bold leading-snug mb-4">
+              What Makes Lifeboost Great
+            </h2>
+            <p className="text-lg font-Roboto font-medium leading-loose mt-8">
+              1. CLEAN - 80% of the time, put clean foods AND clean beverages in
+              your body such as Lifeboost coffee. The other 20% of the time,
+              enjoy life and treat yourself!
+            </p>
+            <p className="text-lg font-Roboto font-medium leading-loose mt-8">
+              2. CAUSE - Support something you believe in. We support the
+              farmers, their families and communities. We also definitely
+              support sustainable farming methods, wildlife protection, and our
+              first responders.
+            </p>
+            <p className="text-lg font-Roboto font-medium leading-loose mt-8">
+              3. CONNECTION - Coffee connects us. Whether it's conversations
+              with friends or family, business meetings or simply just spending
+              time with yourself. Life is about connection.
+            </p>
+            <p className="text-lg font-Roboto font-medium leading-loose mt-8">
+              4. KINDNESS - We believe that in order to make the world a better
+              place, it all comes down to treating people how you would like to
+              be treated... with LOVE, HONOR, and RESPECT.
+            </p>
+          </div>
+        </div>
       </section>
       <section>
         <VideoBox data={videoDataEnd} />

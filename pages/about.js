@@ -86,7 +86,7 @@ const About = () => {
       <section className="pb-24">
         <BlogWidget />
       </section>
-      <section className="mx-auto pt-24">
+      <section className="mx-auto">
         <NewsLetter />
       </section>
     </main>

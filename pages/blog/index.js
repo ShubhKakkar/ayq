@@ -1,6 +1,55 @@
 import Head from "next/head";
 import React from "react";
+import Card from "../../components/Card";
 import NewsLetter from "../../components/NewsLetter";
+
+const posts = [
+  {
+    _id: 1,
+    slug:"slug1",
+    banner: "https://source.unsplash.com/random/480x360?1",
+    title: "In usu laoreet repudiare legendos",
+    subTitle: "January 21, 2021",
+    description: "Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.",
+    buttonText: "Read More",
+  },
+  {
+    _id: 2,
+    slug:"slug2",
+    banner: "https://source.unsplash.com/random/480x360?1",
+    title: "In usu laoreet repudiare legendos",
+    subTitle: "January 21, 2021",
+    description: "Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.",
+    buttonText: "Read More"
+  },
+  {
+    _id: 3,
+    slug:"slug3",
+    banner: "https://source.unsplash.com/random/480x360?1",
+    title: "In usu laoreet repudiare legendos",
+    subTitle: "January 21, 2021",
+    description: "Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.",
+    buttonText: "Read More"
+  },
+  {
+    _id: 4,
+    slug:"slug4",
+    banner: "https://source.unsplash.com/random/480x360?1",
+    title: "In usu laoreet repudiare legendos",
+    subTitle: "January 21, 2021",
+    description: "Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.",
+    buttonText: "Read More"
+  },
+  {
+    _id: 5,
+    slug:"slug5",
+    banner: "https://source.unsplash.com/random/480x360?1",
+    title: "In usu laoreet repudiare legendos",
+    subTitle: "January 21, 2021",
+    description: "Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.",
+    buttonText: "Read More"
+  },
+]
 
 const Blog = () => {
   return (
@@ -22,7 +71,7 @@ const Blog = () => {
             className="object-cover w-full h-64 sm:h-96 lg:col-span-7"
           />
           <div className="py-8 pl-4 pr-8 space-y-4 lg:col-span-5">
-            <h3 className="uppercase text-3xl font-bold leading-snug group-hover:underline">
+            <h3 className="uppercase text-3xl font-bold leading-snug">
               Noster tincidunt reprimique ad pro
             </h3>
             <span className="uppercase text-xs font-semibold text-orange-400 mt-12 tracking-widest leading-loose">
@@ -35,81 +84,11 @@ const Blog = () => {
           </div>
         </a>
         <div className="flex justify-between items-center flex-wrap gap-8">
-          <a
-            rel="noopener noreferrer"
-            href="#"
-            className="flex-1 group hover:no-underline focus:no-underline bg-gray-100 text-dark font-Roboto"
-          >
-            <img
-              role="presentation"
-              className="object-cover w-full h-64"
-              src="https://source.unsplash.com/random/480x360?1"
-            />
-            <div className="px-4 pt-4 pb-8 space-y-4 font-Roboto">
-              <h3 className="uppercase text-2xl font-semibold leading-snug group-hover:underline">
-                In usu laoreet repudiare legendos
-              </h3>
-              <span className="uppercase text-xs font-semibold text-orange-400 mt-12 tracking-widest leading-loose">
-                January 21, 2021
-              </span>
-              <p className="text-md font-Roboto font-medium leading-relaxed mt-4">
-                Mei ex aliquid eleifend forensibus, quo ad dicta apeirian
-                neglegentur, ex has tantas percipit perfecto. At per tempor
-                albucius perfecto, ei probatus consulatu patrioque mea, ei
-                vocent delicata indoctum pri.
-              </p>
-            </div>
-          </a>
-          <a
-            rel="noopener noreferrer"
-            href="#"
-            className="flex-1 group hover:no-underline focus:no-underline bg-gray-100 text-dark font-Roboto"
-          >
-            <img
-              role="presentation"
-              className="object-cover w-full h-64"
-              src="https://source.unsplash.com/random/480x360?1"
-            />
-            <div className="px-4 pt-4 pb-8 space-y-4 font-Roboto">
-              <h3 className="uppercase text-2xl font-semibold leading-snug group-hover:underline">
-                In usu laoreet repudiare legendos
-              </h3>
-              <span className="uppercase text-xs font-semibold text-orange-400 mt-12 tracking-widest leading-loose">
-                January 21, 2021
-              </span>
-              <p className="text-md font-Roboto font-medium leading-relaxed mt-4">
-                Mei ex aliquid eleifend forensibus, quo ad dicta apeirian
-                neglegentur, ex has tantas percipit perfecto. At per tempor
-                albucius perfecto, ei probatus consulatu patrioque mea, ei
-                vocent delicata indoctum pri.
-              </p>
-            </div>
-          </a>
-          <a
-            rel="noopener noreferrer"
-            href="#"
-            className="flex-1 group hover:no-underline focus:no-underline bg-gray-100 text-dark font-Roboto"
-          >
-            <img
-              role="presentation"
-              className="object-cover w-full h-64"
-              src="https://source.unsplash.com/random/480x360?1"
-            />
-            <div className="px-4 pt-4 pb-8 space-y-4 font-Roboto">
-              <h3 className="uppercase text-2xl font-semibold leading-snug group-hover:underline">
-                In usu laoreet repudiare legendos
-              </h3>
-              <span className="uppercase text-xs font-semibold text-orange-400 mt-12 tracking-widest leading-loose">
-                January 21, 2021
-              </span>
-              <p className="text-md font-Roboto font-medium leading-relaxed mt-4">
-                Mei ex aliquid eleifend forensibus, quo ad dicta apeirian
-                neglegentur, ex has tantas percipit perfecto. At per tempor
-                albucius perfecto, ei probatus consulatu patrioque mea, ei
-                vocent delicata indoctum pri.
-              </p>
-            </div>
-          </a>
+          {
+            posts.map((post) => {
+              return <Card key={post._id} data={post} />
+            })
+          }
         </div>
         <div className="flex justify-center">
           <button

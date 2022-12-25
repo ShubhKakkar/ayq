@@ -114,7 +114,7 @@ const Process = () => {
         <div className="flex flex-wrap h-[500px] pt-12">
           <div className="basis-1/2 text-center self-start">
             <svg
-              class="max-h-full w-auto mx-auto"
+              className="max-h-full w-auto mx-auto"
               xmlns="http://www.w3.org/2000/svg"
               width="120.033"
               height="120.986"
@@ -132,7 +132,7 @@ const Process = () => {
                   transform="translate(0.02 32.26)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <g
                   id="Group_4230"
@@ -144,7 +144,7 @@ const Process = () => {
                     data-name="Ellipse 140"
                     fill="#fff"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   >
                     <circle
                       cx="9.158"
@@ -166,7 +166,7 @@ const Process = () => {
                     transform="translate(16568.754 17989.672)"
                     fill="#fff"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   ></path>
                 </g>
                 <g
@@ -180,7 +180,7 @@ const Process = () => {
                     transform="translate(0)"
                     fill="#fff"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   >
                     <circle
                       cx="9.158"
@@ -207,7 +207,7 @@ const Process = () => {
                     transform="translate(0 0)"
                     fill="#fff"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   >
                     <circle
                       cx="9.158"
@@ -234,7 +234,7 @@ const Process = () => {
                     transform="translate(0)"
                     fill="#fff"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   >
                     <circle
                       cx="11.447"
@@ -256,7 +256,7 @@ const Process = () => {
                     transform="translate(16571.453 17991.596)"
                     fill="#fff"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   ></path>
                 </g>
                 <g
@@ -270,7 +270,7 @@ const Process = () => {
                     transform="translate(0)"
                     fill="#fff"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   >
                     <circle
                       cx="9.921"
@@ -297,7 +297,7 @@ const Process = () => {
                     transform="translate(0)"
                     fill="#fff"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   >
                     <circle
                       cx="9.921"
@@ -319,7 +319,7 @@ const Process = () => {
                     transform="translate(16569.717 17990.357)"
                     fill="#fff"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   ></path>
                 </g>
                 <g
@@ -333,7 +333,7 @@ const Process = () => {
                     transform="translate(0 0)"
                     fill="#fff"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   >
                     <circle
                       cx="7.632"
@@ -355,7 +355,7 @@ const Process = () => {
                     transform="translate(16566.859 17988.324)"
                     fill="#fff"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   ></path>
                 </g>
                 <g
@@ -368,7 +368,7 @@ const Process = () => {
                     data-name="Ellipse 140"
                     fill="#fff"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   >
                     <circle
                       cx="9.921"
@@ -390,7 +390,7 @@ const Process = () => {
                     transform="translate(16569.262 17990.035)"
                     fill="#fff"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   ></path>
                 </g>
                 <path
@@ -400,7 +400,7 @@ const Process = () => {
                   transform="translate(5.527 35.997)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_895"
@@ -409,7 +409,7 @@ const Process = () => {
                   transform="translate(6.788 38.313)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_896"
@@ -418,7 +418,7 @@ const Process = () => {
                   transform="translate(0 19.936)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_897"
@@ -427,7 +427,7 @@ const Process = () => {
                   transform="translate(1.91 27.438)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_898"
@@ -436,7 +436,7 @@ const Process = () => {
                   transform="translate(19.747 31.286)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_899"
@@ -445,7 +445,7 @@ const Process = () => {
                   transform="translate(25.081 29.263)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_900"
@@ -454,7 +454,7 @@ const Process = () => {
                   transform="translate(33.322 27.508)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_901"
@@ -463,7 +463,7 @@ const Process = () => {
                   transform="translate(17.806 35.563)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_902"
@@ -472,7 +472,7 @@ const Process = () => {
                   transform="translate(19.22 31.068)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_903"
@@ -481,7 +481,7 @@ const Process = () => {
                   transform="translate(28.353 31.068)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_904"
@@ -490,7 +490,7 @@ const Process = () => {
                   transform="translate(24.495 34.911)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_905"
@@ -499,7 +499,7 @@ const Process = () => {
                   transform="translate(19.046 34.911)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_906"
@@ -508,7 +508,7 @@ const Process = () => {
                   transform="translate(17.17 12.409)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_907"
@@ -517,7 +517,7 @@ const Process = () => {
                   transform="translate(11.805 5.455)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_908"
@@ -526,7 +526,7 @@ const Process = () => {
                   transform="translate(1.16 0.002)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_909"
@@ -535,7 +535,7 @@ const Process = () => {
                   transform="translate(2.529 9.646)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_910"
@@ -544,7 +544,7 @@ const Process = () => {
                   transform="translate(5.396 16.333)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_911"
@@ -553,7 +553,7 @@ const Process = () => {
                   transform="translate(4.509 4.517)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_912"
@@ -562,7 +562,7 @@ const Process = () => {
                   transform="translate(12.883 9.343)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_913"
@@ -571,7 +571,7 @@ const Process = () => {
                   transform="translate(6.309 9.343)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_914"
@@ -580,7 +580,7 @@ const Process = () => {
                   transform="translate(5.769 13.25)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_915"
@@ -589,7 +589,7 @@ const Process = () => {
                   transform="translate(10.536 18.046)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_916"
@@ -598,7 +598,7 @@ const Process = () => {
                   transform="translate(21.55 6.549)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_917"
@@ -607,7 +607,7 @@ const Process = () => {
                   transform="translate(29.317 3.74)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_918"
@@ -616,7 +616,7 @@ const Process = () => {
                   transform="translate(33.829 0.024)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_919"
@@ -625,7 +625,7 @@ const Process = () => {
                   transform="translate(29.843 10.726)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_920"
@@ -634,7 +634,7 @@ const Process = () => {
                   transform="translate(34.445 8.448)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_921"
@@ -643,7 +643,7 @@ const Process = () => {
                   transform="translate(31.735 9.829)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_922"
@@ -652,7 +652,7 @@ const Process = () => {
                   transform="translate(31.207 14.128)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_923"
@@ -661,7 +661,7 @@ const Process = () => {
                   transform="translate(26.033 18.88)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_924"
@@ -670,7 +670,7 @@ const Process = () => {
                   transform="translate(26.347 21.198)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_925"
@@ -679,7 +679,7 @@ const Process = () => {
                   transform="translate(21.385 2.083)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_926"
@@ -688,7 +688,7 @@ const Process = () => {
                   transform="translate(23.894 10.464)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
               </g>
             </svg>
@@ -702,7 +702,7 @@ const Process = () => {
           </div>
           <div className="basis-1/2 text-center self-end">
             <svg
-              class="max-h-full w-auto mx-auto"
+              className="max-h-full w-auto mx-auto"
               xmlns="http://www.w3.org/2000/svg"
               width="132.061"
               height="121.85"
@@ -719,7 +719,7 @@ const Process = () => {
                   transform="translate(-16551.436 -17703.994)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 >
                   <rect width="77.701" height="30.471" stroke="none"></rect>
                   <rect
@@ -737,7 +737,7 @@ const Process = () => {
                   transform="translate(15.264 13.216)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_928"
@@ -746,7 +746,7 @@ const Process = () => {
                   transform="translate(33.547 13.216)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_929"
@@ -755,7 +755,7 @@ const Process = () => {
                   transform="translate(33.547 26.928)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_930"
@@ -764,7 +764,7 @@ const Process = () => {
                   transform="translate(21.358 33.171)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_931"
@@ -773,7 +773,7 @@ const Process = () => {
                   transform="translate(45.735 33.171)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_932"
@@ -782,7 +782,7 @@ const Process = () => {
                   transform="translate(59.447 26.928)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_933"
@@ -791,7 +791,7 @@ const Process = () => {
                   transform="translate(74.683 34.248)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_934"
@@ -800,7 +800,7 @@ const Process = () => {
                   transform="translate(25.202 15.351)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_935"
@@ -809,7 +809,7 @@ const Process = () => {
                   transform="translate(31.297 15.351)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_936"
@@ -818,7 +818,7 @@ const Process = () => {
                   transform="translate(37.389 15.351)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_937"
@@ -827,7 +827,7 @@ const Process = () => {
                   transform="translate(19.708)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_938"
@@ -836,7 +836,7 @@ const Process = () => {
                   transform="translate(34.572)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_939"
@@ -845,7 +845,7 @@ const Process = () => {
                   transform="translate(49.435)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_940"
@@ -854,7 +854,7 @@ const Process = () => {
                   transform="translate(41.03 15.49)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_945"
@@ -863,7 +863,7 @@ const Process = () => {
                   transform="translate(-54.464 15.49)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_941"
@@ -872,7 +872,7 @@ const Process = () => {
                   transform="translate(39.057 18.241)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_944"
@@ -881,7 +881,7 @@ const Process = () => {
                   transform="translate(-43.294 18.241)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_942"
@@ -890,7 +890,7 @@ const Process = () => {
                   transform="translate(52.198 18.241)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_943"
@@ -899,7 +899,7 @@ const Process = () => {
                   transform="translate(-59.837 18.241)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <g
                   id="Rectangle_587"
@@ -907,7 +907,7 @@ const Process = () => {
                   transform="translate(-16588 -17675.047)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 >
                   <rect width="12.188" height="9.141" stroke="none"></rect>
                   <rect
@@ -925,7 +925,7 @@ const Process = () => {
                   transform="translate(20.374 26.034)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <g
                   id="Path_947"
@@ -950,7 +950,7 @@ const Process = () => {
                   transform="translate(6.05 41.475)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_949"
@@ -959,7 +959,7 @@ const Process = () => {
                   transform="translate(79.651 41.475)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
               </g>
             </svg>
@@ -974,7 +974,7 @@ const Process = () => {
         <div className="flex flex-wrap h-[500px] pb-12">
           <div className="basis-1/2 text-center self-start">
             <svg
-              class="max-h-full w-auto mx-auto"
+              className="max-h-full w-auto mx-auto"
               xmlns="http://www.w3.org/2000/svg"
               width="115.748"
               height="112.994"
@@ -992,7 +992,7 @@ const Process = () => {
                   transform="translate(16589.424 17551.209)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_951"
@@ -1001,7 +1001,7 @@ const Process = () => {
                   transform="translate(16618.738 17566.055)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <path
                   id="Path_952"
@@ -1010,7 +1010,7 @@ const Process = () => {
                   transform="translate(16622.205 17572.404)"
                   fill="none"
                   stroke="#000"
-                  stroke-width="2"
+                  strokeWidth="2"
                 ></path>
                 <g
                   id="Group_4237"
@@ -1024,7 +1024,7 @@ const Process = () => {
                     transform="translate(-241.472 -4469.208)"
                     fill="none"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   ></path>
                   <path
                     id="Path_434"
@@ -1033,7 +1033,7 @@ const Process = () => {
                     transform="translate(-255.111 -4475.344)"
                     fill="none"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   ></path>
                   <path
                     id="Path_435"
@@ -1042,7 +1042,7 @@ const Process = () => {
                     transform="translate(-252.564 -4483.627)"
                     fill="none"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   ></path>
                 </g>
                 <g
@@ -1057,7 +1057,7 @@ const Process = () => {
                     transform="translate(-241.472 -4469.208)"
                     fill="none"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   ></path>
                   <path
                     id="Path_434-2"
@@ -1066,7 +1066,7 @@ const Process = () => {
                     transform="translate(-257.595 -4476.461)"
                     fill="none"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   ></path>
                   <path
                     id="Path_435-2"
@@ -1075,7 +1075,7 @@ const Process = () => {
                     transform="translate(-254.584 -4486.252)"
                     fill="none"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   ></path>
                 </g>
               </g>
@@ -1096,11 +1096,11 @@ const Process = () => {
               transform="translate(-241.472 -4469.209)"
               fill="none"
               stroke="#000"
-              stroke-width="2"
+              strokeWidth="2"
             ></path>
             <p className="my-6 text-2xl font-Roboto font-semibold">
               <svg
-                class="max-h-full w-auto mx-auto"
+                className="max-h-full w-auto mx-auto"
                 xmlns="http://www.w3.org/2000/svg"
                 width="136.395"
                 height="68.182"
@@ -1118,7 +1118,7 @@ const Process = () => {
                     transform="translate(10.801 0.002)"
                     fill="none"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   ></path>
                   <path
                     id="Path_954"
@@ -1127,7 +1127,7 @@ const Process = () => {
                     transform="translate(10.068 20.063)"
                     fill="none"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   ></path>
                   <g
                     id="Ellipse_141"
@@ -1135,7 +1135,7 @@ const Process = () => {
                     transform="translate(-16549.818 -17265.783)"
                     fill="none"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   >
                     <circle cx="8.3" cy="8.3" r="8.3" stroke="none"></circle>
                     <circle cx="8.3" cy="8.3" r="7.3" fill="none"></circle>
@@ -1146,7 +1146,7 @@ const Process = () => {
                     transform="translate(-16477.385 -17265.783)"
                     fill="none"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   >
                     <circle cx="8.3" cy="8.3" r="8.3" stroke="none"></circle>
                     <circle cx="8.3" cy="8.3" r="7.3" fill="none"></circle>
@@ -1158,7 +1158,7 @@ const Process = () => {
                     transform="translate(37.167 9.114)"
                     fill="none"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   ></path>
                   <path
                     id="Path_956"
@@ -1167,7 +1167,7 @@ const Process = () => {
                     transform="translate(22.46 23.224)"
                     fill="none"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   ></path>
                   <path
                     id="Path_957"
@@ -1176,7 +1176,7 @@ const Process = () => {
                     transform="translate(10.059 23.397)"
                     fill="none"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   ></path>
                   <path
                     id="Path_958"
@@ -1185,7 +1185,7 @@ const Process = () => {
                     transform="translate(3.439 7.191)"
                     fill="none"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   ></path>
                   <path
                     id="Path_959"
@@ -1194,7 +1194,7 @@ const Process = () => {
                     transform="translate(0 11.699)"
                     fill="none"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   ></path>
                   <path
                     id="Path_960"
@@ -1203,7 +1203,7 @@ const Process = () => {
                     transform="translate(4.741 16.148)"
                     fill="none"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   ></path>
                   <path
                     id="Path_961"
@@ -1212,7 +1212,7 @@ const Process = () => {
                     transform="translate(42.313 14.904)"
                     fill="none"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   ></path>
                   <path
                     id="Path_962"
@@ -1221,7 +1221,7 @@ const Process = () => {
                     transform="translate(52.162 20.063)"
                     fill="none"
                     stroke="#000"
-                    stroke-width="2"
+                    strokeWidth="2"
                   ></path>
                   <g
                     id="Group_4244"
@@ -1235,7 +1235,7 @@ const Process = () => {
                       transform="translate(-241.472 -4469.209)"
                       fill="none"
                       stroke="#000"
-                      stroke-width="2"
+                      strokeWidth="2"
                     ></path>
                     <path
                       id="Path_434"
@@ -1244,7 +1244,7 @@ const Process = () => {
                       transform="translate(-258.254 -4476.758)"
                       fill="none"
                       stroke="#000"
-                      stroke-width="2"
+                      strokeWidth="2"
                     ></path>
                     <path
                       id="Path_435"
@@ -1253,7 +1253,7 @@ const Process = () => {
                       transform="translate(-255.121 -4486.951)"
                       fill="none"
                       stroke="#000"
-                      stroke-width="2"
+                      strokeWidth="2"
                     ></path>
                   </g>
                 </g>

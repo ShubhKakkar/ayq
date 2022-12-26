@@ -32,21 +32,21 @@ const reviews = [
 
 const Reviews = () => {
   return (
-    <section className="max-w-7xl mx-auto">
+    <section className="md:max-w-7xl mx-auto">
       <div className="container mx-auto">
-        <h2 className="uppercase text-7xl font-bold leading-snug">
+        <h2 className="uppercase text-4xl md:text-7xl font-bold leading-snug">
           Testimonials
         </h2>
-        <p className="text-lg font-Roboto font-medium leading-loose mt-4 pb-24">
+        <p className="text-lg font-Roboto font-medium leading-loose mt-4 pb-6 md:pb-24">
           Don't just take our word for it - check out what others have to say
           about our products. Our blog features reviews from athletes, coaches,
           and wellness enthusiasts who have tried our energy drinks and
           experienced their benefits firsthand.
         </p>
-        <div className="flex justify-between gap-12">
+        <div className="md:flex justify-between gap-12">
           {reviews.map((review, index) => {
             return (
-              <div key={index} className="lg:mb-0 mb-6 relative">
+              <div key={index} className="relative mt-12 md:mb-6">
                 <div className="h-full text-left">
                   <div className="flex items-center justify-between mb-8">
                     <img

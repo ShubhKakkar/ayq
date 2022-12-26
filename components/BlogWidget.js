@@ -43,12 +43,12 @@ const BlogWidget = () => {
     return "";
   }
   return (
-    <div className="max-w-7xl mx-auto">
-      <div className="my-8 flex items-center justify-between gap-16">
+    <div className="md:max-w-7xl md:mx-auto">
+      <div className="my-8 md:flex items-center justify-between gap-16">
         {BlogPosts.slice(0, 3).map((blog, index) => {
           return (
             <Link href={`blog/${blog.slug}`} key={index} className="basis-1/3">
-              <div className="h-72 bg-gray-100 relative cursor-pointer">
+              <div className="h-72 my-6 md:my-0 bg-gray-100 relative cursor-pointer">
                 <img
                   src={blog.banner}
                   alt={blog.slug}

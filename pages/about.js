@@ -51,6 +51,10 @@ const About = () => {
     url: url,
     text1: "Refreshingly",
     text2: "Relaxing",
+    text1Styles:
+      "text-6xl font-semibold text-white font-Roboto md:text-8xl md:uppercase md:font-extrabold md:text-white md:font-Roboto",
+    text2Styles:
+      "text-6xl font-semibold text-white mt-4 font-Roboto md:text-8xl md:uppercase md:font-extrabold md:text-white md:font-Roboto",
     shopNow: "true",
     shopUrl: "/",
   };
@@ -70,20 +74,20 @@ const About = () => {
           alt="apple-cherry-cinnamon-can"
           className="h-[42vh] mx-auto relative left-3 -top-48"
         />
-        <div className="relative -top-24">
+        <div className="relative -top-12 md:-top-24">
           <Services data={productHeroServiceData} />
         </div>
       </section>
-      <section className="p-4 md:p-0 py-6 md:py-0 md:max-w-7xl md:mx-auto">
+      <section className="p-4 md:p-0 py-12 md:py-0 md:max-w-7xl md:mx-auto">
         <Content data={ourStory} />
       </section>
-      <section className="p-4 md:p-0 mx-auto py-6 md:py-24">
+      <section className="p-4 md:p-0 mx-auto py-12 md:py-24">
         <Content data={ourImpact} />
       </section>
-      <section className="pb-24">
+      <section className="p-4 md:p-0 md:pb-24">
         <Reviews />
       </section>
-      <section className="pb-24">
+      <section className="md:pb-24 p-4 md:p-0">
         <BlogWidget />
       </section>
       <section className="mx-auto">

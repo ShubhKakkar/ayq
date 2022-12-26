@@ -64,7 +64,7 @@ const About = () => {
       <section className="h-screen">
         <VideoBox data={videoData} />
       </section>
-      <section className="max-w-7xl mx-auto">
+      <section className="p-4 md:p-0 md:max-w-7xl md:mx-auto">
         <img
           src="https://cdn.shopify.com/s/files/1/1628/8781/files/Bubbles_Cucumber_Hero_Centered_HiRes_800x.png?v=1670812072"
           alt="apple-cherry-cinnamon-can"
@@ -74,10 +74,10 @@ const About = () => {
           <Services data={productHeroServiceData} />
         </div>
       </section>
-      <section className="max-w-7xl mx-auto">
+      <section className="p-4 md:p-0 py-6 md:py-0 md:max-w-7xl md:mx-auto">
         <Content data={ourStory} />
       </section>
-      <section className="mx-auto py-24">
+      <section className="p-4 md:p-0 mx-auto py-6 md:py-24">
         <Content data={ourImpact} />
       </section>
       <section className="pb-24">

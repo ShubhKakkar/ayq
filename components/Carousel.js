@@ -25,9 +25,9 @@ const Carousel = () => {
   },8000)
 
   return (
-    <div className="h-full relative">
+    <div className="h-[50vh] md:h-full relative">
       <div
-        className="bg-dark hover:bg-orange-400 ease-in-out duration-300 absolute p-2 top-[50vh] cursor-pointer z-10 carousel__left"
+        className="bg-dark hover:bg-orange-400 ease-in-out duration-300 absolute p-2 top-[23.5vh] md:top-[50vh] cursor-pointer z-10 carousel__left"
         onClick={handlePointerLeft}
       >
         <BsArrowLeft className="text-6xl text-white font-light relative left-6 hover:left-3 hover:text-white ease-in-out duration-300" />
@@ -45,7 +45,7 @@ const Carousel = () => {
           );
         })}
       </div>
-      <div className="bg-dark hover:bg-orange-400 ease-in-out duration-300 absolute p-2 top-[50vh] right-0 cursor-pointer z-10">
+      <div className="bg-dark hover:bg-orange-400 ease-in-out duration-300 absolute p-2 top-[23.5vh] md:top-[50vh] right-0 cursor-pointer z-10">
         <BsArrowRight
           onClick={handlePointerRight}
           className="text-6xl text-white font-light relative right-6 hover:right-3 ease-in-out duration-300 carousel__right"

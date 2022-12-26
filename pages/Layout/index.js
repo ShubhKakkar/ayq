@@ -5,7 +5,7 @@ import ScrollToTop from '../../components/ScrollToTop';
 
 const Index = ({children}) => {
   return (
-    <div>
+    <div className='relative w-full'>
         <Header />
         {children}
         <ScrollToTop />

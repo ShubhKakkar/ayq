@@ -6,6 +6,8 @@ const VideoBox = ({ data }) => {
     url,
     text1,
     text2,
+    text1Styles,
+    text2Styles,
     shopNow,
     shopUrl,
     subText,
@@ -14,30 +16,42 @@ const VideoBox = ({ data }) => {
     subButtonText2,
     subButton1Url,
     subButton2Url,
-    overlay
+    overlay,
   } = data;
   return (
     <div className="h-screen w-full overflow-hidden relative">
-      {overlay?<div className="h-screen w-screen absolute top-0 left-0 bg-gradient-to-b from-transparent to-dark"></div>:""}
+      {overlay ? (
+        <div className="h-screen w-screen absolute top-0 left-0 bg-gradient-to-b from-transparent to-dark"></div>
+      ) : (
+        ""
+      )}
       <video
         autoPlay="autoplay"
         loop={true}
         muted={true}
         className="w-screen h-screen object-cover"
       >
-        <source src={url?url:""} type="video/mp4" />
+        <source src={url ? url : ""} type="video/mp4" />
       </video>
-      <div className="h-screen w-screen absolute top-0 left-0 grid place-items-center text-center">
+      <div className="h-screen w-screen absolute top-0 left-0 grid place-items-center text-center p-4 md:p-0">
         <div className="relative bottom-8">
-          <h1 className="text-8xl uppercase font-extrabold text-white font-Roboto">
+          <h1
+            className={`${
+              text1Styles ? text1Styles : "text-8xl font-extrabold uppercase text-white font-Roboto"
+            }`}
+          >
             {text1 ? text1 : ""}
           </h1>
-          <h2 className="text-8xl uppercase font-extrabold text-white font-Roboto">
+          <h2
+            className={`${
+              text2Styles ? text2Styles : "text-8xl uppercase font-extrabold text-white font-Roboto"
+            }`}
+          >
             {text2 ? text2 : ""}
           </h2>
           {shopNow === "true" ? (
-            <div className="mt-6">
-              <Link href={shopUrl?shopUrl:""}>
+            <div className="mt-8 md:mt-6">
+              <Link href={shopUrl ? shopUrl : ""}>
                 <span className="border border-white bg-transparent text-white text-md font-Roboto uppercse px-6 py-3 hover:bg-white hover:text-dark duration-300 ease-in-out uppercase font-bold">
                   Shop Now
                 </span>

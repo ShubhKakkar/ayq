@@ -1,5 +1,5 @@
 /* Fonts */
-@import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,700;0,900;1,700;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800&family=Lora:wght@400;500;600;700&family=Overpass:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -24,4 +24,8 @@ html {
 
 .product__scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+.mobileDark {
+  background: linear-gradient(0deg,#111,rgb(17, 17, 17) 13%,rgba(17, 17, 17, 0.954) 22%,rgb(17, 17, 17) 41%,rgba(0, 0, 0, 0.958))
 }

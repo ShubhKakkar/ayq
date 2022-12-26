@@ -8,7 +8,9 @@ module.exports = {
     extend: {
       fontFamily: {
         Roboto: ["Roboto", "sans-serif"],
-        PTSerif: ["PT Serif", "serif"],
+        LibreFranklin: ["Libre Franklin", "sans-serif"],
+        Lora: ["Lora", "serif"],
+        Overpass: ["Overpass", "sans-serif"]
       },
       colors: {
         dark: '#121212',

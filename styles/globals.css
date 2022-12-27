@@ -36,7 +36,7 @@ p {
 }
 
 .mobileDark {
-  background: linear-gradient(0deg,#111,rgb(17, 17, 17) 13%,rgba(17, 17, 17, 0.954) 22%,rgb(17, 17, 17) 41%,rgba(0, 0, 0, 0.958))
+  background: linear-gradient(0deg,#111,rgb(17, 17, 17,0.99) 13%,rgba(17, 17, 17, 1) 22%,rgb(17, 17, 17,0.99) 41%,rgba(0, 0, 0, 0.99))
 }
 
 .bigTitle {

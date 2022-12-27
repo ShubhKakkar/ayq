@@ -5,7 +5,7 @@ const Cart = () => {
     <body className="bg-gray-100 md:max-w-7xl md:mx-auto mt-12 md:mt-24">
       <div className="container mx-auto mt-10">
         <div className="md:flex my-10">
-          <div className="w-3/4 bg-white px-10 py-10">
+          <div className="md:w-3/4 bg-white px-10 py-10">
             <div className="flex justify-between border-b pb-8">
               <h1 className="uppercase text-4xl font-bold leading-snug o tracking-wider">Shopping Cart</h1>
               <h2 className="uppercase text-2xl font-bold leading-snug o tracking-wider">1 Item</h2>
@@ -34,11 +34,11 @@ const Cart = () => {
                   />
                 </div>
                 <div className="flex flex-col justify-between ml-4 flex-grow">
-                  <span className="text-lg o tracking-wider font-medium leading-loose mt-4 o tracking-wider">Iphone 6S</span>
+                  <span className="text-lg font-medium leading-loose mt-4 o tracking-wider">Iphone 6S</span>
                   <span className="text-orange-400 text-xs o tracking-wider">Apple</span>
                   <a
                     href="#"
-                    className="font-semibold hover:text-red-500 text-xs tracking-widest leading-loose o tracking-wider"
+                    className="font-semibold hover:text-red-500 text-xs leading-loose o tracking-wider"
                   >
                     Remove
                   </a>

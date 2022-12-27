@@ -42,13 +42,13 @@ const VideoBox = ({ data }) => {
           >
             {text1 ? text1 : ""}
           </h1>
-          <p
+          <h1
             className={`${
               text2Styles ? text2Styles : "bigTitleWhite"
             }`}
           >
             {text2 ? text2 : ""}
-          </p>
+          </h1>
           {shopNow === "true" ? (
             <div className="mt-8 md:mt-6">
               <Link href={shopUrl ? shopUrl : ""}>

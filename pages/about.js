@@ -72,7 +72,7 @@ const About = () => {
         <img
           src="https://cdn.shopify.com/s/files/1/1628/8781/files/Bubbles_Cucumber_Hero_Centered_HiRes_800x.png?v=1670812072"
           alt="apple-cherry-cinnamon-can"
-          className="h-[42vh] mx-auto -mt-56 md:-mt-0 relative z-50 md:left-3 md:-top-48"
+          className="h-[42vh] mx-auto -mt-56 md:-mt-0 relative z-10 md:left-3 md:-top-48"
         />
         <div className="relative md:-top-24">
           <Services data={productHeroServiceData} />

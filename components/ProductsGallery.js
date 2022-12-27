@@ -41,10 +41,10 @@ const Products = [
 
 const ProductsGallery = () => {
   return (
-    <div className="flex flex-wrap items-center justify-between gap-y-6">
+    <div className="md:flex flex-wrap items-center justify-between gap-y-6">
       {Products.map((product) => {
         return (
-          <div key={product._id} className="basis-1/3 p-4">
+          <div key={product._id} className="basis-1/3 md:p-4 mb-12 md:mb-0">
             <Link href={`products/${product.slug}`}>
               <div className="relative w-full bg-gray-100 h-96 grid place-items-center">
                 <img

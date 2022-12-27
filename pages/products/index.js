@@ -7,7 +7,7 @@ import ProductsGallery from "../../components/ProductsGallery";
 const index = () => {
   const productsInfo = {
     url: "https://cdn.shopify.com/s/files/1/0669/2936/1146/files/PRIME_MetaMoon_group_shot_700x.jpg?v=1665671636",
-    title: "PERFORMANCE ENERGY",
+    title: "PURE ENERGY",
     subTitle: "CLINICALLY PROVEN TO FUNCTION",
     description:
       "With 2,000 mg of L-citrulline and 300 mg of caffeine, this great-tasting performance energy drink is designed to optimize performance and give you a powerful energy boost that'll help you break through any challenge.",
@@ -30,21 +30,21 @@ const index = () => {
             className="h-full w-full object-cover"
           />
           <div className="absolute top-0 left-0 h-full w-full grid place-items-center bg-[rgba(12,12,12,0.20)]">
-            <h2 className="text-8xl uppercase font-extrabold text-white font-Roboto">
+            <h2 className="text-6xl max-w-sm md:max-w-none text-center md:text-8xl uppercase font-extrabold text-white font-Roboto">
               Drink Your AyQ
             </h2>
           </div>
         </div>
       </section>
-      <section className="min-h-screen max-w-7xl mx-auto text-center py-24">
-        <h2 className="uppercase text-6xl font-bold leading-snug">
+      <section className="min-h-screen md:max-w-7xl md:mx-auto text-center pt-12 md:py-24 px-4 md:px-0">
+        <h2 className="uppercase text-3xl md:text-6xl font-bold leading-snug">
           EXPLORE OUR DELICIOUS PRODUCT LINES
         </h2>
-        <div className="mt-12">
+        <div className="mt-6 md:mt-12">
           <ProductsGallery />
         </div>
       </section>
-      <section className="pb-24">
+      <section className="pb-12 md:pb-24 px-4 md:px-0">
         <Content data={productsInfo} />
       </section>
       <section>

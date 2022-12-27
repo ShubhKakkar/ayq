@@ -64,11 +64,11 @@ const VideoBox = ({ data }) => {
       </div>
       {subText ? (
         <div className="h-screen w-screen absolute left-0 top-0 grid place-items-center">
-          <div className="absolute bottom-20 left-8">
-            <h2 className="text-3xl uppercase font-bold text-white font-Roboto pb-4 max-w-[40vw] leading-tight">
+          <div className="absolute bottom-8 left-4 md:bottom-20 md:left-8">
+            <h2 className="text-3xl uppercase font-bold text-white font-Roboto pb-4 md:max-w-[40vw] leading-tight">
               {subText}
             </h2>
-            <p className="text-md font-medium text-white font-Roboto w-96">
+            <p className="text-md font-medium text-white font-Roboto w-72 md:w-96">
               {subDescription ? subDescription : ""}
             </p>
             <div className="mt-6 flex items-center gap-4">

@@ -2,9 +2,9 @@ import React from "react";
 
 const Cart = () => {
   return (
-    <body className="bg-gray-100 max-w-7xl mx-auto mt-24">
+    <body className="bg-gray-100 md:max-w-7xl md:mx-auto mt-12 md:mt-24">
       <div className="container mx-auto mt-10">
-        <div className="flex my-10">
+        <div className="md:flex my-10">
           <div className="w-3/4 bg-white px-10 py-10">
             <div className="flex justify-between border-b pb-8">
               <h1 className="uppercase text-4xl font-bold leading-snug o tracking-wider">Shopping Cart</h1>

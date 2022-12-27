@@ -59,7 +59,7 @@ const Blog = () => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content="AyQ Beverages-Blog" />
       </Head>
-      <div className="container max-w-7xl pt-32 mx-auto space-y-6 sm:space-y-12">
+      <div className="container md:max-w-7xl pt-32 mx-auto space-y-6 sm:space-y-12 px-4 md:px-0">
         <a
           rel="noopener noreferrer"
           href="#"
@@ -70,7 +70,7 @@ const Blog = () => {
             alt=""
             className="object-cover w-full h-64 sm:h-96 lg:col-span-7"
           />
-          <div className="py-8 pl-4 pr-8 space-y-4 lg:col-span-5">
+          <div className="py-8 pl-4 pr-4 md:pr-8 space-y-4 lg:col-span-5">
             <h3 className="uppercase text-3xl font-bold leading-snug">
               Noster tincidunt reprimique ad pro
             </h3>

@@ -66,16 +66,16 @@ const SingleProduct = (req) => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content="AyQ Beverages-All Products" />
       </Head>
-      <section className="min-h-screen max-w-7xl py-24 mx-auto">
-        <h2 className="text-9xl font-Roboto text-center tracking-widest my-12">
+      <section className="min-h-screen md:max-w-7xl md:py-24 mx-auto px-4 md:px-0">
+        <h2 className="text-3xl md:text-9xl font-Roboto text-center tracking-widest my-12">
           AyQ
         </h2>
-        <div className="flex items-start justify-between">
+        <div className="md:flex items-start justify-between">
           <div className="basis-1/3">
-            <h2 className="text-6xl font-Roboto font-semibold leading-tight tracking-wider">
+            <h2 className="text-5xl md:text-6xl font-Roboto font-semibold leading-tight tracking-wider">
               SPARKLING LEMON LIME
             </h2>
-            <p className="text-lg font-Roboto font-medium leading-loose mt-4 text-[#aeb0b3]">
+            <p className="text-md md:text-lg font-Roboto font-medium leading-loose mt-4 text-[#aeb0b3]">
               When life gives you lemons …add a little twist. Introducing our
               newest Sparkling flavor, Lemon Lime! This crisp and refreshing
               flavor combines the perfect balance of citrusy sweet lemons and
@@ -92,41 +92,41 @@ const SingleProduct = (req) => {
               </button>
             </div>
           </div>
-          <div className="h-[600px] basis-1/3 relative">
+          <div className="h-96 my-12 md:my-0 md:h-[600px] flex md:block basis-1/3 relative">
             <img
               src="https://www.celsius.com/wp-content/uploads/2022/12/Celsius_LemonLime_Front.png"
               alt={slug}
-              className="h-full w-full object-contain mx-auto -mt-20 transition duration-300 ease-in-out hover:opacity-0 relative z-40"
+              className="h-full w-full object-contain mx-auto md:-mt-20 transition duration-300 ease-in-out hover:opacity-0 relative z-10"
               ref={objectRef}
             />
             <img
               src="https://www.celsius.com/wp-content/uploads/2022/12/Celsius_LemonLime_Supplements.png"
               alt={slug}
-              className="h-full w-full object-contain absolute top-0 left-0 -mt-20"
+              className="h-full w-full object-contain md:absolute top-0 left-0 md:-mt-20"
             />
           </div>
           <div className="basis-1/3">
             <p className="font-bold text-md tracking-widest uppercase font-Roboto">
               Explore all 16 Flavours
             </p>
-            <div className="mt-6">
-              <p className="text-sm text-[#aeb0b3] tracking-widest uppercase font-Roboto leading-loose">
+            <div className="mt-6 mb-12 md:mb-0">
+              <p className="text-xs md:text-sm text-[#aeb0b3] tracking-widest uppercase font-Roboto leading-loose">
                 {details.details}
               </p>
             </div>
           </div>
         </div>
       </section>
-      <section className="min-h-screen max-w-7xl pb-24 mx-auto">
-        <h2 className="text-6xl font-Roboto font-semibold leading-tight tracking-wider uppercase">
+      <section className="min-h-screen max-w-7xl md:pb-24 mx-auto px-4 md:px-0">
+        <h2 className="text-3xl md:text-6xl font-Roboto font-semibold leading-tight tracking-wider uppercase">
           INGREDIENTS
         </h2>
-        <div className="flex items-center justify-between relative flex-wrap gap-4 mt-12">
+        <div className="md:flex items-center justify-between relative flex-wrap gap-4 mt-12">
           {
             ingredients.map((ingredient, index) => {
-              return <div className="w-1/3 flex items-center my-4" key={index}>
+              return <div className="md:w-1/3 md:flex items-center mb-12 md:mb-4 md:my-4" key={index}>
               <div>
-                <h2 className="font-Roboto font-semibold text-xl tracking-widest mb-2">
+                <h2 className="font-Roboto font-semibold text-md md:text-xl tracking-widest mb-2">
                   {ingredient.name}
                 </h2>
                 <p className="text-xs text-[#aeb0b3] tracking-widest uppercase font-Roboto leading-loose">
@@ -139,7 +139,7 @@ const SingleProduct = (req) => {
                 <img
                   src={ingredient.src}
                   alt="ingredient"
-                  className="w-[80%] object-contain ml-6"
+                  className="w-[30%] md:w-[80%] object-contain md:ml-6 mt-4 md:mt-0"
                 />
               </div>
               </div>

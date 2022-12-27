@@ -29,7 +29,7 @@ const Header = () => {
           />
         </Link>
       </div>
-      <div className="links flex-1 text-right space-x-8 font-Roboto uppercase hidden md:block">
+      <div className="links flex-1 text-right space-x-8 o uppercase hidden md:block">
         {headerList.map((target) => {
           return (
             <Link

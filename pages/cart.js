@@ -7,20 +7,20 @@ const Cart = () => {
         <div className="flex my-10">
           <div className="w-3/4 bg-white px-10 py-10">
             <div className="flex justify-between border-b pb-8">
-              <h1 className="uppercase text-4xl font-bold leading-snug font-Roboto tracking-wider">Shopping Cart</h1>
-              <h2 className="uppercase text-2xl font-bold leading-snug font-Roboto tracking-wider">1 Item</h2>
+              <h1 className="uppercase text-4xl font-bold leading-snug o tracking-wider">Shopping Cart</h1>
+              <h2 className="uppercase text-2xl font-bold leading-snug o tracking-wider">1 Item</h2>
             </div>
             <div className="flex mt-10 mb-5">
-              <h3 className="font-semibold text-dark text-sm uppercase w-2/5 font-Roboto tracking-wider">
+              <h3 className="font-semibold text-dark text-sm uppercase w-2/5 o tracking-wider">
                 Product Details
               </h3>
-              <h3 className="font-semibold text-center text-dark text-sm uppercase w-1/5 font-Roboto tracking-wider">
+              <h3 className="font-semibold text-center text-dark text-sm uppercase w-1/5 o tracking-wider">
                 Quantity
               </h3>
-              <h3 className="font-semibold text-center text-dark text-sm uppercase w-1/5 font-Roboto tracking-wider">
+              <h3 className="font-semibold text-center text-dark text-sm uppercase w-1/5 o tracking-wider">
                 Price
               </h3>
-              <h3 className="font-semibold text-center text-dark text-sm uppercase w-1/5 font-Roboto tracking-wider">
+              <h3 className="font-semibold text-center text-dark text-sm uppercase w-1/5 o tracking-wider">
                 Total
               </h3>
             </div>
@@ -34,11 +34,11 @@ const Cart = () => {
                   />
                 </div>
                 <div className="flex flex-col justify-between ml-4 flex-grow">
-                  <span className="text-lg font-Roboto tracking-wider font-medium leading-loose mt-4 font-Roboto tracking-wider">Iphone 6S</span>
-                  <span className="text-orange-400 text-xs font-Roboto tracking-wider">Apple</span>
+                  <span className="text-lg o tracking-wider font-medium leading-loose mt-4 o tracking-wider">Iphone 6S</span>
+                  <span className="text-orange-400 text-xs o tracking-wider">Apple</span>
                   <a
                     href="#"
-                    className="font-semibold hover:text-red-500 text-xs tracking-widest leading-loose font-Roboto tracking-wider"
+                    className="font-semibold hover:text-red-500 text-xs tracking-widest leading-loose o tracking-wider"
                   >
                     Remove
                   </a>
@@ -65,16 +65,16 @@ const Cart = () => {
                   <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
                 </svg>
               </div>
-              <span className="text-center w-1/5 text-md font-Roboto tracking-wider font-medium leading-loose mt-4 font-Roboto tracking-wider">
+              <span className="text-center w-1/5 text-md o tracking-wider font-medium leading-loose mt-4 o tracking-wider">
                 $400.00
               </span>
-              <span className="text-center w-1/5 text-md font-Roboto tracking-wider font-medium leading-loose mt-4 font-Roboto tracking-wider">
+              <span className="text-center w-1/5 text-md o tracking-wider font-medium leading-loose mt-4 o tracking-wider">
                 $400.00
               </span>
             </div>
             <a
               href="#"
-              className="flex font-semibold text-orange-400 text-sm mt-10 font-Roboto tracking-wider"
+              className="flex font-semibold text-orange-400 text-sm mt-10 o tracking-wider"
             >
               <svg
                 className="fill-current mr-2 text-orange-400 w-4"
@@ -85,28 +85,28 @@ const Cart = () => {
               Continue Shopping
             </a>
           </div>
-          <div id="summary" className="w-1/4 px-8 py-10 font-Roboto tracking-wider">
-            <h1 className="font-semibold text-2xl border-b pb-8 font-Roboto tracking-wider">
+          <div id="summary" className="w-1/4 px-8 py-10 o tracking-wider">
+            <h1 className="font-semibold text-2xl border-b pb-8 o tracking-wider">
               Order Summary
             </h1>
             <div className="flex justify-between mt-10 mb-5">
-              <span className="font-semibold text-sm uppercase font-Roboto tracking-wider">Items 1</span>
-              <span className="font-semibold text-sm font-Roboto tracking-wider">590$</span>
+              <span className="font-semibold text-sm uppercase o tracking-wider">Items 1</span>
+              <span className="font-semibold text-sm o tracking-wider">590$</span>
             </div>
             <div>
-              <label className="font-medium inline-block mb-3 text-sm uppercase font-Roboto tracking-wider">
+              <label className="font-medium inline-block mb-3 text-sm uppercase o tracking-wider">
                 Shipping
               </label>
-              <select className="block p-2 text-dark w-full text-sm font-Roboto tracking-wider">
+              <select className="block p-2 text-dark w-full text-sm o tracking-wider">
                 <option>Standard shipping - $10.00</option>
               </select>
             </div>
             <div className="border-t mt-8">
-              <div className="flex font-semibold justify-between py-6 text-sm uppercase font-Roboto tracking-wider">
+              <div className="flex font-semibold justify-between py-6 text-sm uppercase o tracking-wider">
                 <span>Total cost</span>
                 <span>$600</span>
               </div>
-              <button className="bg-orange-400 font-semibold hover:bg-orange-500 py-3 text-sm text-white uppercase w-full font-Roboto tracking-wider">
+              <button className="bg-orange-400 font-semibold hover:bg-orange-500 py-3 text-sm text-white uppercase w-full o tracking-wider">
                 Checkout
               </button>
             </div>

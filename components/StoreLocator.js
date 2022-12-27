@@ -12,7 +12,7 @@ function StoreLocator() {
           <input
             type="text"
             placeholder="Your Location, USA"
-            className="pl-4 md:px-6 py-2 w-56 md:w-72 outline-none border border-dark text-dark placeholder-dark font-Roboto placeholder:font-Roboto placeholder:text-[#b3b5b8] font-semibold placeholder:font-semibold text-sm placeholder:text-sm uppercase tracking-wider"
+            className="pl-4 md:px-6 py-2 w-56 md:w-72 outline-none border border-dark text-dark placeholder-dark o placeholder:o placeholder:text-[#b3b5b8] font-semibold placeholder:font-semibold text-sm placeholder:text-sm uppercase tracking-wider"
           />
           <button className="ml-1 px-3 py-2 bg-dark text-white uppercase tracking-wider hover:bg-orange-400 ease-in-out duration-300">
             Find

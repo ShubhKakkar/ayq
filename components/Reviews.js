@@ -34,10 +34,10 @@ const Reviews = () => {
   return (
     <section className="md:max-w-7xl mx-auto">
       <div className="container mx-auto">
-        <h2 className="uppercase text-4xl md:text-7xl font-bold leading-snug">
+        <h2 className="bigTitle">
           Testimonials
         </h2>
-        <p className="text-lg font-Roboto font-medium leading-loose mt-4 pb-6 md:pb-24">
+        <p className="text-lg o font-medium leading-loose mt-4 pb-6 md:pb-24">
           Don't just take our word for it - check out what others have to say
           about our products. Our blog features reviews from athletes, coaches,
           and wellness enthusiasts who have tried our energy drinks and
@@ -56,14 +56,14 @@ const Reviews = () => {
                     />
                     <ImQuotesRight className="text-7xl text-gray-100" />
                   </div>
-                  <p className="text-md font-Roboto font-medium leading-loose mt-4 bg-gray-100 p-4">
+                  <p className="text-md o font-medium leading-loose mt-4 bg-gray-100 p-4">
                     {review.description}
                   </p>
                   <span className="inline-block h-1 w-10 rounded bg-orange-400 mt-6 mb-4"></span>
-                  <h2 className="text-dark font-medium font-Roboto title-font tracking-wider text-sm">
+                  <h2 className="text-dark font-medium o title-font tracking-wider text-sm">
                     {review.name}
                   </h2>
-                  <p className="text-gray-500 font-Roboto">{review.work}</p>
+                  <p className="text-gray-500 o">{review.work}</p>
                 </div>
               </div>
             );

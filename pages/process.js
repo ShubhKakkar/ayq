@@ -16,8 +16,6 @@ const Process = () => {
   const videoData = {
     url: url,
     text1: "How it's made",
-    text1Styles:
-    "text-6xl font-semibold text-white font-Roboto md:text-8xl md:uppercase md:font-extrabold md:text-white md:font-Roboto",
     // text2: "it's made",
     // shopNow: "true",
     // shopUrl: "/",
@@ -44,21 +42,21 @@ const Process = () => {
         <VideoBox data={videoData} />
       </section>
       <section className="max-w-7xl mx-auto py-12 md:py-24">
-        <p className="px-4 md:px-0 text-lg md:text-xl font-Roboto font-medium leading-loose md:mt-4 md:max-w-5xl mx-auto text-center pb-12 md:pb-24">
+        <p className="px-4 md:px-0 text-lg md:text-xl o font-medium leading-loose md:mt-4 md:max-w-5xl mx-auto text-center pb-12 md:pb-24">
           We believe it's possible to drink the highest quality of coffee (that
           actually tastes good) while paying our farmers fairly, using
           sustainable farming methods and protecting our wildlife.
         </p>
         <div className="md:flex gap-16 px-4 md:px-0">
           <div className="flex-1 md:py-12">
-            <h2 className="uppercase text-3xl md:text-4xl font-bold leading-snug mb-4">
+            <h2 className="mediumTitle">
               The Healthiest, Tastiest Coffee Possible
             </h2>
-            <p className="text-md md:text-lg font-Roboto font-medium leading-loose mt-8">
+            <p className="text-md md:text-lg o font-medium leading-loose mt-8">
               Hi, I'm Dr. Charles Livingston, CEO and Co-founder of Lifeboost
               Coffee.
             </p>
-            <p className="text-md md:text-lg font-Roboto font-medium leading-loose mt-4">
+            <p className="text-md md:text-lg o font-medium leading-loose mt-4">
               As a Chiropractic Physician with thousands of hours in nutritional
               research, I would always tell my patients... "Garbage in equals
               garbage out" which is an easy way to say, that the nutritional
@@ -66,7 +64,7 @@ const Process = () => {
               assimilate into healthy cells. And lots of healthy cells become a
               healthier YOU.
             </p>
-            <p className="text-md md:text-lg font-Roboto font-medium leading-loose mt-4">
+            <p className="text-md md:text-lg o font-medium leading-loose mt-4">
               Coffee is no different. Since it is something that 50% of the U.S.
               puts in their body on a daily basis and it's the #1 source of
               antioxidants in the U.S., it's Lifeboost's belief that you should
@@ -75,26 +73,26 @@ const Process = () => {
               finding you the healthiest, tastiest, stomach-friendly beans on
               the planet!
             </p>
-            <p className="text-lg font-Roboto font-semibold leading-loose mt-4">
+            <p className="text-lg o font-semibold leading-loose mt-4">
               Lifeboost beans are:
             </p>
-            <div className="flex items-center my-4 font-Roboto">
+            <div className="flex items-center my-4 o">
               <BsFillCheckCircleFill className="text-orange-400 text-5xl basis-1/5 md:basis-1/12 relative top-1" />
-              <p className="text-lg font-Roboto font-md leading-loose mt-4 basis-4/5 md:basis-11/12 ml-2 md:ml-8">
+              <p className="text-lg o font-md leading-loose mt-4 basis-4/5 md:basis-11/12 ml-2 md:ml-8">
                 Single Origin to avoid cross contamination of molds, hand
                 selected, high elevation and shade grown.
               </p>
             </div>
-            <div className="flex items-center my-4 font-Roboto">
+            <div className="flex items-center my-4 o">
               <BsFillCheckCircleFill className="text-orange-400 text-5xl basis-1/5 md:basis-1/12 relative top-1" />
-              <p className="text-lg font-Roboto font-md leading-loose mt-4 basis-4/5 md:basis-11/12 ml-2 md:ml-8">
+              <p className="text-lg o font-md leading-loose mt-4 basis-4/5 md:basis-11/12 ml-2 md:ml-8">
                 Single Origin to avoid cross contamination of molds, hand
                 selected, high elevation and shade grown.
               </p>
             </div>
-            <div className="flex items-center my-4 font-Roboto">
+            <div className="flex items-center my-4 o">
               <BsFillCheckCircleFill className="text-orange-400 text-5xl basis-1/5 md:basis-1/12 relative top-1" />
-              <p className="text-lg font-Roboto font-md leading-loose mt-4 basis-4/5 md:basis-11/12 ml-2 md:ml-8">
+              <p className="text-lg o font-md leading-loose mt-4 basis-4/5 md:basis-11/12 ml-2 md:ml-8">
                 Single Origin to avoid cross contamination of molds, hand
                 selected, high elevation and shade grown.
               </p>
@@ -694,7 +692,7 @@ const Process = () => {
                 ></path>
               </g>
             </svg>
-            <p className="my-6 text-2xl font-Roboto font-semibold">
+            <p className="my-6 text-2xl o font-semibold">
               Step 1: Sourcing
             </p>
             <p className="my-6 w-56 md:mx-auto text-lg">
@@ -965,7 +963,7 @@ const Process = () => {
                 ></path>
               </g>
             </svg>
-            <p className="my-6 text-2xl font-Roboto font-semibold">
+            <p className="my-6 text-2xl o font-semibold">
               Step 2: Roasting
             </p>
             <p className="my-6 w-56 ml-auto md:mx-auto text-lg">
@@ -1082,7 +1080,7 @@ const Process = () => {
                 </g>
               </g>
             </svg>
-            <p className="my-6 text-2xl font-Roboto font-semibold">
+            <p className="my-6 text-2xl o font-semibold">
               Step 3: Testing
             </p>
             <p className="my-6 w-56 md:mx-auto text-lg">
@@ -1100,7 +1098,7 @@ const Process = () => {
               stroke="#000"
               strokeWidth="2"
             ></path>
-            <p className="my-6 text-2xl font-Roboto font-semibold">
+            <p className="my-6 text-2xl o font-semibold">
               <svg
                 className="max-h-full w-auto ml-auto md:mx-auto"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1270,7 +1268,7 @@ const Process = () => {
         </div>
       </section>
       <section className="max-w-7xl mx-auto pb-12 md:pb-24 px-4 md:px-0">
-        <p className="text-lg md:text-xl font-Roboto font-medium leading-loose mt-4 max-w-5xl mx-auto text-center pb-12 md:pb-24">
+        <p className="text-lg md:text-xl o font-medium leading-loose mt-4 max-w-5xl mx-auto text-center pb-12 md:pb-24">
           Your cup of Lifeboost Premium Coffee comes from coffee beans that have
           been individually hand selected as the premium bean(s) of a harvest.
           Your coffee beans are lovingly cultivated by local farmers, after
@@ -1288,23 +1286,23 @@ const Process = () => {
             <h2 className="uppercase text-3xl md:text-4xl font-bold leading-snug md:mb-4">
               What Makes Lifeboost Great
             </h2>
-            <p className="text-md md:text-lg font-Roboto font-medium leading-loose mt-6 md:mt-8">
+            <p className="text-md md:text-lg o font-medium leading-loose mt-6 md:mt-8">
               1. CLEAN - 80% of the time, put clean foods AND clean beverages in
               your body such as Lifeboost coffee. The other 20% of the time,
               enjoy life and treat yourself!
             </p>
-            <p className="text-md md:text-lg font-Roboto font-medium leading-loose mt-6 md:mt-8">
+            <p className="text-md md:text-lg o font-medium leading-loose mt-6 md:mt-8">
               2. CAUSE - Support something you believe in. We support the
               farmers, their families and communities. We also definitely
               support sustainable farming methods, wildlife protection, and our
               first responders.
             </p>
-            <p className="text-md md:text-lg font-Roboto font-medium leading-loose mt-6 md:mt-8">
+            <p className="text-md md:text-lg o font-medium leading-loose mt-6 md:mt-8">
               3. CONNECTION - Coffee connects us. Whether it's conversations
               with friends or family, business meetings or simply just spending
               time with yourself. Life is about connection.
             </p>
-            <p className="text-md md:text-lg font-Roboto font-medium leading-loose mt-6 md:mt-8">
+            <p className="text-md md:text-lg o font-medium leading-loose mt-6 md:mt-8">
               4. KINDNESS - We believe that in order to make the world a better
               place, it all comes down to treating people how you would like to
               be treated... with LOVE, HONOR, and RESPECT.

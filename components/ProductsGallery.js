@@ -55,12 +55,12 @@ const ProductsGallery = () => {
               </div>
             </Link>
             <div className="flex items-center justify-between p-2">
-              <h2 className="text-sm font-Roboto font-semibold leading-loose border border-dark px-3 py-1 uppercase">
+              <h2 className="text-sm o font-semibold leading-loose border border-dark px-3 py-1 uppercase">
                 {product.title}
               </h2>
-              <h2 className="text-sm font-Roboto leading-loose text-orange-400 font-bold">
+              <p className="text-sm o leading-loose text-orange-400 font-bold">
                 $ {product.price}
-              </h2>
+              </p>
             </div>
           </div>
         );

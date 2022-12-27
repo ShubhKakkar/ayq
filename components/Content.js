@@ -64,7 +64,7 @@ const Content = ({ data }) => {
           <p className="uppercase md:text-lg font-bold text-orange-400 mt-4 md:mt-12 tracking-widest leading-loose">
             {data.subTitle ? data.subTitle : ""}
           </p>
-          <div className="text-md md:text-lg font-Roboto font-medium leading-loose mt-4" dangerouslySetInnerHTML={{ __html: data.description ? data.description : "" }} />
+          <div className="text-md md:text-lg o font-medium leading-loose mt-4" dangerouslySetInnerHTML={{ __html: data.description ? data.description : "" }} />
           {data.buttonText ? (
             <button className="bg-orange-400 hover:bg-orange-500 ease-in-out duration-300 px-8 py-3 font-bold text-lg tracking-widest text-white uppercase my-4 md:mt-12">
               {data.buttonText}

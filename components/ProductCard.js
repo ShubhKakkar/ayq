@@ -11,7 +11,7 @@ const ProductCard = ({ data }) => {
         <img src={data.banner ? data.banner : ""} alt="" />
       </Link>
       <div className="pt-6 px-2">
-        <h5 className="text-dark font-Roboto text-xs font-semibold uppercase">
+        <h5 className="text-dark o text-xs font-semibold uppercase">
           {data.title ? data.title : ""}
         </h5>
         <span className="text-sm font-semibold text-gray-600 tracking-widest leading-loose">

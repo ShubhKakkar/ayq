@@ -51,10 +51,6 @@ const About = () => {
     url: url,
     text1: "Refreshingly",
     text2: "Relaxing",
-    text1Styles:
-      "text-6xl font-semibold text-white font-Roboto md:text-8xl md:uppercase md:font-extrabold md:text-white md:font-Roboto",
-    text2Styles:
-      "text-6xl font-semibold text-white mt-4 font-Roboto md:text-8xl md:uppercase md:font-extrabold md:text-white md:font-Roboto",
     shopNow: "true",
     shopUrl: "/",
   };

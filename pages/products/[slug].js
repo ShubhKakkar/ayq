@@ -67,15 +67,15 @@ const SingleProduct = (req) => {
         <meta name="description" content="AyQ Beverages-All Products" />
       </Head>
       <section className="min-h-screen md:max-w-7xl md:py-24 mx-auto px-4 md:px-0">
-        <h2 className="text-3xl md:text-9xl font-Roboto text-center tracking-widest my-12">
+        <h2 className="text-3xl md:text-9xl o text-center tracking-widest my-12">
           AyQ
         </h2>
         <div className="md:flex items-start justify-between">
           <div className="basis-1/3">
-            <h2 className="text-5xl md:text-6xl font-Roboto font-semibold leading-tight tracking-wider">
+            <h2 className="text-5xl md:text-6xl o font-semibold leading-tight tracking-wider">
               SPARKLING LEMON LIME
             </h2>
-            <p className="text-md md:text-lg font-Roboto font-medium leading-loose mt-4 text-[#aeb0b3]">
+            <p className="text-md md:text-lg o font-medium leading-loose mt-4 text-[#aeb0b3]">
               When life gives you lemons …add a little twist. Introducing our
               newest Sparkling flavor, Lemon Lime! This crisp and refreshing
               flavor combines the perfect balance of citrusy sweet lemons and
@@ -84,10 +84,10 @@ const SingleProduct = (req) => {
               your tastebuds.
             </p>
             <div className="flex gap-1">
-              <button className="bg-orange-400 hover:bg-orange-500 ease-in-out duration-300 px-8 py-3 font-bold text-lg tracking-widest text-white uppercase mt-12 font-Roboto">
+              <button className="bg-orange-400 hover:bg-orange-500 ease-in-out duration-300 px-8 py-3 font-bold text-lg tracking-widest text-white uppercase mt-12 o">
                 Buy Now
               </button>
-              <button className="bg-orange-400 hover:bg-orange-500 ease-in-out duration-300 px-6 py-3 font-bold text-lg tracking-widest text-white uppercase mt-12 font-Roboto">
+              <button className="bg-orange-400 hover:bg-orange-500 ease-in-out duration-300 px-6 py-3 font-bold text-lg tracking-widest text-white uppercase mt-12 o">
                 <AiOutlinePlus />
               </button>
             </div>
@@ -106,11 +106,11 @@ const SingleProduct = (req) => {
             />
           </div>
           <div className="basis-1/3">
-            <p className="font-bold text-md tracking-widest uppercase font-Roboto">
+            <p className="font-bold text-md tracking-widest uppercase o">
               Explore all 16 Flavours
             </p>
             <div className="mt-6 mb-12 md:mb-0">
-              <p className="text-xs md:text-sm text-[#aeb0b3] tracking-widest uppercase font-Roboto leading-loose">
+              <p className="text-xs md:text-sm text-[#aeb0b3] tracking-widest uppercase o leading-loose">
                 {details.details}
               </p>
             </div>
@@ -118,7 +118,7 @@ const SingleProduct = (req) => {
         </div>
       </section>
       <section className="min-h-screen max-w-7xl md:pb-24 mx-auto px-4 md:px-0">
-        <h2 className="text-3xl md:text-6xl font-Roboto font-semibold leading-tight tracking-wider uppercase">
+        <h2 className="text-3xl md:text-6xl o font-semibold leading-tight tracking-wider uppercase">
           INGREDIENTS
         </h2>
         <div className="md:flex items-center justify-between relative flex-wrap gap-4 mt-12">
@@ -126,10 +126,10 @@ const SingleProduct = (req) => {
             ingredients.map((ingredient, index) => {
               return <div className="md:w-1/3 md:flex items-center mb-12 md:mb-4 md:my-4" key={index}>
               <div>
-                <h2 className="font-Roboto font-semibold text-md md:text-xl tracking-widest mb-2">
+                <h2 className="o font-semibold text-md md:text-xl tracking-widest mb-2">
                   {ingredient.name}
                 </h2>
-                <p className="text-xs text-[#aeb0b3] tracking-widest uppercase font-Roboto leading-loose">
+                <p className="text-xs text-[#aeb0b3] tracking-widest uppercase o leading-loose">
                   {
                     ingredient.description
                   }

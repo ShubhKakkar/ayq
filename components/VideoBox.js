@@ -37,22 +37,22 @@ const VideoBox = ({ data }) => {
         <div className="relative bottom-8">
           <h1
             className={`${
-              text1Styles ? text1Styles : "text-8xl font-extrabold uppercase text-white font-Roboto"
+              text1Styles ? text1Styles : "bigTitleWhite"
             }`}
           >
             {text1 ? text1 : ""}
           </h1>
-          <h2
+          <p
             className={`${
-              text2Styles ? text2Styles : "text-8xl uppercase font-extrabold text-white font-Roboto"
+              text2Styles ? text2Styles : "bigTitleWhite"
             }`}
           >
             {text2 ? text2 : ""}
-          </h2>
+          </p>
           {shopNow === "true" ? (
             <div className="mt-8 md:mt-6">
               <Link href={shopUrl ? shopUrl : ""}>
-                <span className="border border-white bg-transparent text-white text-md font-Roboto uppercse px-6 py-3 hover:bg-white hover:text-dark duration-300 ease-in-out uppercase font-bold">
+                <span className="border border-white bg-transparent text-white text-md o uppercse px-6 py-3 hover:bg-white hover:text-dark duration-300 ease-in-out uppercase font-bold">
                   Shop Now
                 </span>
               </Link>
@@ -65,16 +65,16 @@ const VideoBox = ({ data }) => {
       {subText ? (
         <div className="h-screen w-screen absolute left-0 top-0 grid place-items-center">
           <div className="absolute bottom-8 left-4 md:bottom-20 md:left-8">
-            <h2 className="text-3xl uppercase font-bold text-white font-Roboto pb-4 md:max-w-[40vw] leading-tight">
+            <h2 className="text-3xl uppercase font-bold text-white o pb-4 md:max-w-[40vw] leading-tight">
               {subText}
             </h2>
-            <p className="text-md font-medium text-white font-Roboto w-72 md:w-96">
+            <p className="text-md font-medium text-white o w-72 md:w-96">
               {subDescription ? subDescription : ""}
             </p>
             <div className="mt-6 md:flex items-center gap-4">
               {subButtonText1 ? (
                 <Link href={subButton1Url ? subButton1Url : ""}>
-                  <span className="border border-white bg-transparent text-white text-md font-Roboto uppercse px-6 py-3 hover:bg-white hover:text-dark duration-300 ease-in-out uppercase font-bold">
+                  <span className="border border-white bg-transparent text-white text-md o uppercse px-6 py-3 hover:bg-white hover:text-dark duration-300 ease-in-out uppercase font-bold">
                     {subButtonText1}
                   </span>
                 </Link>
@@ -83,7 +83,7 @@ const VideoBox = ({ data }) => {
               )}
               {subButtonText2 ? (
                 <Link href={subButton2Url ? subButton2Url : ""}>
-                  <span className="border border-white bg-transparent text-white text-md font-Roboto uppercse px-6 py-3 hover:bg-white hover:text-dark duration-300 ease-in-out uppercase font-bold">
+                  <span className="border border-white bg-transparent text-white text-md o uppercse px-6 py-3 hover:bg-white hover:text-dark duration-300 ease-in-out uppercase font-bold">
                     {subButtonText2}
                   </span>
                 </Link>

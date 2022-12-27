@@ -28,10 +28,10 @@ const Profile = () => {
                 className="w-24"
               />
               <div>
-                <h1 className="text-xl font-Roboto font-semibold">
+                <h1 className="text-xl o font-semibold">
                   Your Orders
                 </h1>
-                <p className="text-xs font-Roboto font-medium leading-loose text-gray-500">
+                <p className="text-xs o font-medium leading-loose text-gray-500">
                   Track or return your orders
                 </p>
               </div>
@@ -45,10 +45,10 @@ const Profile = () => {
               className="w-24"
             />
             <div>
-              <h1 className="text-xl font-Roboto font-semibold">
+              <h1 className="text-xl o font-semibold">
                 Login & Security
               </h1>
-              <p className="text-xs font-Roboto font-medium leading-loose text-gray-500">
+              <p className="text-xs o font-medium leading-loose text-gray-500">
                 Edit login, name and mobile number
               </p>
             </div>
@@ -62,8 +62,8 @@ const Profile = () => {
               className="w-20"
             />
             <div>
-              <h1 className="text-xl font-Roboto font-semibold">Contact Us</h1>
-              <p className="text-xs font-Roboto font-medium leading-loose text-gray-500">
+              <h1 className="text-xl o font-semibold">Contact Us</h1>
+              <p className="text-xs o font-medium leading-loose text-gray-500">
                 Contact us regarding order issues, replacment or queries.
               </p>
             </div>

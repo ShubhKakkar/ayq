@@ -10,13 +10,13 @@ const Card = ({ data }) => {
           <img src={data.banner?data.banner:""} alt="" />
         </Link>
         <div className="p-6">
-          <h5 className="text-dark font-Roboto text-xl font-semibold mb-2 uppercase">
+          <h2 className="text-dark  text-xl font-semibold mb-2 uppercase">
             {data.title?data.title:""}
-          </h5>
+          </h2>
           <span className="uppercase text-xs font-semibold text-orange-400 mt-12 tracking-widest leading-loose">
             {data.subTitle?data.subTitle:""}
           </span>
-          <p className="text-dark text-base mb-4 text-md font-Roboto font-medium leading-relaxed mt-4">
+          <p className="text-dark text-base mb-4 text-md o font-medium leading-relaxed mt-4">
             {data.description?data.description:""}
           </p>
           <button

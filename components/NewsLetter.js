@@ -27,10 +27,10 @@ const NewsLetter = () => {
     <div className="bg-dark md:h-[calc(100vh-80px)]">
       <div className="p-4 pt-[60px] md:py-[120px] md:h-full md:max-w-7xl mx-auto">
         <div>
-          <p className="uppercase text-md text-orange-400 font-Roboto font-[600] text-left md:text-center tracking-widest">
+          <p className="uppercase text-md text-orange-400 o font-[600] text-left md:text-center tracking-widest">
             JOIN THE CELSIUS NEWS LETTER
           </p>
-          <p className="text-white text-2xl md:text-4xl md:px-24 font-Roboto font-bold my-4 text-left md:text-center mx-auto leading-snug md:leading-tight">
+          <p className="text-white text-2xl md:text-4xl md:px-24 o font-bold my-4 text-left md:text-center mx-auto leading-snug md:leading-tight">
             SIGN UP TO GET FIRST ACCESS AND UPDATES ABOUT PRODUCTS, EVENTS AND
             MORE.
           </p>
@@ -39,9 +39,9 @@ const NewsLetter = () => {
           <input
             type="text"
             placeholder="Enter Email"
-            className="bg-transparent border-white border-2 p-3 text-md tracking-widest uppercase pl-8 text-white w-3/4 md:w-[30vw] focus:outline-none placeholder:text-white font-Roboto"
+            className="bg-transparent border-white border-2 p-3 text-md tracking-widest uppercase pl-8 text-white w-3/4 md:w-[30vw] focus:outline-none placeholder:text-white o"
           />
-          <button className="bg-orange-400 ml-1 px-1 md:ml-2 py-4 md:py-3 md:p-2 md:px-6 text-white text-sm md:text-lg tracking-widest uppercase font-bold font-Roboto relative bottom-[0px] hover:bg-orange-500 ease-in-out duration-300 border-[1px] md:border-2 border-orange-400 hover:border-orange-500">
+          <button className="bg-orange-400 ml-1 px-1 md:ml-2 py-4 md:py-3 md:p-2 md:px-6 text-white text-sm md:text-lg tracking-widest uppercase font-bold o relative bottom-[0px] hover:bg-orange-500 ease-in-out duration-300 border-[1px] md:border-2 border-orange-400 hover:border-orange-500">
             Submit
           </button>
         </div>
@@ -59,7 +59,7 @@ const NewsLetter = () => {
                   <Link
                     key={index}
                     href={link.url}
-                    className="text-sm font-Roboto font-semibold tracking-widest text-white uppercase cursor-pointer hover:text-orange-400 ease-in-out duration-300"
+                    className="text-sm o font-semibold tracking-widest text-white uppercase cursor-pointer hover:text-orange-400 ease-in-out duration-300"
                   >
                     {link.title}
                   </Link>

@@ -63,7 +63,7 @@ const Blog = () => {
         <a
           rel="noopener noreferrer"
           href="#"
-          className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 bg-gray-100 font-Roboto text-dark"
+          className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 bg-gray-100 o text-dark"
         >
           <img
             src="https://source.unsplash.com/random/480x360"
@@ -71,13 +71,13 @@ const Blog = () => {
             className="object-cover w-full h-64 sm:h-96 lg:col-span-7"
           />
           <div className="py-8 pl-4 pr-4 md:pr-8 space-y-4 lg:col-span-5">
-            <h3 className="uppercase text-3xl font-bold leading-snug">
+            <h2 className="uppercase text-3xl font-bold leading-snug">
               Noster tincidunt reprimique ad pro
-            </h3>
+            </h2>
             <span className="uppercase text-xs font-semibold text-orange-400 mt-12 tracking-widest leading-loose">
               February 19, 2021
             </span>
-            <p className="text-md font-Roboto font-medium leading-snug mt-4">
+            <p className="text-md o font-medium leading-snug mt-4">
               Ei delenit sensibus liberavisse pri. Quod suscipit no nam. Est in
               graece fuisset, eos affert putent doctus id.
             </p>

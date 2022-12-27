@@ -13,7 +13,7 @@ const SingleBlog = (req) => {
         <meta name="description" content={`AyQ Beverages-Blog/${slug}`} />
       </Head>
       <article
-        className="px-4 pt-24 pb-4 md:py-24 mx-auto max-w-7xl font-Roboto"
+        className="px-4 pt-24 pb-4 md:py-24 mx-auto max-w-7xl o"
         itemid="#"
         itemscope
         itemtype="http://schema.org/BlogPosting"
@@ -71,7 +71,7 @@ const SingleBlog = (req) => {
           </a>
         </div>
 
-        <div className="w-full mx-auto text-md md:text-lg font-Roboto font-medium leading-loose md:w-3/4">
+        <div className="w-full mx-auto text-md md:text-lg o font-medium leading-loose md:w-3/4">
           <p>
             What if there is an easy way to achieve responsive UI without using
             any UI kit? Can we create new and fresh designs for every project

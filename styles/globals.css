@@ -7,6 +7,15 @@
 
 html {
   scroll-behavior: smooth;
+  font-family: Roboto;
+}
+
+h1,h2 {
+  font-family: Lora;
+}
+
+p {
+  font-family: Roboto;
 }
 
 .transparentText {
@@ -28,4 +37,20 @@ html {
 
 .mobileDark {
   background: linear-gradient(0deg,#111,rgb(17, 17, 17) 13%,rgba(17, 17, 17, 0.954) 22%,rgb(17, 17, 17) 41%,rgba(0, 0, 0, 0.958))
+}
+
+.bigTitle {
+  @apply uppercase text-4xl md:text-7xl font-bold leading-snug
+}
+
+.bigTitleWhite {
+  @apply text-6xl font-semibold text-white mt-4 md:text-8xl md:uppercase md:font-extrabold md:text-white
+}
+
+.mediumTitle {
+  @apply uppercase text-3xl md:text-4xl font-bold leading-snug mb-4
+}
+
+.box {
+  @apply min-h-screen md:max-w-7xl md:mx-auto text-center pt-12 md:py-24 px-4 md:px-0
 }

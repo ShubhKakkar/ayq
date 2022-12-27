@@ -30,14 +30,14 @@ const index = () => {
             className="h-full w-full object-cover"
           />
           <div className="absolute top-0 left-0 h-full w-full grid place-items-center bg-[rgba(12,12,12,0.20)]">
-            <h2 className="text-6xl max-w-sm md:max-w-none text-center md:text-8xl uppercase font-extrabold text-white font-Roboto">
+            <h2 className="bigTitleWhite text-center">
               Drink Your AyQ
             </h2>
           </div>
         </div>
       </section>
       <section className="min-h-screen md:max-w-7xl md:mx-auto text-center pt-12 md:py-24 px-4 md:px-0">
-        <h2 className="uppercase text-3xl md:text-6xl font-bold leading-snug">
+        <h2 className="bigTitle text-3xl md:text-6xl">
           EXPLORE OUR DELICIOUS PRODUCT LINES
         </h2>
         <div className="mt-6 md:mt-12">

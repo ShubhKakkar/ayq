@@ -4,14 +4,14 @@ const Accordian = ({ data }) => {
   return (
     <div className="mx-auto bg-white min-h-sceen">
       <div className="flex flex-col items-center">
-        <h2 className="font-bold font-Roboto text-5xl mt-5 tracking-tight">
+        <h2 className="font-bold o text-5xl mt-5 tracking-tight">
           {data.title?data.title:""}
         </h2>
         <p className="uppercase text-lg font-bold text-neutral-500 mt-8 tracking-widest leading-loose">
           {data.subTitle?data.subTitle:""}
         </p>
       </div>
-      <div className="grid divide-y divide-neutral-200 mx-auto mt-8 font-Roboto">
+      <div className="grid divide-y divide-neutral-200 mx-auto mt-8 o">
         {data.details
           ? data.details.map((block, index) => {
               return (

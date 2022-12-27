@@ -80,7 +80,7 @@
       : orders.filter(order => order.orderStatus === range);
   
     return (
-      <div className="container px-4 md:px-0 mt-24 md:max-w-7xl md:mx-auto font-Roboto">
+      <div className="container px-4 md:px-0 mt-24 md:max-w-7xl md:mx-auto o">
         <h1 className="text-3xl font-bold mb-4">Your Orders</h1>
         <div className="mb-4">
           <label htmlFor="range" className="text-sm font-semibold text-dark">

@@ -13,13 +13,13 @@ const Profile = () => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content="AyQ Beverages-Profile" />
       </Head>
-      <section className="pt-24">
-        <h1 className="uppercase text-4xl font-bold leading-snug">
+      <section className="pt-24 px-4 md:px-0">
+        <h1 className="uppercase text-3xl text-center md:text-4xl font-bold leading-snug">
           Hello Shubham Kakkar
         </h1>
       </section>
       <section>
-        <div className="flex justify-between items-top flex-wrap mt-12">
+        <div className="md:flex justify-between items-top flex-wrap mt-4 md:mt-12 px-4 md:px-0">
           <Link href="/user/orders" className="border border-gray-200 w-[400px]">
             <div className="h-48 p-4 flex items-center justify-center gap-4 max-w-[350px] mx-auto">
               <img
@@ -71,7 +71,7 @@ const Profile = () => {
           </Link>
         </div>
       </section>
-      <section className="mt-12">
+      <section className="px-4 md:px-0 mt-12">
         <h2 className="uppercase text-xl font-bold leading-snug mb-12">More Items to expolre</h2>
         <ProductCarousel />
       </section>

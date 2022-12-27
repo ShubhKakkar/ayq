@@ -72,16 +72,16 @@ const About = () => {
         <img
           src="https://cdn.shopify.com/s/files/1/1628/8781/files/Bubbles_Cucumber_Hero_Centered_HiRes_800x.png?v=1670812072"
           alt="apple-cherry-cinnamon-can"
-          className="h-[42vh] mx-auto relative left-3 -top-48"
+          className="h-[42vh] mx-auto -mt-56 md:-mt-0 relative z-50 md:left-3 md:-top-48"
         />
-        <div className="relative -top-12 md:-top-24">
+        <div className="relative md:-top-24">
           <Services data={productHeroServiceData} />
         </div>
       </section>
-      <section className="p-4 md:p-0 py-12 md:py-0 md:max-w-7xl md:mx-auto">
+      <section className="p-4 md:p-0 py-6 md:py-0 md:max-w-7xl md:mx-auto">
         <Content data={ourStory} />
       </section>
-      <section className="p-4 md:p-0 mx-auto py-12 md:py-24">
+      <section className="p-4 md:p-0 mx-auto py-6 md:py-24">
         <Content data={ourImpact} />
       </section>
       <section className="p-4 md:p-0 md:pb-24">

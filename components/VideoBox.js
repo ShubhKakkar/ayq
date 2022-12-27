@@ -71,7 +71,7 @@ const VideoBox = ({ data }) => {
             <p className="text-md font-medium text-white font-Roboto w-72 md:w-96">
               {subDescription ? subDescription : ""}
             </p>
-            <div className="mt-6 flex items-center gap-4">
+            <div className="mt-6 md:flex items-center gap-4">
               {subButtonText1 ? (
                 <Link href={subButton1Url ? subButton1Url : ""}>
                   <span className="border border-white bg-transparent text-white text-md font-Roboto uppercse px-6 py-3 hover:bg-white hover:text-dark duration-300 ease-in-out uppercase font-bold">

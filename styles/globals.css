@@ -7,15 +7,15 @@
 
 html {
   scroll-behavior: smooth;
-  font-family: Roboto;
+  font-family: Overpass;
 }
 
 h1,h2 {
-  font-family: Lora;
+  font-family: LibreFranklin;
 }
 
 p {
-  font-family: Roboto;
+  font-family: Overpass;
 }
 
 .transparentText {

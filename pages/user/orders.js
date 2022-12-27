@@ -80,8 +80,8 @@
       : orders.filter(order => order.orderStatus === range);
   
     return (
-      <div className="container mt-24 max-w-7xl mx-auto font-Roboto">
-        <h1 className="text-2xl font-bold mb-4">Your Orders</h1>
+      <div className="container px-4 md:px-0 mt-24 md:max-w-7xl md:mx-auto font-Roboto">
+        <h1 className="text-3xl font-bold mb-4">Your Orders</h1>
         <div className="mb-4">
           <label htmlFor="range" className="text-sm font-semibold text-dark">
             Show orders:
@@ -103,7 +103,7 @@
         {filteredOrders.length > 0 ? (
           <div className="flex flex-wrap justify-between items-center gap-y-4">
             {filteredOrders.map(order => (
-              <div key={order.id} className="bg-white p-4 shadow-lg w-[400px]">
+              <div key={order.id} className="bg-white p-4 shadow-lg md:w-[400px]">
                 <div className="mb-4">
                   <div className="text-sm font-semibold text-dark">
                     Order Number:{" "}

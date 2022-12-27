@@ -99,7 +99,7 @@ const Blog = () => {
           </button>
         </div>
       </div>
-      <section className="mx-auto pt-24">
+      <section className="mx-auto pt-12 md:pt-24">
         <NewsLetter />
       </section>
     </section>

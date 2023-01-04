@@ -1,157 +1,148 @@
 import Head from "next/head";
-import React, { useEffect, useRef } from "react";
-import { useRouter } from "next/router";
+import Link from "next/link";
+import React, { useContext } from "react";
+import { StoreContext } from "../../contexts/store";
 
-// React0-Icons
-import { AiOutlinePlus } from "react-icons/ai";
-
-// Components
-import NewsLetter from "../../components/NewsLetter";
-
-const SingleProduct = (req) => {
-  const router = useRouter();
-  const { slug } = router.query;
-  const details = {
-    calories: 60,
-    totalFat: 0,
-    cholestrol: 0,
-    protein: "12gm",
-    carbs: "25gm",
-    details:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quo placeat, qui nisi, dignissimos ad ipsum accusamus ratione sapiente libero blanditiis doloremque quidem recusandae, corporis ipsa suscipit in laudantium eos officiis quisquam? Odit et voluptas, similique at repellat non officia aperiam aliquid eum, quas tempora assumenda repellendus eos ullam recusandae?",
+export async function getServerSideProps(context) {
+  const { slug } = context.params;
+  let product;
+  try {
+    const res = await fetch(`${process.env.NEXT_AUTH_URL}/api/products/${slug}`);
+    product = (await res.json());
+  } catch (err) {
+    console.log(err);
+  }
+  return {
+    props: {
+      product,
+    },
   };
-  const ingredients = [
-    {
-      name: "GREEN TEA EXTRACT",
-      description:
-        "The extract used contains a specific ratio of EGCG (epigallocatechin gallate) —the compound that scientists have found boosts your metabolism and helps your body burn more calories.",
-      src: "https://www.celsius.com/wp-content/uploads/2020/04/celsius-ingredients-green-tea.svg",
-    },
-    {
-      name: "GUARANA SEED EXTRACT",
-      description:
-        "Unlike most guarana drinks, CELSIUS uses the seeds (instead of the roots), which contain over twice the amount of caffeine than the average coffee bean.",
-      src: "https://www.celsius.com/wp-content/uploads/2020/04/celsius-ingredients-guarana-seed-extract.svg",
-    },
-    {
-      name: "GINGER ROOT",
-      description:
-        "Ginger root has a wonderful spicy flavor, and it's known to help support the process of thermogenesis as well as create a positive effect on digestive systems.",
-      src: "https://www.celsius.com/wp-content/uploads/2020/04/celsius-ingredients-ginger.svg",
-    },
-    {
-      name: "VITAMIN B",
-      description:
-        "B-Vitamins are essential for energy production and they help regulate cell health as well as metabolism. They also help support your adrenal glands to help you recover from fatigue.",
-      src: "https://www.celsius.com/wp-content/uploads/2020/03/Avocado-Icon.svg",
-    },
-    {
-      name: "VITAMIN C",
-      description:
-        "Also known as an ascorbic acid, vitamin C is an essential nutrient that aids the immune system and helps with tissue repair and the enzymatic production of certain neurotransmitters.",
-      src: "https://www.celsius.com/wp-content/uploads/2020/03/Orange-Icon.svg",
-    },
-    {
-      name: "CHROMIUM",
-      description:
-        "Known to help control hunger, chromium is an essential trace mineral that normalizes blood sugar levels and helps enhance the metabolism of proteins, carbohydrates, and lipids.",
-      src: "https://www.celsius.com/wp-content/uploads/2020/03/Chromium-Icon.svg",
-    },
-  ];
-  const objectRef = useRef(null);
+}
+
+function SingleProduct({product}) {
+  const [cart, addToCart, removeFromCart, clearCart] = useContext(StoreContext);
+  const addCart = () => {
+    const existItem = cart.find((item) => {
+      return item.slug === product.slug;
+    });
+    if (existItem) {
+      if (product.quantity + 1 > product.countInStock) {
+        alert("Sorry. Product out of stock");
+        return;
+      }
+      let quan = existItem.quantity + 1;
+      product.quantity = quan;
+    } else {
+      product.quantity = 1;
+    }
+    addToCart({ ...product });
+  };
+  if (!product) {
+    return <div>Product not found!</div>;
+  }
   return (
-    <div>
+    <div className="px-4 md:px-0">
       <Head>
-        <title>AyQ-{slug}</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content="AyQ Beverages-All Products" />
+        <title>AyQ Beverages-{product.slug}</title>
+        <meta
+          name="description"
+          content={`AyQ Beverages website ${product.slug} page`}
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="min-h-screen md:max-w-7xl md:py-24 mx-auto px-4 md:px-0">
-        <h2 className="text-3xl md:text-9xl o text-center tracking-widest my-12">
-          AyQ
-        </h2>
-        <div className="md:flex items-start justify-between">
-          <div className="basis-1/3">
-            <h2 className="text-5xl md:text-6xl o font-semibold leading-tight tracking-wider">
-              SPARKLING LEMON LIME
-            </h2>
-            <p className="text-md md:text-lg o font-medium leading-loose mt-4 text-[#aeb0b3]">
-              When life gives you lemons …add a little twist. Introducing our
-              newest Sparkling flavor, Lemon Lime! This crisp and refreshing
-              flavor combines the perfect balance of citrusy sweet lemons and
-              juicy, zesty limes. With just the right blend of tart and sweet,
-              Lemon Lime has the perfect balance of flavor and energy to quench
-              your tastebuds.
-            </p>
-            <div className="flex gap-1">
-              <button className="bg-orange-400 hover:bg-orange-500 ease-in-out duration-300 px-8 py-3 font-bold text-lg tracking-widest text-white uppercase mt-12 o">
-                Buy Now
-              </button>
-              <button className="bg-orange-400 hover:bg-orange-500 ease-in-out duration-300 px-6 py-3 font-bold text-lg tracking-widest text-white uppercase mt-12 o">
-                <AiOutlinePlus />
-              </button>
-            </div>
-          </div>
-          <div className="h-96 my-12 md:my-0 md:h-[600px] flex md:block basis-1/3 relative">
+      <section className="text-gray-600 body-font overflow-hidden">
+        <div className="py-2">
+          <Link href="/products">back to products</Link>
+        </div>
+        <div className="container md:px-5 py-6 md:py-12 mx-auto">
+          <div className="lg:w-4/5 mx-auto flex flex-wrap">
             <img
-              src="https://www.celsius.com/wp-content/uploads/2022/12/Celsius_LemonLime_Front.png"
-              alt={slug}
-              className="h-full w-full object-contain mx-auto md:-mt-20 transition duration-300 ease-in-out hover:opacity-0 relative z-10"
-              ref={objectRef}
+              alt="ecommerce"
+              className="lg:w-1/2 w-full h-[75vh] object-cover object-center rounded"
+              src={product.images[0]}
             />
-            <img
-              src="https://www.celsius.com/wp-content/uploads/2022/12/Celsius_LemonLime_Supplements.png"
-              alt={slug}
-              className="h-full w-full object-contain md:absolute top-0 left-0 md:-mt-20"
-            />
-          </div>
-          <div className="basis-1/3">
-            <p className="font-bold text-md tracking-widest uppercase o">
-              Explore all 16 Flavours
-            </p>
-            <div className="mt-6 mb-12 md:mb-0">
-              <p className="text-xs md:text-sm text-[#aeb0b3] tracking-widest uppercase o leading-loose">
-                {details.details}
-              </p>
+            <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+              <h2 className="text-sm title-font text-gray-500 tracking-widest">
+                {product.brand}
+              </h2>
+              <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
+                {product.name}
+              </h1>
+              <h2 className="text-xs title-font text-gray-500 tracking-widest my-2">
+                Category: {product.category}
+              </h2>
+              <div className="flex mb-4">
+                <span className="flex items-center">
+                  {[...Array(parseInt(product.rating))].map((rating, index) => {
+                    return (
+                      <svg
+                        key={index}
+                        fill="currentColor"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        className="w-4 h-4 text-orange-400"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                      </svg>
+                    );
+                  })}
+                  {[...Array(5 - parseInt(product.rating))].map(
+                    (rating, index) => {
+                      return (
+                        <svg
+                          key={index}
+                          fill="none"
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          className="w-4 h-4 text-orange-500"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                        </svg>
+                      );
+                    }
+                  )}
+                  <span className="text-gray-600 ml-3">
+                    {product.numReviews} Reviews
+                  </span>
+                </span>
+              </div>
+              <p className="leading-relaxed">{product.description}</p>
+              <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5"></div>
+              <div className="flex">
+                <span className="title-font font-medium text-2xl text-gray-900">
+                  ${product.price}
+                </span>
+                {cart.find((item) => {
+                  return item.slug === product.slug;
+                }) ? (
+                  <button
+                    className="flex ml-auto text-white bg-orange-400 border-0 py-2 px-6 focus:outline-none hover:bg-orange-500 rounded pointer-events-none ease-in duration-300"
+                    onClick={addCart}
+                  >
+                    Addded to cart
+                  </button>
+                ) : (
+                  <button
+                    className="flex ml-auto text-white bg-orange-400 border-0 py-2 px-6 focus:outline-none hover:bg-orange-500 rounded ease-in duration-300"
+                    onClick={addCart}
+                  >
+                    Add to cart
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </section>
-      <section className="min-h-screen max-w-7xl md:pb-24 mx-auto px-4 md:px-0">
-        <h2 className="text-3xl md:text-6xl o font-semibold leading-tight tracking-wider uppercase">
-          INGREDIENTS
-        </h2>
-        <div className="md:flex items-center justify-between relative flex-wrap gap-4 mt-12">
-          {
-            ingredients.map((ingredient, index) => {
-              return <div className="md:w-1/3 md:flex items-center mb-12 md:mb-4 md:my-4" key={index}>
-              <div>
-                <h2 className="o font-semibold text-md md:text-xl tracking-widest mb-2">
-                  {ingredient.name}
-                </h2>
-                <p className="text-xs text-[#aeb0b3] tracking-widest uppercase o leading-loose">
-                  {
-                    ingredient.description
-                  }
-                </p>
-              </div>
-              <div className="h-full w-full">
-                <img
-                  src={ingredient.src}
-                  alt="ingredient"
-                  className="w-[30%] md:w-[80%] object-contain md:ml-6 mt-4 md:mt-0"
-                />
-              </div>
-              </div>
-            })
-          }
-        </div>
-      </section>
-      <section>
-        <NewsLetter />
       </section>
     </div>
   );
-};
+}
 
 export default SingleProduct;

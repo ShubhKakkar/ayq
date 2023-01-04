@@ -24,6 +24,11 @@ const MobileMenu = ({ setMobileMenu, headerList }) => {
             </Link>
           );
         })}
+        <Link href="/cart" className="text-3xl py-4 border-dark" onClick={() => {
+          setMobileMenu(false);
+        }}>
+          Cart
+        </Link>
         <Link href="/user/profile" className="text-3xl py-4 border-dark" onClick={() => {
           setMobileMenu(false);
         }}>

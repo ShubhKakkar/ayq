@@ -4,7 +4,22 @@ import Content from "../../components/Content";
 import NewsLetter from "../../components/NewsLetter";
 import ProductsGallery from "../../components/ProductsGallery";
 
-const index = () => {
+export async function getServerSideProps() {
+  let products;
+  try {
+    const res = await fetch(`${process.env.NEXT_AUTH_URL}/api/products`);
+    products = await res.json();
+  } catch (err) {
+    console.log(err);
+  }
+  return {
+    props: {
+      products,
+    },
+  };
+}
+
+const index = ({ products }) => {
   const productsInfo = {
     url: "https://cdn.shopify.com/s/files/1/0669/2936/1146/files/PRIME_MetaMoon_group_shot_700x.jpg?v=1665671636",
     title: "PURE ENERGY",
@@ -37,11 +52,11 @@ const index = () => {
         </div>
       </section>
       <section className="min-h-screen md:max-w-7xl md:mx-auto text-center pt-12 md:py-24 px-4 md:px-0">
-        <h2 className="bigTitle text-3xl md:text-6xl">
+        <h2 className="bigTitle mb-4">
           EXPLORE OUR DELICIOUS PRODUCT LINES
         </h2>
         <div className="mt-6 md:mt-12">
-          <ProductsGallery />
+          <ProductsGallery data={products} />
         </div>
       </section>
       <section className="pb-12 md:pb-24 px-4 md:px-0">

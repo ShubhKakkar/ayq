@@ -40,7 +40,7 @@ p {
 }
 
 .bigTitle {
-  @apply uppercase text-4xl md:text-7xl font-bold leading-snug
+  @apply uppercase text-3xl md:text-5xl font-bold leading-snug
 }
 
 .bigTitleWhite {
@@ -53,4 +53,34 @@ p {
 
 .box {
   @apply min-h-screen md:max-w-7xl md:mx-auto text-center pt-12 md:py-24 px-4 md:px-0
+}
+
+.card {
+  @apply mb-5 block rounded-lg border border-gray-200 shadow-md;
+}
+
+.primary-button {
+  @apply rounded bg-orange-400 py-2 px-4 shadow outline-none hover:bg-orange-500 active:bg-orange-500 ease-in duration-300 text-white;
+}
+
+.default-button {
+  @apply rounded bg-gray-100 py-2 px-4 text-black shadow outline-none hover:bg-gray-200 active:bg-gray-300;
+}
+
+input,
+select,
+textarea {
+  @apply rounded border p-2 outline-none ring-indigo-300 focus:ring;
+}
+
+.dropdownLink {
+  @apply flex p-2 bg-white hover:bg-gray-200;
+}
+
+/* a {
+  @apply text-blue-600 hover:text-blue-800;
+} */
+
+li {
+  list-style: none;
 }

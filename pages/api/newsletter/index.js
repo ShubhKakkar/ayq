@@ -1,20 +1,20 @@
-import order from "../../../models/Order";
 import connectToDatabase from "../../../utils/db";
 import { getSession } from "next-auth/react";
+import Newsletter from "../../../models/Newsletter";
 
 export default async function handler(req, res) {
-  if (req.method !== "GET") return;
   const session = await getSession({ req });
   if (!session) {
     return res.status(401).send({
-      message: "signin required"
+      message: "signin required",
     });
   }
+  if (req.method !== "POST") return;
+  connectToDatabase();
   try {
-    connectToDatabase();
-    const allOrders = await order.find({});
-
-    res.status(200).json(allOrders);
+    const newJoining = new Newsletter(req.body);
+    const joinedUser = await newJoining.save();
+    res.status(201).json(joinedUser);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

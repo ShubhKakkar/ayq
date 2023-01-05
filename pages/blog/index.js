@@ -51,6 +51,21 @@ const posts = [
   },
 ]
 
+export async function getServerSideProps() {
+  let products;
+  try {
+    const res = await fetch(`${process.env.NEXT_AUTH_URL}/api/blog`);
+    products = await res.json();
+  } catch (err) {
+    console.log(err);
+  }
+  return {
+    props: {
+      blog,
+    },
+  };
+}
+
 const Blog = () => {
   return (
     <section>

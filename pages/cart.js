@@ -1,26 +1,67 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { StoreContext } from "../contexts/store";
 import { useSession } from "next-auth/react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
+import Image from "next/image";
+import { loadStripe } from "@stripe/stripe-js";
+import { toast } from "react-toastify";
 
 const cart = () => {
   const { data: session } = useSession();
   const router = useRouter();
   const [cart, addToCart, updateQuantity, removeFromCart, clearCart] =
     useContext(StoreContext);
+  const [loading, setLoading] = useState(false);
+  const stripePromise = loadStripe(
+    process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_TEST_KEY
+  );
   let totalAmount = 0;
   for (let i = 0; i < cart.length; i++) {
     totalAmount += cart[i].price * cart[i].quantity;
   }
+  totalAmount = Math.round(totalAmount * 100 + Number.EPSILON) / 100;
   let totalQuantity = 0;
   for (let i = 0; i < cart.length; i++) {
     totalQuantity += cart[i].quantity;
   }
+  const taxPrice = 2;
+  const shippingPrice = 5;
+
+  // handleOrder
+  const handleOrder = async () => {
+    setLoading(true);
+    const stripe = await stripePromise;
+    const datas = {
+      user_id: session.user._id,
+      orderItems: cart,
+      itemsPrice: totalAmount,
+      shippingPrice,
+      taxPrice,
+      totalPrice: totalAmount + taxPrice + shippingPrice,
+    };
+    clearCart();
+    const checkOutSession = await fetch("/api/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(datas),
+    });
+    const response = await checkOutSession.json();
+    // Redirect user/customer to stripe checkout
+    const result = await stripe.redirectToCheckout({
+      sessionId: response.id,
+    });
+
+    if (result.error) {
+      toast.error(result.error.message);
+    }
+  };
   return (
-    <div className="py-24 md:py-28 md:max-w-7xl md:mx-auto px-4 md:px-0">
+    <div className="py-24 md:py-28 md:max-w-7xl md:mx-auto px-4 md:px-0 min-h-[calc(100vh-80px)]">
       <Head>
         <title>AyQ Beverages-Cart</title>
         <meta name="description" content={`AyQ Beverages website cart page`} />
@@ -167,15 +208,18 @@ const cart = () => {
           <button
             type="button"
             onClick={() => {
-              router.push(`${session ? "/shipping" : "/auth/login"}`);
+              session ? handleOrder() : router.push("/auth/signin");
             }}
             className={`px-6 py-2 border rounded-md dark:text-gray-9000 ${
               cart.length === 0
                 ? "disaled bg-gray-400 border-gray-400 pointer-events-none"
                 : "dark:bg-violet-400 dark:border-violet-40 text-white"
             } `}
+            role="link"
           >
-            <span className="sr-only sm:not-sr-only">Continue to </span>Checkout
+            <span className="sr-only sm:not-sr-only">
+              {loading ? "Loading" : "Place Order"}
+            </span>
           </button>
         </div>
       </div>

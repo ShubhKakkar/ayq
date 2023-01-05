@@ -7,92 +7,46 @@ const OrderSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-    orderItems: [
-      {
-        name: {
-          type: String,
-          required: true,
-        },
-        quantity: {
-          type: Number,
-          required: true,
-        },
-        images: [
-          {
-            type: String,
-            required: true,
-          }
-        ],
-        price: {
-          type: Number,
-          required: true,
-        },
-      },
-    ],
-    shippingAddress: {
-      name: {
-        type: String,
-        required: true,
-      },
-      address: {
-        type: String,
-        required: true,
-      },
-      city: {
-        type: String,
-        required: true,
-      },
-      phone: {
-        type: String,
-        required: true,
-      },
-      postalCode: {
-        type: String,
-        required: true,
-      },
-      country: {
-        type: String,
-        required: true,
-      },
-    },
-    paymentMethod: {
+    checkout_id: {
       type: String,
       required: true,
     },
-    itemsPrice: {
+    amount: {
       type: Number,
       required: true,
     },
-    shippingPrice: {
+    currency: {
+      type: String,
+      required: true,
+    },
+    customer_id: {
+      type: String,
+      required: true,
+    },
+    customer_address: {},
+    cutomer_email: {
+      type: String,
+      required: true,
+    },
+    customer_name: {
+      type: String,
+      required: true,
+    },
+    customer_phone: {
+      type: String,
+    },
+    paymentModes: [],
+    paymentStatus: {
+      type: String,
+      required: true,
+    },
+    shippingRate: {
       type: Number,
-      required: true,
     },
-    taxPrice: {
-      type: Number,
-      required: true,
-    },
-    totalPrice: {
-      type: Number,
-      required: true,
-    },
-    isPaid: {
-      type: Boolean,
-      required: true,
-      default: false,
-    },
-    isDelivered: {
-      type: Boolean,
-      required: true,
-      default: false,
-    },
-    paidAt: {
-      type: Date,
-    },
-    deliveredAt: {
-      type: Date,
-    },
+    images: [],
+    orders:[],
   },
-  { timestaps: true }
+  { timestamps: true }
 );
 
-export default mongoose.models.Orders || mongoose.model("Orders", OrderSchema);
+export default mongoose.models.order || mongoose.model("order", OrderSchema);

@@ -2,9 +2,8 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST_KEY);
 export default async (req, res) => {
   if (req.method !== "POST") return;
   const {
+    user_id,
     orderItems,
-    shippingAddress,
-    paymentMethod,
     itemsPrice,
     shippingPrice,
     taxPrice,
@@ -33,15 +32,11 @@ export default async (req, res) => {
     // ],
     line_items: transformedItems,
     mode: "payment",
-    success_url: `${process.env.NEXT_AUTH_URL}/success`,
+    success_url: `${process.env.NEXT_AUTH_URL}/orders/success`,
     cancel_url: `${process.env.NEXT_AUTH_URL}/placeholder`,
     metadata: {
-      name: shippingAddress.name,
-      adress: shippingAddress.address,
-      phone: shippingAddress.phone,
-      city: shippingAddress.city,
-      postalCode: shippingAddress.postalCode,
-      country: shippingAddress.country,
+      user_id: user_id,
+      images: JSON.stringify(orderItems.map(item => item.images)),
     },
   });
   res.status(201).json({

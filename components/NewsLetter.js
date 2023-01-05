@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useRef } from "react";
 import Link from "next/link";
 
 // Social Icons
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 
 const NewsLetter = () => {
+  const { data: session } = useSession();
+  const router = useRouter();
+  const emailRef = useRef();
   const links = [
     {
       title: "Ambassadors",
@@ -23,6 +29,29 @@ const NewsLetter = () => {
       url: "/",
     },
   ];
+  const handleNewsLetter = async () => {
+    const data = {
+      shared_email: emailRef.current.value,
+      name: session?.user?.name,
+      email: session?.user?.email,
+      user: session?.user?._id
+    }
+    const joinNewsLetter = await fetch(`/api/newsletter`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data)
+    });
+    const res = await joinNewsLetter.json(); 
+    if(!res.error) {
+      emailRef.current.value = "";
+      toast.success('Successfully joined the newsletter');
+    }
+    else{
+      toast.error(res.error);
+    }
+  };
   return (
     <div className="bg-dark md:h-[calc(100vh-80px)]">
       <div className="p-4 pt-[60px] md:py-[120px] md:h-full md:max-w-7xl mx-auto">
@@ -39,9 +68,19 @@ const NewsLetter = () => {
           <input
             type="text"
             placeholder="Enter Email"
-            className="bg-transparent border-white border-2 p-3 text-md tracking-widest uppercase pl-8 text-white w-3/4 md:w-[30vw] focus:outline-none placeholder:text-white o"
+            className="bg-transparent border-white border-2 p-3 text-md tracking-widest placeholder:uppercase pl-8 text-white w-3/4 md:w-[30vw] focus:outline-none placeholder:text-white lowercase" defaultValue={session?.user?.email} ref={emailRef}
           />
-          <button className="bg-orange-400 ml-1 px-1 md:ml-2 py-4 md:py-3 md:p-2 md:px-6 text-white text-sm md:text-lg tracking-widest uppercase font-bold o relative bottom-[0px] hover:bg-orange-500 ease-in-out duration-300 border-[1px] md:border-2 border-orange-400 hover:border-orange-500">
+          <button
+            className="bg-orange-400 ml-1 px-1 md:ml-2 py-4 md:py-3 md:p-2 md:px-6 text-white text-sm md:text-lg tracking-widest uppercase font-bold o relative bottom-[0px] hover:bg-orange-500 ease-in-out duration-300 border-[1px] md:border-2 border-orange-400 hover:border-orange-500"
+            onClick={() => {
+              if(session){
+                handleNewsLetter();
+              }
+              else{
+                router.push('/auth/signin');
+              }
+            }}
+          >
             Submit
           </button>
         </div>

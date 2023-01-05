@@ -44,7 +44,7 @@ const ProductSchema = new mongoose.Schema(
       required: [true, "Product description cannot be null"],
     },
   },
-  { timestaps: true }
+  { timestamps: true }
 );
 
 export default mongoose.models.Product ||

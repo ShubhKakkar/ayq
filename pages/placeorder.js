@@ -4,9 +4,15 @@ import { useRouter } from "next/router";
 import React, { useContext, useEffect, useState } from "react";
 import CheckoutWizard from "../components/CheckoutWizard";
 import { StoreContext } from "../contexts/store";
+import { loadStripe } from "@stripe/stripe-js";
+import { toast } from "react-toastify";
 
 const PlaceOrder = () => {
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const stripePromise = loadStripe(
+    process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_TEST_KEY
+  );
   const [
     cart,
     addToCart,
@@ -41,11 +47,11 @@ const PlaceOrder = () => {
     setPaymentMethod(localStorage.getItem("paymentMethod"));
   });
 
-  const [loading, setLoading] = useState(false);
-
   // handleOrder
   const handleOrder = async () => {
-    const datas = {
+    setLoading(true);
+    const stripe = await stripePromise;
+    const data = {
       orderItems: cart,
       shippingAddress,
       paymentMethod,
@@ -54,14 +60,30 @@ const PlaceOrder = () => {
       taxPrice,
       totalPrice: totalPrice + taxPrice + shippingPrice,
     };
+    const checkOutSession = await fetch("/api/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const response = await checkOutSession.json();
+    // Redirect user/customer to stripe checkout
+    const result = await stripe.redirectToCheckout({
+      sessionId: response.id,
+    });
+
+    if (result.error) {
+      toast.error(result.error.message);
+    }
+
     try {
-      setLoading(true);
       const response = await fetch("/api/orders/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(datas),
+        body: JSON.stringify(data),
       });
       const data = await response.json();
       setLoading(false);
@@ -101,9 +123,13 @@ const PlaceOrder = () => {
               <thead className="border-b">
                 <tr>
                   <th className="text-left text-sm md:text-base p-2">Item</th>
-                  <th className="text-left text-sm md:text-base p-2">Quantity</th>
+                  <th className="text-left text-sm md:text-base p-2">
+                    Quantity
+                  </th>
                   <th className="text-left text-sm md:text-base p-2">Price</th>
-                  <th className="text-left text-sm md:text-base p-2">Subtotal</th>
+                  <th className="text-left text-sm md:text-base p-2">
+                    Subtotal
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -124,8 +150,12 @@ const PlaceOrder = () => {
                           </span>
                         </Link>
                       </td>
-                      <td className="md:p-5 md:text-left text-xs md:text-base text-center py-2">{item.quantity}</td>
-                      <td className="md:p-5 md:text-left text-xs md:text-base text-center py-2">${item.price}</td>
+                      <td className="md:p-5 md:text-left text-xs md:text-base text-center py-2">
+                        {item.quantity}
+                      </td>
+                      <td className="md:p-5 md:text-left text-xs md:text-base text-center py-2">
+                        ${item.price}
+                      </td>
                       <td className="md:p-5 md:text-left text-xs md:text-base text-center py-2">
                         ${item.quantity * item.price}
                       </td>
@@ -165,8 +195,12 @@ const PlaceOrder = () => {
               </div>
             </li>
             <li>
-              <button className="primary-button w-full" onClick={handleOrder}>
-                {loading ? "...Loading" : "Place Order"}
+              <button
+                className="primary-button w-full"
+                role="link"
+                onClick={handleOrder}
+              >
+                {loading ? "Loading" : "Place Order"}
               </button>
             </li>
           </div>

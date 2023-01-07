@@ -84,3 +84,7 @@ textarea {
 li {
   list-style: none;
 }
+
+.hide-overflow::-webkit-scrollbar{
+  display: none;
+}

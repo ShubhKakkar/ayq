@@ -1,61 +1,17 @@
+import draftToHtml from "draftjs-to-html";
 import Head from "next/head";
 import React from "react";
 import Card from "../../components/Card";
 import NewsLetter from "../../components/NewsLetter";
-
-const posts = [
-  {
-    _id: 1,
-    slug:"slug1",
-    banner: "https://source.unsplash.com/random/480x360?1",
-    title: "In usu laoreet repudiare legendos",
-    subTitle: "January 21, 2021",
-    description: "Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.",
-    buttonText: "Read More",
-  },
-  {
-    _id: 2,
-    slug:"slug2",
-    banner: "https://source.unsplash.com/random/480x360?1",
-    title: "In usu laoreet repudiare legendos",
-    subTitle: "January 21, 2021",
-    description: "Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.",
-    buttonText: "Read More"
-  },
-  {
-    _id: 3,
-    slug:"slug3",
-    banner: "https://source.unsplash.com/random/480x360?1",
-    title: "In usu laoreet repudiare legendos",
-    subTitle: "January 21, 2021",
-    description: "Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.",
-    buttonText: "Read More"
-  },
-  {
-    _id: 4,
-    slug:"slug4",
-    banner: "https://source.unsplash.com/random/480x360?1",
-    title: "In usu laoreet repudiare legendos",
-    subTitle: "January 21, 2021",
-    description: "Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.",
-    buttonText: "Read More"
-  },
-  {
-    _id: 5,
-    slug:"slug5",
-    banner: "https://source.unsplash.com/random/480x360?1",
-    title: "In usu laoreet repudiare legendos",
-    subTitle: "January 21, 2021",
-    description: "Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.",
-    buttonText: "Read More"
-  },
-]
+import parse from "html-react-parser";
+import moment from "moment";
+import Link from "next/link";
 
 export async function getServerSideProps() {
-  let products;
+  let blog;
   try {
     const res = await fetch(`${process.env.NEXT_AUTH_URL}/api/blog`);
-    products = await res.json();
+    blog = await res.json();
   } catch (err) {
     console.log(err);
   }
@@ -66,7 +22,7 @@ export async function getServerSideProps() {
   };
 }
 
-const Blog = () => {
+const Blog = ({ blog }) => {
   return (
     <section>
       <Head>
@@ -75,36 +31,47 @@ const Blog = () => {
         <meta name="description" content="AyQ Beverages-Blog" />
       </Head>
       <div className="container md:max-w-7xl pt-32 mx-auto space-y-6 sm:space-y-12 px-4 md:px-0">
-        <a
+        <Link
           rel="noopener noreferrer"
-          href="#"
-          className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 bg-gray-100 o text-dark"
+          href={`/blog/${blog[0].slug}`}
+          className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 bg-gray-100 text-dark"
         >
           <img
-            src="https://source.unsplash.com/random/480x360"
+            src={blog[0].thumbnail}
             alt=""
             className="object-cover w-full h-64 sm:h-96 lg:col-span-7"
           />
           <div className="py-8 pl-4 pr-4 md:pr-8 space-y-4 lg:col-span-5">
-            <h2 className="uppercase text-3xl font-bold leading-snug">
-              Noster tincidunt reprimique ad pro
+            <h2 className="uppercase text-lg md:text-3xl font-bold leading-snug">
+              {blog[0].title}
             </h2>
-            <span className="uppercase text-xs font-semibold text-orange-400 mt-12 tracking-widest leading-loose">
-              February 19, 2021
-            </span>
-            <p className="text-md o font-medium leading-snug mt-4">
-              Ei delenit sensibus liberavisse pri. Quod suscipit no nam. Est in
-              graece fuisset, eos affert putent doctus id.
-            </p>
+            <div className="flex-[1] mt-2">
+                  <p className="text-sm font-semibold text-gray-800">
+                    {blog[0]?.author}
+                  </p>
+                  <p className="text-xs text-orange-400 font-semibold">
+                    {moment.utc(blog[0]?.createdAt).format("DD-MM-YY")}
+                  </p>
+                </div>
+            <div className="text-md h-[150px] font-medium leading-snug mt-4 text-ellipsis overflow-hidden">
+              {parse(draftToHtml(blog[0].description))}
+            </div>
+            <Link
+            href={`/blog/${blog[0]?.slug}`}
+            type="button"
+            className="md:hidden inline-block max-w-fit px-6 py-3 bg-orange-400 text-white font-medium text-xs leading-tight uppercase hover:bg-orange-500 hover:shadow-lg focus:bg-orange-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-500 active:shadow-lg transition duration-150 ease-in-out mt-2"
+          >
+            Read More
+          </Link>
           </div>
-        </a>
-        <div className="flex justify-between items-center flex-wrap gap-8">
-          {
-            posts.map((post) => {
-              return <Card key={post._id} data={post} />
-            })
-          }
-        </div>
+        </Link>
+        {blog.length > 1 && (
+          <div className="flex justify-between items-start flex-wrap gap-8">
+            {blog.slice(1).map((post) => {
+              return <Card key={post._id} data={post} />;
+            })}
+          </div>
+        )}
         <div className="flex justify-center">
           <button
             type="button"

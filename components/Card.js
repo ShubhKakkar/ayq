@@ -1,5 +1,8 @@
+import draftToHtml from "draftjs-to-html";
 import Link from "next/link";
 import React from "react";
+import parse from "html-react-parser";
+import moment from "moment";
 
 const Card = ({ data }) => {
   if(!data) {return}
@@ -7,24 +10,30 @@ const Card = ({ data }) => {
     <div className="flex justify-center">
       <div className="bg-gray-100 max-w-sm">
         <Link href={`/blog/${data.slug?data.slug:"/"}`}>
-          <img src={data.banner?data.banner:""} alt="" />
+          <img src={data.thumbnail?data.thumbnail:""} alt="" className="h-48 w-full object-cover" />
         </Link>
-        <div className="p-6">
-          <h2 className="text-dark  text-xl font-semibold mb-2 uppercase">
+        <div className="p-4 md:p-6 flex flex-col md:h-[500px]">
+          <h2 className="text-dark flex-[1]  text-xl md:text-lg font-semibold mb-2 uppercase">
             {data.title?data.title:""}
           </h2>
-          <span className="uppercase text-xs font-semibold text-orange-400 mt-12 tracking-widest leading-loose">
-            {data.subTitle?data.subTitle:""}
-          </span>
-          <p className="text-dark text-base mb-4 text-md o font-medium leading-relaxed mt-4">
-            {data.description?data.description:""}
-          </p>
-          <button
+          <div className="flex-[1] mt-2">
+                  <p className="text-sm font-semibold text-gray-800">
+                    {data?.author}
+                  </p>
+                  <p className="text-xs text-orange-400 font-semibold">
+                    {moment.utc(data?.createdAt).format("DD-MM-YY")}
+                  </p>
+                </div>
+          <div className="text-dark text-base mb-4 text-md h-[250px] mt-4 md:mt-0 md:flex-[6] font-medium leading-relaxed text-ellipsis overflow-hidden">
+            {parse(draftToHtml(data?.description))}
+          </div>
+          <Link
+            href={`/blog/${data?.slug}`}
             type="button"
-            className="inline-block px-6 py-2.5 bg-orange-400 text-white font-medium text-xs leading-tight uppercase hover:bg-orange-500 hover:shadow-lg focus:bg-orange-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-500 active:shadow-lg transition duration-150 ease-in-out"
+            className="inline-block max-w-fit px-6 py-3 bg-orange-400 text-white font-medium text-xs leading-tight uppercase hover:bg-orange-500 hover:shadow-lg focus:bg-orange-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-500 active:shadow-lg transition duration-150 ease-in-out mt-2"
           >
-            {data.buttonText?data.buttonText:""}
-          </button>
+            Read More
+          </Link>
         </div>
       </div>
     </div>

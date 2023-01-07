@@ -1,16 +1,55 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import { toast } from "react-toastify";
+import moment from "moment";
+import parse from "html-react-parser";
+import draftToHtml from "draftjs-to-html";
+import { getSession } from "next-auth/react";
 
-const SingleBlog = (req) => {
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/auth/signin",
+        permanent: false,
+      },
+    };
+  }
+  const { slug } = context.params;
+  let post;
+  try {
+    const res = await fetch(`${process.env.NEXT_AUTH_URL}/api/blog/${slug}`);
+    post = await res.json();
+  } catch (err) {
+    toast.error(err);
+  }
+  if (!post) {
+    return {
+      redirect: {
+        destination: "/blog",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      post,
+    },
+  };
+}
+
+const SingleBlog = ({ post }) => {
   const router = useRouter();
-  const { slug } = router.query;
+  console.log(post);
   return (
     <>
       <Head>
-        <title>AyQ-Blog/{slug}</title>
+        <title>AyQ-Blog/{post?.slug}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content={`AyQ Beverages-Blog/${slug}`} />
+        <meta name="description" content={`AyQ Beverages-Blog/${post?.slug}`} />
       </Head>
       <article
         className="px-4 pt-24 pb-4 md:py-24 mx-auto max-w-7xl o"
@@ -18,77 +57,44 @@ const SingleBlog = (req) => {
         itemscope
         itemtype="http://schema.org/BlogPosting"
       >
-        <div className="w-full mx-auto mb-12 text-left md:w-3/4">
-          <img
-            src="https://images.unsplash.com/photo-1593023669551-3c9cb301ce81?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-            className="object-cover w-full h-64 bg-center"
-            alt="Kutty"
-          />
+        <div className="w-full mx-auto mb-6 text-left md:w-3/4">
+          <img src={post?.thumbnail} alt={post?.slug} className="h-48 w-full object-cover" />
           <p className="mt-6 mb-2 text-xs font-semibold tracking-wider uppercase text-primary">
-            Development
+            {post?.slug}
           </p>
           <h1
-            className="mb-3 uppercase text-3xl font-bold tracking-wide text-dark md:text-4xl"
+            className="mb-3 uppercase text-3xl font-bold tracking-wide text-dark"
             itemprop="headline"
             title="Rise of Tailwind - A Utility First CSS Framework"
           >
-            Rise of Tailwind - A Utility First CSS Framework
+            {post?.title}
           </h1>
-          <div className="flex mb-6 space-x-2">
-            <a
-              className="t-dark bg-white badge hover:bg-gray-100 ease-in-out duration-300"
-              href="#"
-            >
-              CSS
-            </a>
-            <a
-              className="t-dark bg-white badge hover:bg-gray-100 ease-in-out duration-300"
-              href="#"
-            >
-              Tailwind
-            </a>
-            <a
-              className="text-dark bg-white badge hover:bg-gray-100 ease-in-out duration-300"
-              href="#"
-            >
-              AlpineJS
-            </a>
+          <div className="flex space-x-2 mb-4">
+            {post?.category?.map((e, index) => {
+              return (
+                <a
+                  key={index}
+                  className="t-dark bg-white badge hover:bg-gray-100 ease-in-out duration-300"
+                  href="#"
+                >
+                  {e}
+                </a>
+              );
+            })}
           </div>
           <a className="flex items-center text-gray-700" href="#">
-            <div className="avatar">
-              <img
-                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfDB8MHx8&auto=format&fit=crop&w=500&q=60"
-                alt="Photo of Praveen Juge"
-                className="h-12 w-12 rounded-full object-cover"
-              />
-            </div>
-            <div className="ml-2">
+            <div>
               <p className="text-sm font-semibold text-gray-800">
-                Praveen Juge
+                {post?.author}
               </p>
-              <p className="text-sm text-gray-500">Jan 02 2021</p>
+              <p className="text-sm text-orange-400 font-semibold">
+                {moment.utc(post?.createdAt).format("DD-MM-YY")}
+              </p>
             </div>
           </a>
         </div>
-
-        <div className="w-full mx-auto text-md md:text-lg o font-medium leading-loose md:w-3/4">
-          <p>
-            What if there is an easy way to achieve responsive UI without using
-            any UI kit? Can we create new and fresh designs for every project
-            with a CSS framework? Enter Tailwind CSS, will this be the perfect
-            CSS framework, well let's find out.
-          </p>
-          <p>
-            Tailwind is a utility-first CSS framework, the keyword being
-            'utility'. It is basically a set of classNamees that you can use in
-            your HTML.
-          </p>
-          <p>
-            Therefore, we don't have to write any custom CSS to get this button.
-            This can be heavily extended to build whole web applications without
-            the need for any other styles apart from a tailwind.
-          </p>
-          <p>...</p>
+        <div className="w-full mx-auto text-md md:text-lg font-medium leading-loose md:w-3/4">
+          {parse(draftToHtml(post?.description))}
         </div>
       </article>
     </>

@@ -4,7 +4,6 @@ import Head from "next/head";
 import { toast } from "react-toastify";
 import moment from "moment";
 import parse from "html-react-parser";
-import draftToHtml from "draftjs-to-html";
 import { getSession } from "next-auth/react";
 
 export async function getServerSideProps(context) {
@@ -58,7 +57,7 @@ const SingleBlog = ({ post }) => {
         itemtype="http://schema.org/BlogPosting"
       >
         <div className="w-full mx-auto mb-6 text-left md:w-3/4">
-          <img src={post?.thumbnail} alt={post?.slug} className="h-48 w-full object-cover" />
+          <img src={post?.thumbnail} alt={post?.slug} className="h-72 w-full object-cover" />
           <p className="mt-6 mb-2 text-xs font-semibold tracking-wider uppercase text-primary">
             {post?.slug}
           </p>
@@ -94,7 +93,7 @@ const SingleBlog = ({ post }) => {
           </a>
         </div>
         <div className="w-full mx-auto text-md md:text-lg font-medium leading-loose md:w-3/4">
-          {parse(draftToHtml(post?.description))}
+          {parse(post?.description)}
         </div>
       </article>
     </>

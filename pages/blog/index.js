@@ -1,4 +1,3 @@
-import draftToHtml from "draftjs-to-html";
 import Head from "next/head";
 import React from "react";
 import Card from "../../components/Card";
@@ -34,39 +33,32 @@ const Blog = ({ blog }) => {
         <Link
           rel="noopener noreferrer"
           href={`/blog/${blog[0].slug}`}
-          className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 bg-gray-100 text-dark"
+          className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline md:flex bg-gray-100 text-dark"
         >
           <img
             src={blog[0].thumbnail}
             alt=""
-            className="object-cover w-full h-64 sm:h-96 lg:col-span-7"
+            className="object-cover w-full h-64 md:h-[400px] lg:col-span-7"
           />
           <div className="py-8 pl-4 pr-4 md:pr-8 space-y-4 lg:col-span-5">
             <h2 className="uppercase text-lg md:text-3xl font-bold leading-snug">
               {blog[0].title}
             </h2>
             <div className="flex-[1] mt-2">
-                  <p className="text-sm font-semibold text-gray-800">
-                    {blog[0]?.author}
-                  </p>
-                  <p className="text-xs text-orange-400 font-semibold">
-                    {moment.utc(blog[0]?.createdAt).format("DD-MM-YY")}
-                  </p>
-                </div>
-            <div className="text-md h-[150px] font-medium leading-snug mt-4 text-ellipsis overflow-hidden">
-              {parse(draftToHtml(blog[0].description))}
+              <p className="text-sm font-semibold text-gray-800">
+                {blog[0]?.author}
+              </p>
+              <p className="text-xs text-orange-400 font-semibold">
+                {moment.utc(blog[0]?.createdAt).format("DD-MM-YY")}
+              </p>
             </div>
-            <Link
-            href={`/blog/${blog[0]?.slug}`}
-            type="button"
-            className="md:hidden inline-block max-w-fit px-6 py-3 bg-orange-400 text-white font-medium text-xs leading-tight uppercase hover:bg-orange-500 hover:shadow-lg focus:bg-orange-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-500 active:shadow-lg transition duration-150 ease-in-out mt-2"
-          >
-            Read More
-          </Link>
+            <div className="text-md h-[150px] font-medium leading-snug mt-4 text-ellipsis overflow-hidden">
+              {parse(blog[0].description)}
+            </div>
           </div>
         </Link>
         {blog.length > 1 && (
-          <div className="flex justify-between items-start flex-wrap gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {blog.slice(1).map((post) => {
               return <Card key={post._id} data={post} />;
             })}

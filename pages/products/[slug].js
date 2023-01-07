@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import React, { useContext } from "react";
 import { StoreContext } from "../../contexts/store";
+import parse from "html-react-parser";
 
 export async function getServerSideProps(context) {
   const { slug } = context.params;
@@ -113,7 +114,7 @@ function SingleProduct({product}) {
                   </span>
                 </span>
               </div>
-              <p className="leading-relaxed">{product.description}</p>
+              <p className="leading-relaxed">{parse(product.description)}</p>
               <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5"></div>
               <div className="flex">
                 <span className="title-font font-medium text-2xl text-gray-900">

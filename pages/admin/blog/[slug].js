@@ -1,20 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import dynamic from "next/dynamic";
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import { convertFromRaw, convertToRaw, EditorState } from "draft-js";
 import { toast } from "react-toastify";
-import draftToHtml from "draftjs-to-html";
 import parse from "html-react-parser";
 import { getSession, useSession } from "next-auth/react";
 import moment from "moment";
 import Router, { useRouter } from "next/router";
+const JoditEditor = dynamic(() => import('jodit-react'), {
+  ssr: false
+})
 
-const Editor = dynamic(
-  () => import("react-draft-wysiwyg").then((module) => module.Editor),
-  {
-    ssr: false,
-  }
-);
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
@@ -32,7 +26,7 @@ export async function getServerSideProps(context) {
     const res = await fetch(`${process.env.NEXT_AUTH_URL}/api/blog/${slug}`);
     post = await res.json();
   } catch (err) {
-    console.log(err);
+    toast.log(err);
   }
   if (!post) {
     return {
@@ -53,29 +47,18 @@ export async function getServerSideProps(context) {
 const Update = ({ post }) => {
   const { data: session } = useSession();
   const router = useRouter();
+  const editor = useRef();
+  const [content, setContent] = useState(post.description);
   const [title, setTitle] = useState(post.title);
   const [slug, setSlug] = useState(post.slug);
   const [category, setCategory] = useState(post.category.join(","));
   const [thumbnail, setThumbnail] = useState(post.thumbnail);
-  const [editorState, setEditorState] = useState(EditorState.createEmpty());
 
-  // useEffect(() => {
-  //   if (post && post.description) {
-  //     setEditorState(
-  //       EditorState.createWithContent(
-  //         convertFromRaw(post.description)
-  //       )
-  //     );
-  //   }
-  // });
 
   function convertToSlug(text) {
     return text.toLowerCase().replace(/\s+/g, "-");
   }
 
-  const onEditorStateChange = (editorState) => {
-    setEditorState(editorState);
-  };
 
   const handlePostUpdation = async () => {
     if (!title) {
@@ -88,7 +71,6 @@ const Update = ({ post }) => {
     }
 
     const slugData = slug || convertToSlug(title);
-    const description = convertToRaw(editorState.getCurrentContent());
 
     const response = await fetch("/api/blog/update", {
       method: "POST",
@@ -103,7 +85,7 @@ const Update = ({ post }) => {
           .split(/[\s,]+/)
           .map((category) => category.toLowerCase()),
         thumbnail,
-        description,
+        description: content,
         author: session?.user?.name,
         comments: post.comments,
       }),
@@ -137,7 +119,7 @@ const Update = ({ post }) => {
   };
 
   return (
-    <div className="pt-24 md:pt-24 min-h-screen mx-auto md:max-w-7xl px-4 md:px-0 flex items-start gap-4">
+    <div className="pt-24 md:pt-24 min-h-screen mx-auto md:max-w-7xl px-4 md:px-0 md:flex items-start gap-4">
       <div className="basis-1/2">
         <h1 className="text-3xl">Update Blog</h1>
         <div>
@@ -178,16 +160,19 @@ const Update = ({ post }) => {
             />
           </div>
           <div className="mt-4">
-            <Editor
-              editorState={editorState}
-              toolbarClassName="toolbarClassName"
-              wrapperClassName="wrapperClassName"
-              editorClassName="block w-full h-96 border px-2"
-              placeholder="Description"
-              onEditorStateChange={onEditorStateChange}
+          <JoditEditor
+              ref={editor}
+              value={content}
+              tabIndex={1}
+              onChange={(content) => setContent(content)}
+              fullWidth
+              multiline
+              rows={5}
+              className="editor-main"
+              margin="normal"
             />
           </div>
-          <div className="mt-4 flex items-center gap-2">
+          <div className="mt-4 mb-4 md:mb-0 flex items-center gap-2">
             <button className="primary-button" onClick={handlePostUpdation}>
               Submit
             </button>
@@ -200,8 +185,8 @@ const Update = ({ post }) => {
           </div>
         </div>
       </div>
-      <div className="basis-1/2 h-[calc(100vh-80px)] overflow-y-scroll bg-gray-100 p-8 hide-overflow">
-        <div className="bg-white shadow-lg p-4">
+      <div className="md:basis-1/2 min-h-screen md:h-[calc(100vh-80px)] md:overflow-y-scroll bg-gray-100 md:p-8 md:hide-overflow">
+        <div className="bg-white shadow-lg md:p-4">
           <article
             className=""
             itemID="#"
@@ -255,10 +240,8 @@ const Update = ({ post }) => {
               </a>
             </div>
 
-            <div className="w-full mx-auto text-md md:text-md  mt-4 font-medium leading-loose">
-              {parse(
-                draftToHtml(convertToRaw(editorState.getCurrentContent()))
-              )}
+            <div className="w-full mx-auto text-md md:text-md mt-4 font-medium leading-loose">
+              {parse(content)}
             </div>
           </article>
         </div>

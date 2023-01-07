@@ -1,4 +1,3 @@
-import draftToHtml from "draftjs-to-html";
 import Link from "next/link";
 import React from "react";
 import parse from "html-react-parser";
@@ -7,7 +6,7 @@ import moment from "moment";
 const Card = ({ data }) => {
   if(!data) {return}
   return (
-    <div className="flex justify-center">
+    <div className="grid w-full">
       <div className="bg-gray-100 max-w-sm">
         <Link href={`/blog/${data.slug?data.slug:"/"}`}>
           <img src={data.thumbnail?data.thumbnail:""} alt="" className="h-48 w-full object-cover" />
@@ -25,7 +24,7 @@ const Card = ({ data }) => {
                   </p>
                 </div>
           <div className="text-dark text-base mb-4 text-md h-[250px] mt-4 md:mt-0 md:flex-[6] font-medium leading-relaxed text-ellipsis overflow-hidden">
-            {parse(draftToHtml(data?.description))}
+            {parse(data?.description)}
           </div>
           <Link
             href={`/blog/${data?.slug}`}

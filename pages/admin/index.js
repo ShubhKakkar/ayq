@@ -22,11 +22,6 @@ export async function getServerSideProps(context) {
 }
 
 const Dashboard = (props) => {
-  // const [showBlog, setShowBlog] = useState(false);
-  // const [showProducts, setShowProducts] = useState(false);
-  // const [showUsers, setShowUsers] = useState(false);
-  // const [showOrders, setShowOrders] = useState(false);
-  // const [showNewsletter, setShowNewsletter] = useState(false);
   const { data: session } = useSession();
   const menu = [{
     title:"Blog",

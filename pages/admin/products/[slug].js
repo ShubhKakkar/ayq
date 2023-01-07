@@ -17,33 +17,48 @@ export async function getServerSideProps(context) {
       },
     };
   }
+  const { slug } = context.params;
+  let product;
+  try {
+    const res = await fetch(`${process.env.NEXT_AUTH_URL}/api/products/${slug}`);
+    product = await res.json();
+  } catch (err) {
+    toast.log(err);
+  }
+  if (!product) {
+    return {
+      redirect: {
+        destination: "/admin/products",
+        permanent: false,
+      },
+    };
+  }
   return {
     props: {
-      session,
+      product,
     },
   };
 }
 
-const CreateProduct = () => {
+const UpdateProduct = ({product}) => {
   const { data: session } = useSession();
   const router = useRouter();
   const editor = useRef();
-  const [name, setName] = useState("");
-  const [slug, setSlug] = useState("");
-  const [category, setCategory] = useState("");
-  const [images, setImages] = useState([]);
-  const [price, setPrice] = useState(0);
-  const [brand, setBrand] = useState("");
-  const [rating, setRating] = useState(5);
-  const [countInStock, setCountInStock] = useState(0);
-  const [description, setDescription] = useState("");
+  const [name, setName] = useState(product?.name);
+  const [slug, setSlug] = useState(product?.slug);
+  const [category, setCategory] = useState(product?.category);
+  const [images, setImages] = useState(product?.images);
+  const [price, setPrice] = useState(product?.price);
+  const [brand, setBrand] = useState(product?.brand);
+  const [rating, setRating] = useState(product?.rating);
+  const [countInStock, setCountInStock] = useState(product?.countInStock);
+  const [description, setDescription] = useState(product?.description);
 
   function convertToSlug(text) {
     return text.toLowerCase().replace(/\s+/g, "-");
   }
 
-  const handleProductCreation = async () => {
-    console.log("I got clicked");
+  const handleProductUpdation = async () => {
     if (!name) {
       toast.error("Please enter a title");
       return null;
@@ -83,12 +98,13 @@ const CreateProduct = () => {
 
     const categoryData = category.split(/[, ]/).shift();
 
-    const response = await fetch("/api/products", {
+    const response = await fetch(`/api/products/${product._id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        _id: product._id,
         name,
         slug: slugData,
         category: categoryData,
@@ -102,17 +118,36 @@ const CreateProduct = () => {
     });
     const res = await response.json();
     if (!res.error) {
-      toast.success("New Product created successfully");
+      toast.success("Product updated successfully");
       router.push("/admin/products");
     } else {
       toast.error(res.error);
     }
   };
 
+  const handleDeleteProduct = async() => {
+    const response = await fetch(`/api/products/${product.slug}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        slug: product.slug,
+      }),
+    });
+    const res = await response.json();
+    if (!res.error) {
+      toast.success("Post deleted successfully");
+      router.push("/admin/products");
+    } else {
+      toast.error(res.error.message);
+    }
+  }
+
   return (
     <div className="pt-24 md:pt-24 min-h-screen mx-auto md:max-w-7xl px-4 md:px-0 md:flex items-start gap-4">
       <div className="basis-1/2">
-        <h1 className="text-3xl">Create Product</h1>
+        <h1 className="text-3xl">Update Product</h1>
         <div>
           <div className="mt-4">
             <input
@@ -191,9 +226,15 @@ const CreateProduct = () => {
               margin="normal"
             />
           </div>
-          <div className="mt-4">
-            <button className="primary-button" onClick={handleProductCreation}>
+          <div className="mt-4 mb-4 md:mb-0 flex items-center gap-2">
+            <button className="primary-button" onClick={handleProductUpdation}>
               Submit
+            </button>
+            <button
+              className="text-white py-2 px-4 rounded bg-red-400 hover:bg-red-500 ease-in-out duration-300"
+              onClick={handleDeleteProduct}
+            >
+              Delete
             </button>
           </div>
         </div>
@@ -211,4 +252,4 @@ const CreateProduct = () => {
   );
 };
 
-export default CreateProduct;
+export default UpdateProduct;

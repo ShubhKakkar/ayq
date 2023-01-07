@@ -1,5 +1,3 @@
-import { convertToRaw } from "draft-js";
-import draftToHtml from "draftjs-to-html";
 import { getSession } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
@@ -44,8 +42,8 @@ const index = ({ session, blogs }) => {
                 <p className="text-xs absolute top-2 right-2 shadow bg-white p-1 rounded truncate">
                   {blog._id}
                 </p>
-                <div className="h-[150px] w-full">
-                  {parse(draftToHtml(blog.description))}
+                <div className="h-[200px] w-full overflow-hidden text-sm">
+                  {parse(blog.description)}
                 </div>
               </div>
             </Link>

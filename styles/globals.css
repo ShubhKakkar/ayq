@@ -77,6 +77,10 @@ textarea {
   @apply flex p-2 bg-white hover:bg-gray-200;
 }
 
+.bsUOBL::-webkit-scrollbar {
+  display: none;
+}
+
 /* a {
   @apply text-blue-600 hover:text-blue-800;
 } */

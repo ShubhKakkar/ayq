@@ -9,6 +9,19 @@ export default async function handler(req, res) {
       message: "signin required",
     });
   }
+  if (req.method === "GET") {
+    const session = await getSession({ req });
+    if (!session) {
+      return res.status(401).send("signin required");
+    }
+    if (!session.user.isAdmin) return;
+    try {
+      const requests = await Newsletter.find({});
+      res.status(201).json(requests);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  }
   if (req.method !== "POST") return;
   connectToDatabase();
   try {

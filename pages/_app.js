@@ -4,14 +4,30 @@ import { StoreProvider } from "../contexts/store";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { SessionProvider } from "next-auth/react";
+import LoadingBar from "react-top-loading-bar";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 export default function App({
   Component,
   pageProps: { session, ...pageProps },
 }) {
+  const router = useRouter();
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    router.events.on('routeChangeStart', () => {
+      setProgress(100);
+    })
+  })
   return (
     <SessionProvider session={session}>
       <StoreProvider>
+        <LoadingBar
+          color="rgb(251, 150, 60)"
+          progress={progress}
+          waitingTime={400}
+          onLoaderFinished={() => setProgress(0)}
+        />
         <Layout>
           <Component {...pageProps} />
         </Layout>

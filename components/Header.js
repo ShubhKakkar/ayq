@@ -79,7 +79,7 @@ const Header = () => {
                 </DropdownLink>
               </Menu.Item>
               <Menu.Item>
-                <DropdownLink className="dropdownLink" href="/user/orders">
+                <DropdownLink className="dropdownLink" href="/orders">
                   Order history
                 </DropdownLink>
               </Menu.Item>

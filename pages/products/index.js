@@ -4,6 +4,21 @@ import Content from "../../components/Content";
 import NewsLetter from "../../components/NewsLetter";
 import ProductsGallery from "../../components/ProductsGallery";
 
+export async function getServerSideProps() {
+  let products;
+  try {
+    const res = await fetch(`${process.env.NEXT_AUTH_URL}/api/products`);
+    products = await res.json();
+  } catch (err) {
+    console.log(err);
+  }
+  return {
+    props: {
+      products,
+    },
+  };
+}
+
 const index = ({ products }) => {
   const productsInfo = {
     url: "https://cdn.shopify.com/s/files/1/0669/2936/1146/files/PRIME_MetaMoon_group_shot_700x.jpg?v=1665671636",

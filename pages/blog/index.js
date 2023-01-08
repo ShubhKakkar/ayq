@@ -80,7 +80,7 @@ const Blog = ({ blog }) => {
           </section>
         </>
       ) : (
-        <></>
+        <div className="h-screen"></div>
       )}
     </section>
   );

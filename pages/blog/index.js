@@ -80,7 +80,7 @@ const Blog = ({ blog }) => {
           </section>
         </>
       ) : (
-        <div className="h-screen"></div>
+        <div className="h-[calc(100vh-80px)]"></div>
       )}
     </section>
   );

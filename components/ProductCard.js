@@ -7,7 +7,7 @@ const ProductCard = ({ data }) => {
   }
   return (
     <div className="w-[250px]">
-      <Link href={`/products/${data._id ? data._id : ""}`}>
+      <Link href={`/products/${data.slug ? data.slug : ""}`}>
         <img src={data.images[0] ? data.images[0] : ""} alt="" />
       </Link>
       <div className="pt-6 px-2">

@@ -7,6 +7,7 @@ import DataTable from "react-data-table-component";
 import moment from "moment";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
@@ -150,6 +151,11 @@ const handleDeleteQuery = async (_id) => {
 
   return (
     <div className="pt-24 md:pt-24 md:flex min-h-screen">
+      <Head>
+        <title>AyQ-Admin</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content="AyQ Beverages-Admin" />
+      </Head>
       <div className="basis-1/5 shadow-inner py-4 px-4 md:px-8">
         <p className="my-2 text-2xl font-semibold text-center text-[#1081e8]">
           Admin

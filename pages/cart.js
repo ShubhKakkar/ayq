@@ -63,7 +63,7 @@ const cart = () => {
   return (
     <div className="py-24 md:py-28 md:max-w-7xl md:mx-auto px-4 md:px-0 min-h-[calc(100vh-80px)]">
       <Head>
-        <title>AyQ Beverages-Cart</title>
+        <title>AyQ-Cart</title>
         <meta name="description" content={`AyQ Beverages website cart page`} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />

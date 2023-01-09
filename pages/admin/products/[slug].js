@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { getSession, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
+import Head from "next/head";
 const JoditEditor = dynamic(() => import("jodit-react"), {
   ssr: false,
 });
@@ -146,6 +147,11 @@ const UpdateProduct = ({product}) => {
 
   return (
     <div className="pt-24 md:pt-24 min-h-screen mx-auto md:max-w-7xl px-4 md:px-0 md:flex items-start gap-4">
+      <Head>
+        <title>AyQ-Admin/products</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content="AyQ Beverages-Admin/Products" />
+      </Head>
       <div className="basis-1/2">
         <h1 className="text-3xl">Update Product</h1>
         <div>

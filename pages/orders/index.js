@@ -1,6 +1,7 @@
 import React from "react";
 import { getSession, useSession } from "next-auth/react";
 import Order from "../../components/Order";
+import Head from "next/head";
 
 export async function getServerSideProps(context) {
   const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST_KEY);
@@ -38,10 +39,14 @@ export async function getServerSideProps(context) {
 }
 
 const Index = ({orders}) => {
-  console.log(orders);
   const { data: session } = useSession();
   return (
     <div className="pt-24 px-4 md:px-0 md:max-w-7xl mx-auto min-h-[calc(100vh-80px)]">
+      <Head>
+        <title>AyQ-Orders</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content="AyQ Beverages-About" />
+      </Head>
       <h1 className="text-3xl md:text-5xl border-b mb-2 pb-1 border-orange-400">
         Your Orders
       </h1>

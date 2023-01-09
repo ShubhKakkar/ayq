@@ -5,6 +5,7 @@ import { getSession } from "next-auth/react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import Papa from "papaparse";
+import Head from "next/head";
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
@@ -133,6 +134,11 @@ const index = ({ orders }) => {
 
   return (
     <div className="min-h-screen md:max-w-7xl md:mx-auto pt-24 md:py-24 px-4 md:px-0">
+      <Head>
+        <title>AyQ-Admin/orders</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content="AyQ Beverages-Admin/orders" />
+      </Head>
       {filter && (
         <div className="my-4">
           <DataTable

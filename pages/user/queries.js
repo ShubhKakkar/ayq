@@ -1,6 +1,7 @@
 import React from "react";
 import { useSession } from "next-auth/react";
 import { toast } from "react-toastify";
+import Head from "next/head";
 
 const queries = () => {
   const { data: session } = useSession();
@@ -25,6 +26,11 @@ const queries = () => {
   };
   return (
     <main>
+      <Head>
+        <title>AyQ-Queries</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content="AyQ-Queries" />
+      </Head>
       <section className="md:max-w-7xl md:mx-auto">
         <div className="h-[calc(100vh-80px)] bg-gray-100 grid place-items-center px-4 md:px-0">
           <div className="h-48 md:w-[400px] border border-gray-300 p-4 rounded-lg bg-white relative">

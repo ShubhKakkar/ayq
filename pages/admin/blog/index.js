@@ -2,6 +2,7 @@ import { getSession } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
 import parse from 'html-react-parser';
+import Head from "next/head";
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
@@ -27,6 +28,11 @@ const index = ({ session, blogs }) => {
   return (
     <div className="pt-24 md:pt-24 min-h-[calc(100vh-80px)] mx-auto md:max-w-7xl px-4 md:px-0 flex items-start gap-4">
       <div className="grid grid-cols-1 gap-8 md:gap-4 md:grid-cols-3 my-6">
+      <Head>
+        <title>AyQ-Admin/blog</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content="AyQ Beverages-Admin/blog" />
+      </Head>
         {blogs.map((blog) => {
           return (
             <Link key={blog._id} href={`/admin/blog/${blog.slug}`}>

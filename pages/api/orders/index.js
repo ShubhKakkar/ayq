@@ -12,7 +12,7 @@ export default async function handler(req, res) {
   }
   try {
     connectToDatabase();
-    const allOrders = await order.find({});
+    const allOrders = await order.find({}).sort({createdAt:-1});
 
     res.status(200).json(allOrders);
   } catch (err) {

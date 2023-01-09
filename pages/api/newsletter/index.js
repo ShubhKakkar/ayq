@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     }
     if (!session.user.isAdmin) return;
     try {
-      const requests = await Newsletter.find({});
+      const requests = await Newsletter.find({}).sort({createdAt:-1});
       res.status(201).json(requests);
     } catch (err) {
       res.status(500).json({ error: err.message });

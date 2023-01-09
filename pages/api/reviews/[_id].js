@@ -7,7 +7,7 @@ export default async function handler(req, res) {
     connectToDatabase();
     try {
       const { _id } = req.query;
-      const productComments = await ProductComment.find({ productId: _id });
+      const productComments = await ProductComment.find({ productId: _id }).sort({createdAt:-1});
       res.status(200).json(productComments);
     } catch (err) {
       res.status(500).json({ error: err.message });

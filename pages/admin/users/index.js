@@ -148,7 +148,7 @@ const index = ({ users }) => {
             onClick={() => {
               handleDeleteUser(user?._id);
             }}
-            className="text-orange-400 hover:text-orange-500 ease-in-out duration-300 hover:underline"
+            className="text-red-400 hover:text-red-500 ease-in-out duration-300 hover:underline"
           >
             Delete User
           </button>

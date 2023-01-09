@@ -146,8 +146,8 @@ const index = ({ orders }) => {
             columns={columns}
             data={ordersData}
             selectableRows
-            expandableRows
-            expandableRowsComponent={ExpandedComponent}
+            // expandableRows
+            // expandableRowsComponent={ExpandedComponent}
             responsive
             fixedHeader
             fixedHeaderScrollHeight="300px"

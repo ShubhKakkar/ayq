@@ -5,7 +5,7 @@ export default async function handler(req, res) {
   if (req.method === "GET") {
     connectToDatabase();
     try {
-      const Products = await Product.find({});
+      const Products = await Product.find({}).sort({createdAt:-1});
       res.status(200).json(Products);
     } catch (err) {
       res.status(500).json({ error: err.message });

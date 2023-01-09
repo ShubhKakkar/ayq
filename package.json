@@ -13,6 +13,7 @@
     "@next/font": "^13.0.7",
     "@stripe/stripe-js": "^1.46.0",
     "bcryptjs": "^2.4.3",
+    "framer-motion": "^8.3.0",
     "html-react-parser": "^3.0.7",
     "jodit-react": "^1.3.32",
     "micro": "^10.0.1",

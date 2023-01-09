@@ -83,21 +83,21 @@ const Dashboard = ({
   ];
 
   // deleteQuery
-const handleDeleteQuery = async (_id) => {
-  const response = await fetch(`/api/query/${_id}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  const res = await response.json();
-  if (!res.error) {
-    toast.success("Query deleted successully");
-    router.push("/admin");
-  } else {
-    toast.error(res.error);
-  }
-};
+  const handleDeleteQuery = async (_id) => {
+    const response = await fetch(`/api/query/${_id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const res = await response.json();
+    if (!res.error) {
+      toast.success("Query deleted successully");
+      router.push("/admin");
+    } else {
+      toast.error(res.error);
+    }
+  };
 
   const queryData = queries?.map((query) => {
     {
@@ -189,9 +189,12 @@ const handleDeleteQuery = async (_id) => {
           <h1 className="hidden md:block uppercase text-3xl font-bold leading-snug">
             Dashboard
           </h1>
-          <h3 className="hidden md:block text-sm font-semibold leading-snug text-gray-400">
-            Welcome {session?.user.name}
-          </h3>
+          <div className="flex items-center gap-4">
+            <Link href="/admin/store" className="primary-button">Proceed to Store</Link>
+            <h3 className="hidden md:block text-sm font-semibold leading-snug text-gray-400">
+              Welcome {session?.user.name}
+            </h3>
+          </div>
         </div>
         <div className="mt-4 md:flex items-center justify-between gap-4">
           <div className="basis-1/4 h-32 rounded-lg border border-gray-200 shadow-md grid place-items-center bg-white mb-4 md:mb-0">

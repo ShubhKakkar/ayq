@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 function StoreLocator() {
   const position = [51.505, -0.09];

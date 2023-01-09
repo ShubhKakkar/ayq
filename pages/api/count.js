@@ -22,7 +22,7 @@ export default async function handler(req, res) {
       const OrderCount = await order.count({});
       const NewsLetterCount = await Newsletter.count({});
       const ContentCount = await Content.count({});
-      const Queries = await Query.find({});
+      const Queries = await Query.find({}).sort({createdAt:-1});
       const data = {
         userCount: UserCount,
         productCount: ProductCount,

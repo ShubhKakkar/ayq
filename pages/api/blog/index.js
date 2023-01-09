@@ -5,7 +5,7 @@ export default async function handler(req, res) {
   if(req.method !== 'GET') return;
   connectToDatabase();
   try {
-    const Contents = await Content.find({});
+    const Contents = await Content.find({}).sort({createdAt:-1});
     res.status(200).json(Contents);
   }
   catch(err) {

@@ -7,7 +7,22 @@ import Services from "../components/Services";
 import NewsLetter from "../components/NewsLetter";
 import VideoBox from "../components/VideoBox";
 
-const About = () => {
+export async function getServerSideProps() {
+  let blog;
+  try {
+    const res = await fetch(`${process.env.NEXT_AUTH_URL}/api/blog`);
+    blog = await res.json();
+  } catch (err) {
+    toast.error(err);
+  }
+  return {
+    props: {
+      blog: blog,
+    },
+  };
+}
+
+const About = ({ blog }) => {
   const url = "/video/about-cover.mp4";
   const productHeroServiceData = [
     {
@@ -84,7 +99,7 @@ const About = () => {
         <Reviews />
       </section>
       <section className="md:pb-24 p-4 md:p-0">
-        <BlogWidget />
+        <BlogWidget blog={blog} />
       </section>
       <section className="mx-auto">
         <NewsLetter />

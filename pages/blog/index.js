@@ -5,6 +5,7 @@ import NewsLetter from "../../components/NewsLetter";
 import parse from "html-react-parser";
 import moment from "moment";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 export async function getServerSideProps() {
   let blog;
@@ -12,7 +13,7 @@ export async function getServerSideProps() {
     const res = await fetch(`${process.env.NEXT_AUTH_URL}/api/blog`);
     blog = await res.json();
   } catch (err) {
-    console.log(err);
+    toast.error(err);
   }
   return {
     props: {

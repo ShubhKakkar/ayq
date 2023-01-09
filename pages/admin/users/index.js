@@ -115,13 +115,11 @@ const index = ({ users }) => {
     {
       name: "Make Admin",
       selector: (row) => row.makeAdmin,
-      sortable: true,
       show: false,
     },
     {
       name: "Delete User",
       selector: (row) => row.deleteUser,
-      sortable: true,
       show: false,
     },
   ];

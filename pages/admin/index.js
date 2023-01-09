@@ -3,6 +3,10 @@ import React, { useState } from "react";
 import { getSession, useSession } from "next-auth/react";
 import { FaHeart, FaPen, FaUser } from "react-icons/fa";
 import { GiSodaCan } from "react-icons/gi";
+import DataTable from "react-data-table-component";
+import moment from "moment";
+import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
@@ -21,8 +25,14 @@ export async function getServerSideProps(context) {
       Cookie: context.req.headers.cookie,
     },
   });
-  const { userCount, productCount, orderCount, newsLetterCount, postCount } =
-    await response.json();
+  const {
+    userCount,
+    productCount,
+    orderCount,
+    newsLetterCount,
+    postCount,
+    queries,
+  } = await response.json();
   return {
     props: {
       userCount,
@@ -30,6 +40,7 @@ export async function getServerSideProps(context) {
       orderCount,
       newsLetterCount,
       postCount,
+      queries,
     },
   };
 }
@@ -39,9 +50,74 @@ const Dashboard = ({
   productCount,
   orderCount,
   newsLetterCount,
-  postCount
+  postCount,
+  queries,
 }) => {
   const { data: session } = useSession();
+  const router = useRouter();
+  const columns = [
+    {
+      name: "_id",
+      selector: (row) => row._id,
+    },
+    {
+      name: "Name",
+      selector: (row) => row.name,
+      sortable: true,
+    },
+    {
+      name: "Email",
+      selector: (row) => row.email,
+    },
+    {
+      name: "Created at",
+      selector: (row) => row.createdAt,
+      sortable: true,
+    },
+    {
+      name: "Delete Query",
+      selector: (row) => row.deleteQuery,
+      show: false,
+    },
+  ];
+
+  // deleteQuery
+const handleDeleteQuery = async (_id) => {
+  const response = await fetch(`/api/query/${_id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const res = await response.json();
+  if (!res.error) {
+    toast.success("Query deleted successully");
+    router.push("/admin");
+  } else {
+    toast.error(res.error);
+  }
+};
+
+  const queryData = queries?.map((query) => {
+    {
+      return {
+        _id: query?._id,
+        name: query?.name,
+        email: query?.email,
+        createdAt: moment(query?.createdAt).format("DD/MM/YYYY"),
+        deleteQuery: (
+          <button
+            onClick={() => {
+              handleDeleteQuery(query?._id);
+            }}
+            className="text-orange-400 hover:text-orange-500 ease-in-out duration-300 hover:underline"
+          >
+            Delete Query
+          </button>
+        ),
+      };
+    }
+  });
   const menu = [
     {
       title: "Blog",
@@ -59,9 +135,7 @@ const Dashboard = ({
     },
     {
       title: "Users",
-      links: [
-        { name: "All users", url: "/admin/users" },
-      ],
+      links: [{ name: "All users", url: "/admin/users" }],
     },
     ,
     {
@@ -118,7 +192,9 @@ const Dashboard = ({
             <div className="flex items-center gap-4">
               <FaUser className="text-6xl text-[#00afb9] bg-[#e6f7f8] p-4 rounded-lg" />
               <div>
-                <p className="text-2xl font-semibold">{userCount?userCount:""}</p>
+                <p className="text-2xl font-semibold">
+                  {userCount ? userCount : ""}
+                </p>
                 <span className="text-sm text-gray-400 font-medium">Users</span>
               </div>
             </div>
@@ -127,7 +203,9 @@ const Dashboard = ({
             <div className="flex items-center gap-4">
               <FaPen className="text-6xl text-[#ff8700] bg-[#fff3e6] p-4 rounded-lg" />
               <div>
-                <p className="text-2xl font-semibold">{postCount?postCount:""}</p>
+                <p className="text-2xl font-semibold">
+                  {postCount ? postCount : ""}
+                </p>
                 <span className="text-sm text-gray-400 font-medium">Posts</span>
               </div>
             </div>
@@ -136,7 +214,9 @@ const Dashboard = ({
             <div className="flex items-center gap-4">
               <FaHeart className="text-6xl text-[#ff4d6d] bg-[#ffedf0] p-4 rounded-lg" />
               <div>
-                <p className="text-2xl font-semibold">{newsLetterCount?newsLetterCount:""}</p>
+                <p className="text-2xl font-semibold">
+                  {newsLetterCount ? newsLetterCount : ""}
+                </p>
                 <span className="text-sm text-gray-400 font-medium">
                   Requests
                 </span>
@@ -147,13 +227,28 @@ const Dashboard = ({
             <div className="flex items-center gap-4">
               <GiSodaCan className="text-6xl text-[#1081e8] bg-[#e7f2fd] p-4 rounded-lg" />
               <div>
-                <p className="text-2xl font-semibold">{productCount?productCount:""}</p>
+                <p className="text-2xl font-semibold">
+                  {productCount ? productCount : ""}
+                </p>
                 <span className="text-sm text-gray-400 font-medium">
                   Products
                 </span>
               </div>
             </div>
           </div>
+        </div>
+        <div className="mt-4">
+          <DataTable
+            title={`Queries (${queryData.length})`}
+            columns={columns}
+            data={queryData}
+            selectableRows
+            responsive
+            fixedHeader
+            fixedHeaderScrollHeight="300px"
+            highlightOnHover
+            pointerOnHover
+          />
         </div>
       </div>
     </div>

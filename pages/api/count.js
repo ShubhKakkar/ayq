@@ -3,6 +3,7 @@ import Product from "../../models/Product";
 import order from "../../models/Order";
 import Newsletter from "../../models/Newsletter";
 import Content from "../../models/Content";
+import Query from "../../models/Query"
 import connectToDatabase from "../../utils/db";
 import { getSession } from "next-auth/react";
 
@@ -21,12 +22,14 @@ export default async function handler(req, res) {
       const OrderCount = await order.count({});
       const NewsLetterCount = await Newsletter.count({});
       const ContentCount = await Content.count({});
+      const Queries = await Query.find({});
       const data = {
         userCount: UserCount,
         productCount: ProductCount,
         orderCount: OrderCount,
         newsLetterCount: NewsLetterCount,
         postCount: ContentCount,
+        queries: Queries,
       }
       res.status(200).json(data);
     } catch (err) {

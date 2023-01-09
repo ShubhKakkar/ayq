@@ -124,7 +124,7 @@ function SingleProduct({ product, reviews }) {
           <div className="lg:max-w-7xl mx-auto flex flex-wrap">
             <img
               alt="ecommerce"
-              className="lg:w-1/2 w-full h-[75vh] object-cover object-center rounded"
+              className="lg:w-1/2 w-full h-[50vh] md:h-[75vh] object-cover object-center rounded"
               src={product.images[0]}
             />
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">

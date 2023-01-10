@@ -39,7 +39,7 @@ const Content = ({ data }) => {
               className={
                 direction === "rtl"
                   ? "uppercase text-6xl md:text-7xl font-bold leading-snug"
-                  : "uppercase text-6xl md:text-7xl font-bold leading-snug relative md:right-48"
+                  : "uppercase text-6xl md:text-7xl font-bold leading-snug"
               }
             >
               <span className="transparentText">{firstWord}</span>{" "}

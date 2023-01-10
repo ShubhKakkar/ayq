@@ -4,12 +4,6 @@ import store from "../../../models/Store";
 
 export default async function handler(req, res) {
   if (req.method === "GET") {
-    const session = await getSession({ req });
-    if (!session || !session.user.isAdmin) {
-      return res.status(401).send({
-        message: "signin required",
-      });
-    }
     connectToDatabase();
     try {
       const allStores = await store.find({}).sort({createdAt:-1});

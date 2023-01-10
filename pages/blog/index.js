@@ -44,7 +44,7 @@ const Blog = ({ blog }) => {
                 className="object-cover w-full h-64 md:h-[400px] lg:col-span-7"
               />
               <div className="py-8 pl-4 pr-4 md:pr-8 space-y-4 lg:col-span-5">
-                <h2 className="uppercase text-lg md:text-3xl font-bold leading-snug">
+                <h2 className="uppercase text-lg md:text-2xl font-bold leading-snug">
                   {blog[0]?.title}
                 </h2>
                 <div className="flex-[1] mt-2">

@@ -1,5 +1,5 @@
 /* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800&family=Lora:wght@400;500;600;700&family=Overpass:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800&family=Lora:wght@400;500;600;700&family=Overpass:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -10,7 +10,8 @@ html {
   font-family: Overpass;
 }
 
-h1,h2 {
+h1,
+h2 {
   font-family: Lora;
 }
 
@@ -30,29 +31,35 @@ p {
   -webkit-text-fill-color: transparent;
 }
 
-
 .product__scrollbar::-webkit-scrollbar {
   display: none;
 }
 
 .mobileDark {
-  background: linear-gradient(0deg,#111,rgb(17, 17, 17,0.99) 13%,rgba(17, 17, 17, 1) 22%,rgb(17, 17, 17,0.99) 41%,rgba(0, 0, 0, 0.99))
+  background: linear-gradient(
+    0deg,
+    #111,
+    rgb(17, 17, 17, 0.99) 13%,
+    rgba(17, 17, 17, 1) 22%,
+    rgb(17, 17, 17, 0.99) 41%,
+    rgba(0, 0, 0, 0.99)
+  );
 }
 
 .bigTitle {
-  @apply uppercase text-3xl md:text-5xl font-bold leading-snug
+  @apply uppercase text-3xl md:text-5xl font-bold leading-snug;
 }
 
 .bigTitleWhite {
-  @apply text-6xl font-semibold text-white mt-4 md:text-8xl md:uppercase md:font-extrabold md:text-white
+  @apply text-6xl font-semibold text-white mt-4 md:text-8xl md:uppercase md:font-extrabold md:text-white;
 }
 
 .mediumTitle {
-  @apply uppercase text-3xl md:text-4xl font-bold leading-snug mb-4
+  @apply uppercase text-3xl md:text-4xl font-bold leading-snug mb-4;
 }
 
 .box {
-  @apply min-h-screen md:max-w-7xl md:mx-auto text-center pt-12 md:py-24 px-4 md:px-0
+  @apply min-h-screen md:max-w-7xl md:mx-auto text-center pt-12 md:py-24 px-4 md:px-0;
 }
 
 .card {
@@ -89,12 +96,12 @@ li {
   list-style: none;
 }
 
-.hide-overflow::-webkit-scrollbar{
+.hide-overflow::-webkit-scrollbar {
   display: none;
 }
 
 ::-webkit-scrollbar {
-  width:0.65rem;
+  width: 0.65rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -104,4 +111,9 @@ li {
 ::-webkit-scrollbar-thumb {
   background-color: rgb(251, 150, 60);
   background-clip: content-box;
+}
+
+.mapboxgl-ctrl-attrib-inner,
+.mapboxgl-ctrl-logo {
+  display: none !important;
 }

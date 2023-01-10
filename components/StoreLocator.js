@@ -1,26 +1,78 @@
-import React, {useState, useEffect} from "react";
+import Head from "next/head";
+import React, { useState } from "react";
+import ReactMapGL, { Marker, Popup } from "react-map-gl";
+import { getCenter } from "geolib";
 
-function StoreLocator() {
-  const position = [51.505, -0.09];
+function StoreLocator({ stores }) {
+  const coordinates = stores.map((store) => ({
+    latitude: store.location.coordinates[1],
+    longitude: store.location.coordinates[0],
+  }));
+  const center = getCenter(coordinates);
+  const [viewport, setViewport] = useState({
+    width: "100%",
+    height: "100%",
+    latitude: center.latitude,
+    longitude: center.longitude,
+    zoom: 4,
+  });
+  const [selectedLocation, setSelectedLocation] = useState({});
   return (
-    <div className="px-4 md:px-0 h-[50vh] w-full grid place-items-center bg-[url('https://cdn.shopify.com/s/files/1/0079/4289/7737/files/store-locator-map-LA_2048x_6037a122-8c99-4c9c-8191-eae6c6207202_2048x.jpg?v=1641399242')] relative">
-      <div className="z-40">
-        <h2 className="uppercase text-3xl md:text-5xl font-bold leading-snug text-dark">
-          FIND AYQ NEAR YOU
-        </h2>
-        <div className="flex items-center justify-center md:mt-6 z-40">
-          <input
-            type="text"
-            placeholder="Your Location, USA"
-            className="pl-4 md:px-6 py-2 w-56 md:w-72 outline-none border border-dark text-dark placeholder-dark o placeholder:o placeholder:text-[#b3b5b8] font-semibold placeholder:font-semibold text-sm placeholder:text-sm uppercase tracking-wider"
-          />
-          <button className="ml-1 px-3 py-2 bg-dark text-white uppercase tracking-wider hover:bg-orange-400 ease-in-out duration-300">
-            Find
-          </button>
-        </div>
+    <>
+      <div className="px-4 md:px-0 h-[50vh] w-full">
+        <ReactMapGL
+          mapStyle={"mapbox://styles/shubhamkakkar/clcpab2j3000b14n5pthfcrk6"}
+          mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
+          {...viewport}
+          onMove={(e) => setViewport(e.viewport)}
+        >
+          {stores.map((store) => (
+            <div key={store.location.coordinates[0]}>
+              <Marker
+                longitude={store.location.coordinates[0]}
+                latitude={store.location.coordinates[1]}
+                anchor="bottom"
+              >
+                <p
+                  role="img"
+                  onClick={() => {
+                    setSelectedLocation(store);
+                  }}
+                  className="cursor-pointer text-2xl animate-bounce"
+                  aria-label="push-pin"
+                >
+                  📍
+                </p>
+              </Marker>
+
+              {/* Popup */}
+              {selectedLocation === store ? (
+                <Popup
+                  onClose={() => {
+                    setSelectedLocation({});
+                  }}
+                  closeOnClick={false}
+                  latitude={store.location.coordinates[1]}
+                  longitude={store.location.coordinates[0]}
+                >
+                  <div className="relative h-full w-full">
+                    <p className="text-[12px] text-orange-400">email: {store.email}</p>
+                    <p className="text-[10px] italic">{store.address}</p>
+                    <p className="text-[10px] italic">{store.pin}</p>
+                    <p className="text-[10px] flex gap-1">
+                      <span>{store.location.coordinates[1]},</span>
+                      <span>{store.location.coordinates[0]}</span>
+                    </p>
+                  </div>
+                </Popup>
+              ) : (
+                false
+              )}
+            </div>
+          ))}
+        </ReactMapGL>
       </div>
-      {/* <div className="h-full w-full bg-gradient-to-b from-[#121212f8] to-[#12121246] absolute top-0 left-0 opacity-70"></div> */}
-    </div>
+    </>
   );
 }
 

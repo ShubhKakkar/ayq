@@ -6,7 +6,22 @@ import NewsLetter from "../components/NewsLetter";
 import VideoBox from "../components/VideoBox";
 import StoreLocator from "../components/StoreLocator";
 
-const Contact = () => {
+export async function getServerSideProps() {
+  let stores;
+  try {
+    const res = await fetch(`${process.env.NEXT_AUTH_URL}/api/store/findAll`);
+    stores = await res.json();
+  } catch (err) {
+    console.log(err);
+  }
+  return {
+    props: {
+      stores,
+    },
+  };
+}
+
+const Contact = ({stores}) => {
   const businessPartnerProgramData = {
     url: "https://images.unsplash.com/photo-1595779993443-9f7c8710f85e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
     title: "Business Partner",
@@ -18,7 +33,7 @@ const Contact = () => {
   };
   const influencerPartnerProgramData = {
     url: "https://images.unsplash.com/photo-1629114685997-cc8f00ca3051?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80",
-    title: "Influen Partner",
+    title: "Influencer Partner",
     subTitle: "Become our influencer partner",
     description:
       "Stay active and energized all day long with CELSIUS by your side. CELSIUS powers active lives every day with essential, functional energy. We're different from other energy drinks because we focus on movement. When combined with exercise, our formula is clinically proven to boost your metabolism and help you burn body fat.",
@@ -111,7 +126,7 @@ const Contact = () => {
         <VideoBox data={videoData} />
       </section>
       <section className="max-w-7xl mx-auto py-12 md:py-24">
-        <StoreLocator />
+        <StoreLocator stores = {stores} />
       </section>
       <section className="md:max-w-7xl md:mx-auto pb-4 md:pb-24 px-4 md:px-0">
         <Content data={businessPartnerProgramData} />

@@ -3,6 +3,9 @@ import React from "react";
 //React-Icons
 import { ImQuotesRight } from "react-icons/im";
 
+// Framer-Motion
+import { motion } from "framer-motion";
+
 const reviews = [
   {
     name: "HOLDEN CAULFIELD",
@@ -56,9 +59,9 @@ const Reviews = () => {
                     />
                     <ImQuotesRight className="text-7xl text-gray-100" />
                   </div>
-                  <p className="text-md o font-medium leading-loose mt-4 bg-gray-100 p-4">
+                  <motion.p initial={{opacity:0}} whileInView={{opacity:1}} transition={{duration:0.3, ease:"easeInOut"}} className="text-md o font-medium leading-loose mt-4 bg-gray-100 p-4">
                     {review.description}
-                  </p>
+                  </motion.p>
                   <span className="inline-block h-1 w-10 rounded bg-orange-400 mt-6 mb-4"></span>
                   <h2 className="text-dark font-medium o title-font tracking-wider text-sm">
                     {review.name}

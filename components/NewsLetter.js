@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 // Social Icons
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
@@ -34,21 +35,20 @@ const NewsLetter = () => {
       shared_email: emailRef.current.value,
       name: session?.user?.name,
       email: session?.user?.email,
-      user: session?.user?._id
-    }
+      user: session?.user?._id,
+    };
     const joinNewsLetter = await fetch(`/api/newsletter`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     });
-    const res = await joinNewsLetter.json(); 
-    if(!res.error) {
+    const res = await joinNewsLetter.json();
+    if (!res.error) {
       emailRef.current.value = "";
-      toast.success('Successfully joined the newsletter');
-    }
-    else{
+      toast.success("Successfully joined the newsletter");
+    } else {
       toast.error(res.error);
     }
   };
@@ -56,28 +56,38 @@ const NewsLetter = () => {
     <div className="bg-dark md:h-[calc(100vh-80px)]">
       <div className="p-4 pt-[60px] md:py-[120px] md:h-full md:max-w-7xl mx-auto">
         <div>
-          <p className="uppercase text-md text-orange-400 o font-[600] text-left md:text-center tracking-widest">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="uppercase text-md text-orange-400 o font-[600] text-left md:text-center tracking-widest"
+          >
             JOIN THE CELSIUS NEWS LETTER
-          </p>
-          <p className="text-white text-2xl md:text-4xl md:px-24 o font-bold my-4 text-left md:text-center mx-auto leading-snug md:leading-tight">
+          </motion.p>
+          <motion.p
+            initial={{ scale: 0.5, opacity:0 }}
+            whileInView={{ scale: 1, opacity:1 }}
+            transition={{ duration: 0.5, type:"spring", bounceStiffness:0.5, bounce:0.5, damping:20 }}
+            className="text-white text-2xl md:text-4xl md:px-24 o font-bold my-4 text-left md:text-center mx-auto leading-snug md:leading-tight"
+          >
             SIGN UP TO GET FIRST ACCESS AND UPDATES ABOUT PRODUCTS, EVENTS AND
             MORE.
-          </p>
+          </motion.p>
         </div>
         <div className="text-left md:text-center my-6 md:my-12">
           <input
             type="text"
             placeholder="Enter Email"
-            className="bg-transparent border-white border-2 p-3 text-md tracking-widest placeholder:uppercase pl-8 text-white w-3/4 md:w-[30vw] focus:outline-none placeholder:text-white lowercase" defaultValue={session?.user?.email} ref={emailRef}
+            className="bg-transparent border-white border-2 p-3 text-md tracking-widest placeholder:uppercase pl-8 text-white w-3/4 md:w-[30vw] focus:outline-none placeholder:text-white lowercase"
+            defaultValue={session?.user?.email}
+            ref={emailRef}
           />
           <button
             className="bg-orange-400 ml-1 px-1 md:ml-2 py-4 md:py-3 md:p-2 md:px-6 text-white text-sm md:text-lg tracking-widest uppercase font-bold o relative bottom-[0px] hover:bg-orange-500 ease-in-out duration-300 border-[1px] md:border-2 border-orange-400 hover:border-orange-500"
             onClick={() => {
-              if(session){
+              if (session) {
                 handleNewsLetter();
-              }
-              else{
-                router.push('/auth/signin');
+              } else {
+                router.push("/auth/signin");
               }
             }}
           >

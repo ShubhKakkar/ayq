@@ -8,6 +8,9 @@ import NewsLetter from "../components/NewsLetter";
 // React-Icons
 import { BsFillCheckCircleFill } from "react-icons/bs";
 
+// Framer-Motion
+import { motion } from "framer-motion";
+
 const Process = () => {
   const url =
     "https://videos.ctfassets.net/8roil6amnkw9/6cNiuzHfmR8Un66ZysPI29/1fa433bdb9dce12ca7eea7fb9a0ad003/process-sizzle.minv2.mp4";
@@ -32,7 +35,7 @@ const Process = () => {
     overlay: true,
   };
   return (
-    <div>
+    <div className="overflow-hidden">
       <Head>
         <title>AyQ-Process</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -42,11 +45,11 @@ const Process = () => {
         <VideoBox data={videoData} />
       </section>
       <section className="max-w-7xl mx-auto py-12 md:py-24">
-        <p className="px-4 md:px-0 text-lg md:text-xl o font-medium leading-loose md:mt-4 md:max-w-5xl mx-auto text-center pb-12 md:pb-24">
+        <motion.p initial={{opacity:0}} whileInView={{opacity:1}} transition={{duration:0.3, ease:"easeInOut"}} className="px-4 md:px-0 text-lg md:text-xl o font-medium leading-loose md:mt-4 md:max-w-5xl mx-auto text-center pb-12 md:pb-24">
           We believe it's possible to drink the highest quality of coffee (that
           actually tastes good) while paying our farmers fairly, using
           sustainable farming methods and protecting our wildlife.
-        </p>
+        </motion.p>
         <div className="md:flex gap-16 px-4 md:px-0">
           <div className="flex-1 md:py-12">
             <h2 className="mediumTitle">
@@ -76,27 +79,27 @@ const Process = () => {
             <p className="text-lg o font-semibold leading-loose mt-4">
               Lifeboost beans are:
             </p>
-            <div className="flex items-center my-4 o">
+            <motion.div initial={{opacity:0, x:-300}} whileInView={{opacity:1, x:0}} transition={{duration:1, ease:"easeInOut"}} viewport={{once: true}} className="flex items-center my-4 o">
               <BsFillCheckCircleFill className="text-orange-400 text-5xl basis-1/5 md:basis-1/12 relative top-1" />
               <p className="text-lg o font-md leading-loose mt-4 basis-4/5 md:basis-11/12 ml-2 md:ml-8">
                 Single Origin to avoid cross contamination of molds, hand
                 selected, high elevation and shade grown.
               </p>
-            </div>
-            <div className="flex items-center my-4 o">
+            </motion.div>
+            <motion.div initial={{opacity:0, x:-300}} whileInView={{opacity:1, x:0}} transition={{duration:1, ease:"easeInOut", delay:0.25}} viewport={{once: true}} className="flex items-center my-4 o">
               <BsFillCheckCircleFill className="text-orange-400 text-5xl basis-1/5 md:basis-1/12 relative top-1" />
               <p className="text-lg o font-md leading-loose mt-4 basis-4/5 md:basis-11/12 ml-2 md:ml-8">
                 Single Origin to avoid cross contamination of molds, hand
                 selected, high elevation and shade grown.
               </p>
-            </div>
-            <div className="flex items-center my-4 o">
+            </motion.div>
+            <motion.div initial={{opacity:0, x:-300}} whileInView={{opacity:1, x:0}} transition={{duration:1, ease:"easeInOut", delay:0.5}} viewport={{once: true}} className="flex items-center my-4 o">
               <BsFillCheckCircleFill className="text-orange-400 text-5xl basis-1/5 md:basis-1/12 relative top-1" />
               <p className="text-lg o font-md leading-loose mt-4 basis-4/5 md:basis-11/12 ml-2 md:ml-8">
                 Single Origin to avoid cross contamination of molds, hand
                 selected, high elevation and shade grown.
               </p>
-            </div>
+            </motion.div>
           </div>
           <div className="flex-1 md:min-h-screen w-full relative">
             <img
@@ -111,8 +114,8 @@ const Process = () => {
         <h2 className="uppercase text-3xl md:text-4xl font-bold leading-snug mb-12 md:text-center">
           From the jungles to your table
         </h2>
-        <div className="flex flex-col md:flex-row flex-wrap md:h-[500px] pb-12 md:pb-0 md:pt-12 gap-12 md:gap-0">
-          <div className="basis-1/2 md:text-center md:self-start">
+        <div className="overflow-hidden flex flex-col md:flex-row flex-wrap md:h-[500px] pb-12 md:pb-0 md:pt-12 gap-12 md:gap-0">
+          <motion.div initial={{x:-100, opacity:0}} whileInView={{x:0, opacity:1}} transition={{duration:1, ease:"easeInOut", delay:0.5}} viewport={{once: true}} className="basis-1/2 md:text-center md:self-start">
             <svg
               className="max-h-full w-auto md:mx-auto"
               xmlns="http://www.w3.org/2000/svg"
@@ -699,8 +702,8 @@ const Process = () => {
               We source the top 2% of coffee in the world from small farms in or
               near nationally
             </p>
-          </div>
-          <div className="basis-1/2 text-right md:text-center md:self-end">
+          </motion.div>
+          <motion.div initial={{x:100, opacity:0}} whileInView={{x:0, opacity:1}} transition={{duration:1, ease:"easeInOut", delay:0.5}} viewport={{once: true}} className="basis-1/2 text-right md:text-center md:self-end">
             <svg
               className="max-h-full w-auto ml-auto md:mx-auto"
               xmlns="http://www.w3.org/2000/svg"
@@ -969,10 +972,10 @@ const Process = () => {
             <p className="my-6 w-56 ml-auto md:mx-auto text-lg">
               Lifeboost coffee is roasted fresh in small batches when you order.
             </p>
-          </div>
+          </motion.div>
         </div>
         <div className="flex flex-col md:flex-row flex-wrap md:h-[500px] pb-12 gap-12 md:gap-0">
-          <div className="basis-1/2 md:text-center self-start">
+          <motion.div initial={{x:-100, opacity:0}} whileInView={{x:0, opacity:1}} transition={{duration:1, ease:"easeInOut", delay:0.5}} viewport={{once: true}}  className="basis-1/2 md:text-center self-start">
             <svg
               className="max-h-full w-auto md:mx-auto"
               xmlns="http://www.w3.org/2000/svg"
@@ -1087,8 +1090,8 @@ const Process = () => {
               We 3rd party test our beans for mycotoxins, molds, bacteria,
               pesticides, heavy metals plus 400 other toxins.
             </p>
-          </div>
-          <div className="basis-1/2 text-right md:text-center self-end">
+          </motion.div>
+          <motion.div initial={{x:100, opacity:0}} whileInView={{x:0, opacity:1}} transition={{duration:1, ease:"easeInOut", delay:0.5}} viewport={{once: true}} className="basis-1/2 text-right md:text-center self-end overlflow-hidden">
             <path
               id="Path_433"
               data-name="Path 433"
@@ -1264,7 +1267,7 @@ const Process = () => {
               Delivered directly to your door to be enjoyed one delicious cup at
               a time!
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
       <section className="max-w-7xl mx-auto pb-12 md:pb-24 px-4 md:px-0">

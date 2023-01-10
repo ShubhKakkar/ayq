@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const Content = ({ data }) => {
   if (!data) {
@@ -23,11 +24,12 @@ const Content = ({ data }) => {
               : "relative basis-1/2 order-2 md:order-none"
           }
         >
-          <img
+          <motion.img
+            initial={{y:200, opacity:0}} whileInView={{y:0, opacity: 1}} transition={{duration:1, ease:"easeInOut", bounce:0.2, type:"spring"}} viewport={{ once: true }}
             className={
               data.imageType === "contain"
-                ? "object-contain h-72 md:h-full w-full object-center my-4 md:mb-0"
-                : "object-cover h-72 md:h-full w-full object-center my-4 md:mb-0"
+                ? "object-contain h-72 md:h-full w-full object-center md:mb-0"
+                : "object-cover h-72 md:h-full w-full object-center md:mb-0"
             }
             alt="about-hero"
             src={data.url ? data.url : ""}

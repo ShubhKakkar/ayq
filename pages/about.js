@@ -7,6 +7,9 @@ import Services from "../components/Services";
 import NewsLetter from "../components/NewsLetter";
 import VideoBox from "../components/VideoBox";
 
+// Framer-Motion
+import { motion, useMotionValue, useTransform } from "framer-motion";
+
 export async function getServerSideProps() {
   let blog;
   try {
@@ -69,6 +72,8 @@ const About = ({ blog }) => {
     shopNow: "true",
     shopUrl: "/",
   };
+  const x = useMotionValue(0);
+  const scale = useTransform(x, [-150, 150], [1.5, 0.5]);
   return (
     <main>
       <Head>
@@ -80,7 +85,16 @@ const About = ({ blog }) => {
         <VideoBox data={videoData} />
       </section>
       <section className="p-4 md:p-0 md:max-w-7xl md:mx-auto">
-        <img
+        <motion.img
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
+          whileTap={{ cursor: "grabbing" }}
+          style={{
+            x: x,
+            scale: scale,
+            cursor: "grab",
+          }}
           src="https://cdn.shopify.com/s/files/1/1628/8781/files/Bubbles_Cucumber_Hero_Centered_HiRes_800x.png?v=1670812072"
           alt="apple-cherry-cinnamon-can"
           className="h-[42vh] mx-auto -mt-56 md:-mt-0 relative z-10 md:left-3 md:-top-48"

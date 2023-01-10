@@ -4,7 +4,7 @@ import { StoreContext } from "../contexts/store";
 import { signOut, useSession } from "next-auth/react";
 import { Menu } from "@headlessui/react";
 import DropdownLink from "./DropdownLink";
-
+import { motion } from "framer-motion";
 // Icons
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { AiOutlineMenu } from "react-icons/ai";
@@ -30,7 +30,12 @@ const Header = () => {
     totalQuantity += cart[i].quantity;
   }
   return (
-    <header className="h-[80px] flex items-center gap-8 p-0 md:px-8 bg-light fixed top-0 left-0 right-0 z-20 bg-white w-screen">
+    <motion.header
+      initial={{ y:-100, opacity: 0 }}
+      animate={{ y:0, opacity: 1 }}
+      transition={{ duration:0.7, delay: 0.2}}
+      className="h-[80px] flex items-center gap-8 p-0 md:px-8 bg-light fixed top-0 left-0 right-0 z-20 bg-white w-screen"
+    >
       <div className="logo">
         <Link href="/">
           <img
@@ -135,7 +140,7 @@ const Header = () => {
       >
         <MobileMenu setMobileMenu={setMobileMenu} headerList={headerList} />
       </div>
-    </header>
+    </motion.header>
   );
 };
 

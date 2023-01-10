@@ -3,10 +3,13 @@ import React from "react";
 import parse from "html-react-parser";
 import moment from "moment";
 
+// Framer-Motion
+import { motion } from "framer-motion";
+
 const Card = ({ data }) => {
   if(!data) {return}
   return (
-    <div className="grid w-full">
+    <motion.div initial={{opacity:0, y:200}} whileInView={{opacity:1, y:0}} transition={{duration:0.5, ease:"easeInOut"}} viewport={{once:true}} className="grid w-full">
       <div className="bg-gray-100 max-w-sm">
         <Link href={`/blog/${data.slug?data.slug:"/"}`}>
           <img src={data.thumbnail?data.thumbnail:""} alt="" className="h-48 w-full object-cover" />
@@ -35,7 +38,7 @@ const Card = ({ data }) => {
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

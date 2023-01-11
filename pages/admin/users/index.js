@@ -193,24 +193,6 @@ const index = ({ users }) => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content="AyQ Beverages-Admin/users" />
       </Head>
-      {filter && (
-        <div className="my-4">
-          <DataTable
-            title={`Users (${usersData.length})`}
-            columns={columns}
-            data={usersData}
-            selectableRows
-            expandableRows
-            expandableRowsComponent={ExpandedComponent}
-            responsive
-            fixedHeader
-            fixedHeaderScrollHeight="300px"
-            highlightOnHover
-            pointerOnHover
-            actions={actionsMemo}
-          />
-        </div>
-      )}
       <div className="my-4">
         <DataTable
           title={`Users (${usersData.length})`}

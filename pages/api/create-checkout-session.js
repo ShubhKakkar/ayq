@@ -9,6 +9,16 @@ export default async (req, res) => {
     taxPrice,
     totalPrice,
   } = req.body;
+  const orders = orderItems.map((product) => {
+    return {
+      _id: product._id,
+      name: product.name,
+      slug: product.slug,
+      quantity: product.quantity,
+      category: product.category,
+      price: product.price,
+    }
+  })
   // Transform data
   const transformedItems = orderItems.map((item) => {
     return {
@@ -37,6 +47,7 @@ export default async (req, res) => {
     metadata: {
       user_id: user_id,
       images: JSON.stringify(orderItems.map(item => item.images)),
+      orders: JSON.stringify(orders),
     },
   });
   res.status(201).json({

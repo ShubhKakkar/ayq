@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import Papa from "papaparse";
 import Head from "next/head";
+import Link from "next/link";
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
@@ -69,26 +70,48 @@ const index = ({ orders }) => {
       selector: (row) => row.paymentStatus,
     },
     {
-      name: "images",
-      selector: (row) => row.images,
-    },{
+      name: "orders",
+      selector: (row) => row.orders,
+    },
+    {
       name: "created_at",
       selector: (row) => row.createdAt,
-    }
+    },
   ];
 
-  const ordersData = orders?.map((user) => {
+  const ordersData = orders?.map((order) => {
     {
       return {
-        _id: user?._id,
-        user: user?.user,
-        checkout_id: user?.checkout_id,
-        amount: user?.amount,
-        cutomer_email: user?.cutomer_email,
-        customer_name: user?.customer_name,
-        paymentStatus: user?.paymentStatus,
-        images: <img src={user?.images[0]} alt="order" className="h-12 w-12 rounded object-cover" />,
-        createdAt: moment(user?.createdAt).format("DD/MM/YYYY"),
+        _id: order?._id,
+        user: order?.user,
+        checkout_id: order?.checkout_id,
+        amount: order?.amount,
+        cutomer_email: order?.cutomer_email,
+        customer_name: order?.customer_name,
+        paymentStatus: order?.paymentStatus,
+        // images: (
+        //   <img
+        //     src={order?.images[0]}
+        //     alt="order"
+        //     className="h-12 w-12 rounded object-cover"
+        //   />
+        // ),
+        orders: order?.orders.map((product, index) => {
+          return (
+            <div>
+              <div className="flex items-center gap-2 p-1">
+                <p className="text-xs">({product.quantity})</p>
+                <Link href={`/products/${product.slug}`}>
+                  <h3 className="text-xs text-orange-400 hover:text-orange-500 cursor-pointer ease-in-out duration-300">
+                    {product.name}
+                  </h3>
+                </Link>
+              </div>
+            </div>
+          );
+        }),
+
+        createdAt: moment(order?.createdAt).format("DD/MM/YYYY"),
         // makeAdmin: (
         //   <button
         //     onClick={() => {
@@ -132,6 +155,31 @@ const index = ({ orders }) => {
 
   const [filter, setFilter] = useState();
 
+  // A super simple expandable component.
+  function ExpandedComponent(props) {
+    // props contain data for the expanded row
+    const { data } = props;
+    return (
+      <pre>
+        {JSON.stringify({
+          _id: data?._id,
+          user: data?.user,
+          checkout_id: data?.checkout_id,
+          // orders: data?.orders,
+          // amount: data?.amount,
+          // currency: data?.currency,
+          // customer_id: data?.customer_id,
+          // customer_line1: data?.customer_line1,
+          // customer_line2: data?.customer_line2,
+          // customer_postal_code: data?.customer_postal_code,
+          // customer_city: data?.customer_address.city,
+          // customer_state: data?.customer_address.state,
+          // customer_country: data?.customer_address.country
+        })}
+      </pre>
+    );
+  }
+
   return (
     <div className="min-h-screen md:max-w-7xl md:mx-auto pt-24 md:py-24 px-4 md:px-0">
       <Head>
@@ -139,25 +187,6 @@ const index = ({ orders }) => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content="AyQ Beverages-Admin/orders" />
       </Head>
-      {filter && (
-        <div className="my-4">
-          <DataTable
-            title={`Orders (${ordersData.length})`}
-            columns={columns}
-            data={ordersData}
-            selectableRows
-            // expandableRows
-            // expandableRowsComponent={ExpandedComponent}
-            responsive
-            fixedHeader
-            fixedHeaderScrollHeight="300px"
-            highlightOnHover
-            pointerOnHover
-            actions={actionsMemo}
-            customStyles={customStyles}
-          />
-        </div>
-      )}
       <div className="my-4">
         <DataTable
           title={`Orders (${ordersData.length})`}
@@ -170,6 +199,8 @@ const index = ({ orders }) => {
           highlightOnHover
           pointerOnHover
           actions={actionsMemo}
+          expandableRows
+          expandableRowsComponent={ExpandedComponent}
         />
       </div>
     </div>

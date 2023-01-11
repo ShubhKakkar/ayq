@@ -42,7 +42,9 @@ const cart = () => {
       taxPrice,
       totalPrice: totalAmount + taxPrice + shippingPrice,
     };
+
     clearCart();
+
     const checkOutSession = await fetch("/api/create-checkout-session", {
       method: "POST",
       headers: {

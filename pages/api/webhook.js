@@ -9,11 +9,10 @@ const endpointSecret = process.env.STRIPE_SIGNING_SECRET;
 export default async function handler(req, res) {
   const fullfillOrder = async (session) => {
     connectToDatabase();
-
     const newOrder = new order({
       user: session.metadata.user_id,
       checkout_id: session.id,
-      amount: session.amount_total/100,
+      amount: session.amount_total / 100,
       currency: session.currency,
       customer_id: session.customer,
       customer_address: session.customer_details.address,
@@ -24,9 +23,8 @@ export default async function handler(req, res) {
       paymentStatus: session.payment_status,
       shippingRate: session.shipping_rate,
       images: JSON.parse(session.metadata.images),
-      orders: session.metadata.orders
+      orders: JSON.parse(session.metadata.orders),
     });
-
     const Order = await newOrder.save();
   };
   if (req.method !== "POST") return;
@@ -45,6 +43,7 @@ export default async function handler(req, res) {
   // Handle the checkout.session.completed
   if (event.type === "checkout.session.completed") {
     const session = event.data.object;
+    console.log(session);
     return await fullfillOrder(session)
       .then(() => {
         res.status(201);

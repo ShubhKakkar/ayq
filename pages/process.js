@@ -115,7 +115,7 @@ const Process = () => {
           From the jungles to your table
         </h2>
         <div className="overflow-hidden flex flex-col md:flex-row flex-wrap md:h-[500px] pb-12 md:pb-0 md:pt-12 gap-12 md:gap-0">
-          <motion.div initial={{x:-100, opacity:0}} whileInView={{x:0, opacity:1}} transition={{duration:1, ease:"easeInOut", delay:0.5}} viewport={{once: true}} className="basis-1/2 md:text-center md:self-start">
+          <motion.div initial={{x:-100, opacity:0}} whileInView={{x:0, opacity:1}} transition={{duration:0.5, ease:"easeInOut"}} viewport={{once: true}} className="basis-1/2 md:text-center md:self-start">
             <svg
               className="max-h-full w-auto md:mx-auto"
               xmlns="http://www.w3.org/2000/svg"
@@ -703,7 +703,7 @@ const Process = () => {
               near nationally
             </p>
           </motion.div>
-          <motion.div initial={{x:100, opacity:0}} whileInView={{x:0, opacity:1}} transition={{duration:1, ease:"easeInOut", delay:0.5}} viewport={{once: true}} className="basis-1/2 text-right md:text-center md:self-end">
+          <motion.div initial={{x:100, opacity:0}} whileInView={{x:0, opacity:1}} transition={{duration:0.5, ease:"easeInOut"}} viewport={{once: true}} className="basis-1/2 text-right md:text-center md:self-end">
             <svg
               className="max-h-full w-auto ml-auto md:mx-auto"
               xmlns="http://www.w3.org/2000/svg"
@@ -975,7 +975,7 @@ const Process = () => {
           </motion.div>
         </div>
         <div className="flex flex-col md:flex-row flex-wrap md:h-[500px] pb-12 gap-12 md:gap-0">
-          <motion.div initial={{x:-100, opacity:0}} whileInView={{x:0, opacity:1}} transition={{duration:1, ease:"easeInOut", delay:0.5}} viewport={{once: true}}  className="basis-1/2 md:text-center self-start">
+          <motion.div initial={{x:-100, opacity:0}} whileInView={{x:0, opacity:1}} transition={{duration:0.5, ease:"easeInOut", delay:0.25}} viewport={{once: true}}  className="basis-1/2 md:text-center self-start">
             <svg
               className="max-h-full w-auto md:mx-auto"
               xmlns="http://www.w3.org/2000/svg"
@@ -1091,7 +1091,7 @@ const Process = () => {
               pesticides, heavy metals plus 400 other toxins.
             </p>
           </motion.div>
-          <motion.div initial={{x:100, opacity:0}} whileInView={{x:0, opacity:1}} transition={{duration:1, ease:"easeInOut", delay:0.5}} viewport={{once: true}} className="basis-1/2 text-right md:text-center self-end overlflow-hidden">
+          <motion.div initial={{x:100, opacity:0}} whileInView={{x:0, opacity:1}} transition={{duration:0.5, ease:"easeInOut", delay:0.25}} viewport={{once: true}} className="basis-1/2 text-right md:text-center self-end overlflow-hidden">
             <path
               id="Path_433"
               data-name="Path 433"

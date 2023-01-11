@@ -24,6 +24,7 @@ export async function getServerSideProps(context) {
         amountShipping:order.shippingRate || 3,
         images: order.images,
         timestamp: order.createdAt,
+        products: order.orders
         // items: (
         //   await stripe.checkout.sessions.listLineItems(order.checkout_id, {
         //     limit: 100

@@ -33,10 +33,18 @@ export async function getServerSideProps(context) {
   };
 }
 
+const handleAccept = async() => {
+  toast.success('Order accepted successfully');
+}
+
 const index = ({ orders }) => {
   const router = useRouter();
 
   const columns = [
+    {
+      name: "Accept",
+      selector: (row) => row.accept,
+    },
     {
       name: "_id",
       selector: (row) => row._id,
@@ -74,6 +82,29 @@ const index = ({ orders }) => {
       selector: (row) => row.orders,
     },
     {
+      name: "line1",
+      selector: (row) => row.line1,
+    },
+    {
+      name: "line2",
+      selector: (row) => row.line2,
+    },{
+      name: "city",
+      selector: (row) => row.city,
+    },
+    {
+      name: "state",
+      selector: (row) => row.state,
+    },
+    {
+      name: "postal_code",
+      selector: (row) => row.postal_code,
+    },
+    {
+      name: "country",
+      selector: (row) => row.country,
+    },
+    {
       name: "created_at",
       selector: (row) => row.createdAt,
     },
@@ -82,6 +113,7 @@ const index = ({ orders }) => {
   const ordersData = orders?.map((order) => {
     {
       return {
+        accept: <button className="primary-button" onClick={handleAccept}>Accept</button>,
         _id: order?._id,
         user: order?.user,
         checkout_id: order?.checkout_id,
@@ -89,6 +121,12 @@ const index = ({ orders }) => {
         cutomer_email: order?.cutomer_email,
         customer_name: order?.customer_name,
         paymentStatus: order?.paymentStatus,
+        city: order?.customer_address.city,
+        country: order?.customer_address.country,
+        line1: order?.customer_address.line1,
+        line2: order?.customer_address.line2,
+        postal_code: order?.customer_address.postal_code,
+        state: order?.customer_address.state,
         // images: (
         //   <img
         //     src={order?.images[0]}
@@ -155,6 +193,8 @@ const index = ({ orders }) => {
 
   const [filter, setFilter] = useState();
 
+  console.log(ordersData);
+
   // A super simple expandable component.
   function ExpandedComponent(props) {
     // props contain data for the expanded row
@@ -165,16 +205,15 @@ const index = ({ orders }) => {
           _id: data?._id,
           user: data?.user,
           checkout_id: data?.checkout_id,
-          // orders: data?.orders,
-          // amount: data?.amount,
-          // currency: data?.currency,
-          // customer_id: data?.customer_id,
-          // customer_line1: data?.customer_line1,
-          // customer_line2: data?.customer_line2,
-          // customer_postal_code: data?.customer_postal_code,
-          // customer_city: data?.customer_address.city,
-          // customer_state: data?.customer_address.state,
-          // customer_country: data?.customer_address.country
+          amount: data?.amount,
+          currency: data?.currency,
+          customer_id: data?.customer_id,
+          customer_line1: data?.line1,
+          customer_line2: data?.line2,
+          customer_postal_code: data?.postal_code,
+          customer_city: data?.city,
+          customer_state: data?.state,
+          customer_country: data?.country
         })}
       </pre>
     );

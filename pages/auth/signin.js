@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 
 export async function getServerSideProps(context) {
-  const session  = await getSession(context);
+  const session = await getSession(context);
   if (session) {
     return {
       redirect: {
@@ -22,7 +22,7 @@ export async function getServerSideProps(context) {
   };
 }
 
-export default function index({session}) {
+export default function index({ session }) {
   const [showpass, setShowPass] = useState(false);
   const router = useRouter();
   const emailRef = useRef();
@@ -57,9 +57,8 @@ export default function index({session}) {
         });
         if (result.error) {
           toast.error(result.error);
-        }
-        else{
-          router.push('/');
+        } else {
+          router.push("/");
         }
       } catch (err) {
         toast.error(err.message);
@@ -71,7 +70,7 @@ export default function index({session}) {
   };
   return (
     <>
-    <Head>
+      <Head>
         <title>AyQ-SignIn</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content="AyQ Beverages-SignIn" />
@@ -102,6 +101,9 @@ export default function index({session}) {
               aria-label="Continue with google"
               role="button"
               className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 p-3 border rounded-lg border-gray-700 flex items-center w-full mt-10 hover:bg-gray-100"
+              onClick={() => {
+                signIn("goole");
+              }}
             >
               <svg
                 width={19}
@@ -135,6 +137,9 @@ export default function index({session}) {
               aria-label="Continue with github"
               role="button"
               className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 p-3 border rounded-lg border-gray-700 flex items-center w-full mt-4 hover:bg-gray-100"
+              onClick={() => {
+                signIn("github");
+              }}
             >
               <svg
                 width={21}
@@ -194,7 +199,7 @@ export default function index({session}) {
                 type="email"
                 className="bg-gray-200 border rounded text-xs outline-none font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
                 placeholder="e.g: john@gmail.com "
-                ref = {emailRef}
+                ref={emailRef}
               />
             </div>
             <div className="mt-6 w-full">

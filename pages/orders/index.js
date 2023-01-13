@@ -6,10 +6,16 @@ import Head from "next/head";
 export async function getServerSideProps(context) {
   const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST_KEY);
 
-  const session = getSession(context);
-  if (!session) return { props: {} };
-
-  const stripeOrders = await fetch(`${process.env.NEXT_AUTH_URL}/api/orders`, {
+  const session = await getSession(context);
+  if (!session) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/auth/signin",
+      },
+    };
+  }
+  const stripeOrders = await fetch(`${process.env.NEXT_AUTH_URL}/api/orders/${session.user._id}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -18,20 +24,20 @@ export async function getServerSideProps(context) {
   });
   const allOrders = await stripeOrders.json();
   const orders = await Promise.all(
-      allOrders.map(async(order) => ({
-        id: order.checkout_id,
-        amount: order.amount,
-        amountShipping:order.shippingRate || 3,
-        images: order.images,
-        timestamp: order.createdAt,
-        products: order.orders
-        // items: (
-        //   await stripe.checkout.sessions.listLineItems(order.checkout_id, {
-        //     limit: 100
-        //   }).data
-        // )
-      }))
-  )
+    allOrders.map(async (order) => ({
+      id: order.checkout_id,
+      amount: order.amount,
+      amountShipping: order.shippingRate || 3,
+      images: order.images,
+      timestamp: order.createdAt,
+      products: order.orders,
+      // items: (
+      //   await stripe.checkout.sessions.listLineItems(order.checkout_id, {
+      //     limit: 100
+      //   }).data
+      // )
+    }))
+  );
   return {
     props: {
       orders: orders,
@@ -39,7 +45,7 @@ export async function getServerSideProps(context) {
   };
 }
 
-const Index = ({orders}) => {
+const Index = ({ orders }) => {
   const { data: session } = useSession();
   return (
     <div className="pt-24 px-4 md:px-0 md:max-w-7xl mx-auto min-h-[calc(100vh-80px)]">

@@ -74,13 +74,18 @@ export default function index({session}) {
         password,
       };
       try {
-        await fetch("/api/auth/signup", {
+        const res = await fetch("/api/auth/signup", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(data),
         });
+        const signUp = await res.json();
+        if(signUp.error) {
+          toast.error(signUp.error);
+          return;
+        } 
         const result = await signIn("credentials", {
           redirect: false,
           email,

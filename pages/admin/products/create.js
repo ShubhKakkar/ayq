@@ -43,6 +43,10 @@ const CreateProduct = () => {
     return text.toLowerCase().replace(/\s+/g, "-");
   }
 
+  // const uploadImage = async() => {
+    
+  // }
+
   const handleProductCreation = async () => {
     console.log("I got clicked");
     if (!name) {
@@ -83,6 +87,8 @@ const CreateProduct = () => {
     const slugData = slug || convertToSlug(name);
 
     const categoryData = category.split(/[, ]/).shift();
+
+    // const url = await uploadImage();
 
     const response = await fetch("/api/products", {
       method: "POST",
@@ -148,7 +154,9 @@ const CreateProduct = () => {
             />
           </div>
           <div className="mt-4">
+            {/* <label htmlFor="thumbnail">Upload Thumbnail</label> */}
             <input
+              id="thumbnail"
               type="url"
               placeholder="product image"
               className="block w-full"

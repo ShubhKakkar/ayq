@@ -2,12 +2,12 @@ import React, { useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { getSession, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 import parse from "html-react-parser";
 import Head from "next/head";
-const JoditEditor = dynamic(() => import('jodit-react'), {
-  ssr: false
-})
+const JoditEditor = dynamic(() => import("jodit-react"), {
+  ssr: false,
+});
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
@@ -40,6 +40,31 @@ const Create = () => {
     return text.toLowerCase().replace(/\s+/g, "-");
   }
 
+  // const uploadThumbnail = async (thumbnail) => {
+  //   console.log(thumbnail);
+  //   // add the file to the FormData object
+  //   const fd = new FormData();
+  //   fd.append("file", thumbnail);
+  //   fd.append("upload_preset", "uploads");
+  //   fd.append("cloud_name", "dndkskewk");
+
+  //   try {
+  //     // send `POST` request
+  //     const res = fetch(
+  //       "https://api.cloudinary.com/v1_1/dndkskewk/image/upload",
+  //       {
+  //         method: "POST",
+  //         body: fd,
+  //       }
+  //     );
+  //     const url = res.json();
+  //     console.log(url);
+  //     return url;
+  //   } catch (err) {
+  //     toast.error(err);
+  //   }
+  // };
+
   const handlePostCreation = async () => {
     if (!title) {
       toast.error("Please enter a title");
@@ -52,6 +77,8 @@ const Create = () => {
 
     const slugData = slug || convertToSlug(title);
 
+    // const thumbnailUrl = await uploadThumbnail(thumbnail);
+
     const response = await fetch("/api/blog/create", {
       method: "POST",
       headers: {
@@ -63,7 +90,7 @@ const Create = () => {
         category: category
           .split(/[\s,]+/)
           .map((category) => category.toLowerCase()),
-        thumbnail,
+        thumbnail: thumbnail,
         description: content,
         author: session?.user?.name,
         comments: [],
@@ -116,8 +143,10 @@ const Create = () => {
             />
           </div>
           <div className="mt-4">
+            {/* <label htmlFor="thumbnail">Upload Thumbnail</label> */}
             <input
               type="url"
+              id="thumbnail"
               placeholder="Thumbnail"
               className="block w-full"
               value={thumbnail}

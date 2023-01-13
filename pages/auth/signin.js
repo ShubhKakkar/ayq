@@ -75,7 +75,7 @@ export default function index({ session }) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content="AyQ Beverages-SignIn" />
       </Head>
-      <div className="bg-gray-100 pt-16 o">
+      <div className="bg-gray-100 min-h-[calc(100vh-80px)] grid place-items-center pt-16 o">
         <div className="xl:px-20 md:px-10 sm:px-6 px-4 md:py-12 py-9 2xl:mx-auto 2xl:container md:flex items-center justify-center">
           <div className="bg-white shadow-lg rounded xl:w-1/3 lg:w-5/12 md:w-1/2 w-full lg:px-10 sm:px-6 sm:py-10 px-2 py-6">
             <p
@@ -97,7 +97,7 @@ export default function index({ session }) {
                 Sign up here
               </Link>
             </p>
-            <button
+            {/* <button
               aria-label="Continue with google"
               role="button"
               className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 p-3 border rounded-lg border-gray-700 flex items-center w-full mt-10 hover:bg-gray-100"
@@ -132,15 +132,15 @@ export default function index({ session }) {
               <p className="text-base font-medium ml-4 text-gray-700">
                 Continue with Google
               </p>
-            </button>
-            <div className="w-full flex items-center justify-between py-5">
+            </button> */}
+            {/* <div className="w-full flex items-center justify-between py-5">
               <hr className="w-full bg-gray-400" />
               <p className="text-base font-medium leading-4 px-2.5 text-gray-500">
                 OR
               </p>
               <hr className="w-full bg-gray-400" />
-            </div>
-            <div>
+            </div> */}
+            <div className="mt-4">
               <label
                 htmlFor="email"
                 className="text-sm font-medium leading-none text-gray-800"

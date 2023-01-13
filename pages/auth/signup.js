@@ -129,7 +129,7 @@ export default function index({session}) {
                 Sign in here
               </Link>
             </p>
-            <button
+            {/* <button
               aria-label="Continue with google"
               role="button"
               className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 p-3 border rounded-lg border-gray-700 flex items-center w-full mt-10 hover:bg-gray-100"
@@ -168,8 +168,8 @@ export default function index({session}) {
                 OR
               </p>
               <hr className="w-full bg-gray-400" />
-            </div>
-            <div>
+            </div> */}
+            <div className="mt-4">
               <label
                 htmlFor="name"
                 className="text-sm font-medium leading-none text-gray-800"

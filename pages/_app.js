@@ -7,6 +7,7 @@ import { SessionProvider } from "next-auth/react";
 import LoadingBar from "react-top-loading-bar";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function App({
   Component,
@@ -15,10 +16,10 @@ export default function App({
   const router = useRouter();
   const [progress, setProgress] = useState(0);
   useEffect(() => {
-    router.events.on('routeChangeStart', () => {
+    router.events.on("routeChangeStart", () => {
       setProgress(100);
-    })
-  })
+    });
+  });
   return (
     <SessionProvider session={session}>
       <StoreProvider>
@@ -28,9 +29,13 @@ export default function App({
           waitingTime={400}
           onLoaderFinished={() => setProgress(0)}
         />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <AnimatePresence>
+          <motion.div key={router.route} initial={{opacity:0,}} animate={{opacity:1,}} transition={{duration: 0.75}}>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </motion.div>
+        </AnimatePresence>
         <ToastContainer />
       </StoreProvider>
     </SessionProvider>

@@ -30,7 +30,12 @@ export default function App({
           onLoaderFinished={() => setProgress(0)}
         />
         <AnimatePresence>
-          <motion.div key={router.route} initial={{opacity:0,}} animate={{opacity:1,}} transition={{duration: 0.75}}>
+          <motion.div
+            key={router.route}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.75 }}
+          >
             <Layout>
               <Component {...pageProps} />
             </Layout>

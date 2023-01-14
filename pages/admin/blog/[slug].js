@@ -61,7 +61,7 @@ const Update = ({ post }) => {
   }
 
   const handlePostUpdation = async () => {
-    setLoading(true);
+    // setLoading(true);
     if (!title) {
       toast.error("Please enter a title");
       return null;
@@ -110,7 +110,7 @@ const Update = ({ post }) => {
       }),
     });
     const res = await response.json();
-    setLoading(false);
+    // setLoading(false);
     if (!res.error) {
       toast.success("Post updated successfully");
       router.push("/admin/blog");

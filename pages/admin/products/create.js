@@ -38,17 +38,15 @@ const CreateProduct = () => {
   const [rating, setRating] = useState(5);
   const [countInStock, setCountInStock] = useState(0);
   const [description, setDescription] = useState("");
+  const [previewImage, setPreviewImage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   function convertToSlug(text) {
     return text.toLowerCase().replace(/\s+/g, "-");
   }
 
-  // const uploadImage = async() => {
-    
-  // }
-
   const handleProductCreation = async () => {
-    console.log("I got clicked");
+    setLoading(true);
     if (!name) {
       toast.error("Please enter a title");
       return null;
@@ -88,7 +86,23 @@ const CreateProduct = () => {
 
     const categoryData = category.split(/[, ]/).shift();
 
-    // const url = await uploadImage();
+    const uploadImage = async (image) => {
+      const data = new FormData();
+      data.append("file", image);
+      data.append("upload_preset", "uploads");
+      data.append("cloud_name", "dndkskewk");
+      const ret = await fetch(
+        "https://api.cloudinary.com/v1_1/dndkskewk/image/upload",
+        {
+          method: "POST",
+          body: data,
+        }
+      );
+      const response = await ret.json();
+      return response.url;
+    };
+
+    const url = await uploadImage(images);
 
     const response = await fetch("/api/products", {
       method: "POST",
@@ -99,7 +113,7 @@ const CreateProduct = () => {
         name,
         slug: slugData,
         category: categoryData,
-        images,
+        images: url,
         price,
         brand,
         rating,
@@ -108,6 +122,7 @@ const CreateProduct = () => {
       }),
     });
     const res = await response.json();
+    setLoading(false);
     if (!res.error) {
       toast.success("New Product created successfully");
       router.push("/admin/products");
@@ -121,7 +136,10 @@ const CreateProduct = () => {
       <Head>
         <title>AyQ-Admin/products-create</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content="AyQ Beverages-Admin/Products-create" />
+        <meta
+          name="description"
+          content="AyQ Beverages-Admin/Products-create"
+        />
       </Head>
       <div className="basis-1/2">
         <h1 className="text-3xl">Create Product</h1>
@@ -154,14 +172,23 @@ const CreateProduct = () => {
             />
           </div>
           <div className="mt-4">
-            {/* <label htmlFor="thumbnail">Upload Thumbnail</label> */}
+            <label htmlFor="image">Upload Image</label>
             <input
-              id="thumbnail"
-              type="url"
-              placeholder="product image"
+              type="file"
+              id="image"
+              placeholder="images"
               className="block w-full"
-              value={images}
-              onChange={(e) => setImages(e.target.value)}
+              accept="images/*"
+              // value={thumbnail}
+              onChange={(e) => {
+                setImages(e.target.files[0]);
+                const file = e.target.files[0];
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                  setPreviewImage(reader.result);
+                };
+                reader.readAsDataURL(file);
+              }}
             />
           </div>
           <div className="mt-4">
@@ -206,16 +233,16 @@ const CreateProduct = () => {
             />
           </div>
           <div className="mt-4">
-            <button className="primary-button" onClick={handleProductCreation}>
+            <button className={loading?"loading-button":"primary-button"} onClick={handleProductCreation}>
               Submit
             </button>
           </div>
         </div>
       </div>
       <div className="basis-1/2">
-        {images[0] && (
+        {previewImage && (
           <img
-            src={images}
+            src={previewImage}
             alt="product"
             className="h-full w-full bg-auto object-cover card mt-4 md:mt-0"
           />

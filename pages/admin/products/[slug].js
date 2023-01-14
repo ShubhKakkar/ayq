@@ -54,12 +54,15 @@ const UpdateProduct = ({product}) => {
   const [rating, setRating] = useState(product?.rating);
   const [countInStock, setCountInStock] = useState(product?.countInStock);
   const [description, setDescription] = useState(product?.description);
+  const [previewImage, setPreviewImage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   function convertToSlug(text) {
     return text.toLowerCase().replace(/\s+/g, "-");
   }
 
   const handleProductUpdation = async () => {
+    setLoading(true);
     if (!name) {
       toast.error("Please enter a title");
       return null;
@@ -99,6 +102,24 @@ const UpdateProduct = ({product}) => {
 
     const categoryData = category.split(/[, ]/).shift();
 
+    const uploadImage = async (image) => {
+      const data = new FormData();
+      data.append("file", image);
+      data.append("upload_preset", "uploads");
+      data.append("cloud_name", "dndkskewk");
+      const ret = await fetch(
+        "https://api.cloudinary.com/v1_1/dndkskewk/image/upload",
+        {
+          method: "POST",
+          body: data,
+        }
+      );
+      const response = await ret.json();
+      return response.url;
+    };
+
+    const url = await uploadImage(images);
+
     const response = await fetch(`/api/products/${product._id}`, {
       method: "POST",
       headers: {
@@ -109,7 +130,7 @@ const UpdateProduct = ({product}) => {
         name,
         slug: slugData,
         category: categoryData,
-        images,
+        images: url,
         price,
         brand,
         rating,
@@ -118,6 +139,7 @@ const UpdateProduct = ({product}) => {
       }),
     });
     const res = await response.json();
+    setLoading(false);
     if (!res.error) {
       toast.success("Product updated successfully");
       router.push("/admin/products");
@@ -184,11 +206,21 @@ const UpdateProduct = ({product}) => {
           </div>
           <div className="mt-4">
             <input
-              type="url"
-              placeholder="product image"
+              type="file"
+              id="image"
+              placeholder="images"
               className="block w-full"
-              value={images}
-              onChange={(e) => setImages(e.target.value)}
+              accept="images/*"
+              // value={thumbnail}
+              onChange={(e) => {
+                setImages(e.target.files[0]);
+                const file = e.target.files[0];
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                  setPreviewImage(reader.result);
+                };
+                reader.readAsDataURL(file);
+              }}
             />
           </div>
           <div className="mt-4">
@@ -233,7 +265,7 @@ const UpdateProduct = ({product}) => {
             />
           </div>
           <div className="mt-4 mb-4 md:mb-0 flex items-center gap-2">
-            <button className="primary-button" onClick={handleProductUpdation}>
+            <button className={loading?"loading-button":"primary-button"} onClick={handleProductUpdation}>
               Submit
             </button>
             <button
@@ -246,13 +278,11 @@ const UpdateProduct = ({product}) => {
         </div>
       </div>
       <div className="basis-1/2">
-        {images[0] && (
           <img
-            src={images}
+            src={previewImage || images[0]}
             alt="product"
             className="h-full w-full bg-auto object-cover card mt-4 md:mt-0"
           />
-        )}
       </div>
     </div>
   );

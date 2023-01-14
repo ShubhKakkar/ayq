@@ -6,10 +6,9 @@ import { getSession, useSession } from "next-auth/react";
 import moment from "moment";
 import Router, { useRouter } from "next/router";
 import Head from "next/head";
-const JoditEditor = dynamic(() => import('jodit-react'), {
-  ssr: false
-})
-
+const JoditEditor = dynamic(() => import("jodit-react"), {
+  ssr: false,
+});
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
@@ -37,7 +36,7 @@ export async function getServerSideProps(context) {
       },
     };
   }
-  
+
   return {
     props: {
       post,
@@ -54,14 +53,15 @@ const Update = ({ post }) => {
   const [slug, setSlug] = useState(post.slug);
   const [category, setCategory] = useState(post.category.join(","));
   const [thumbnail, setThumbnail] = useState(post.thumbnail);
-
+  const [previewImage, setPreviewImage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   function convertToSlug(text) {
     return text.toLowerCase().replace(/\s+/g, "-");
   }
 
-
   const handlePostUpdation = async () => {
+    setLoading(true);
     if (!title) {
       toast.error("Please enter a title");
       return null;
@@ -72,6 +72,24 @@ const Update = ({ post }) => {
     }
 
     const slugData = slug || convertToSlug(title);
+
+    const uploadImage = async (thumbnail) => {
+      const data = new FormData();
+      data.append("file", thumbnail);
+      data.append("upload_preset", "uploads");
+      data.append("cloud_name", "dndkskewk");
+      const ret = await fetch(
+        "https://api.cloudinary.com/v1_1/dndkskewk/image/upload",
+        {
+          method: "POST",
+          body: data,
+        }
+      );
+      const response = await ret.json();
+      return response.url;
+    };
+
+    const url = await uploadImage(thumbnail);
 
     const response = await fetch("/api/blog/update", {
       method: "POST",
@@ -85,13 +103,14 @@ const Update = ({ post }) => {
         category: category
           .split(/[\s,]+/)
           .map((category) => category.toLowerCase()),
-        thumbnail,
+        thumbnail: url,
         description: content,
         author: session?.user?.name,
         comments: post.comments,
       }),
     });
     const res = await response.json();
+    setLoading(false);
     if (!res.error) {
       toast.success("Post updated successfully");
       router.push("/admin/blog");
@@ -158,15 +177,25 @@ const Update = ({ post }) => {
           </div>
           <div className="mt-4">
             <input
-              type="url"
+              type="file"
+              id="thumbnail"
               placeholder="Thumbnail"
               className="block w-full"
-              value={thumbnail}
-              onChange={(e) => setThumbnail(e.target.value)}
+              accept="images/*"
+              // value={thumbnail}
+              onChange={(e) => {
+                setThumbnail(e.target.files[0]);
+                const file = e.target.files[0];
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                  setPreviewImage(reader.result);
+                };
+                reader.readAsDataURL(file);
+              }}
             />
           </div>
           <div className="mt-4">
-          <JoditEditor
+            <JoditEditor
               ref={editor}
               value={content}
               tabIndex={1}
@@ -179,7 +208,10 @@ const Update = ({ post }) => {
             />
           </div>
           <div className="mt-4 mb-4 md:mb-0 flex items-center gap-2">
-            <button className="primary-button" onClick={handlePostUpdation}>
+            <button
+              className={loading ? "loading-button" : "primary-button"}
+              onClick={handlePostUpdation}
+            >
               Submit
             </button>
             <button
@@ -201,10 +233,7 @@ const Update = ({ post }) => {
           >
             <div>
               <img
-                src={
-                  thumbnail ||
-                  "https://images.unsplash.com/photo-1655635949212-1d8f4f103ea1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8M2R8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                }
+                src={previewImage || thumbnail}
                 className="object-cover w-full h-64 bg-center"
                 alt="Kutty"
               />

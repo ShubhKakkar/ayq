@@ -70,6 +70,10 @@ p {
   @apply rounded bg-orange-400 py-2 px-4 shadow outline-none hover:bg-orange-500 active:bg-orange-500 ease-in duration-300 text-white;
 }
 
+.loading-button {
+  @apply rounded bg-gray-400 py-2 px-4 shadow outline-none hover:bg-gray-500 active:bg-gray-500 ease-in duration-300 text-white pointer-events-none;
+}
+
 .default-button {
   @apply rounded bg-gray-100 py-2 px-4 text-black shadow outline-none hover:bg-gray-200 active:bg-gray-300;
 }

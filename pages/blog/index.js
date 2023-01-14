@@ -41,9 +41,9 @@ const Blog = ({ blog }) => {
               <img
                 src={blog[0]?.thumbnail}
                 alt=""
-                className="object-cover w-full h-64 md:h-[400px] lg:col-span-7"
+                className="object-cover w-3/5 h-64 md:h-[400px] lg:col-span-7"
               />
-              <div className="py-8 pl-4 pr-4 md:pr-8 space-y-4 lg:col-span-5">
+              <div className="py-8 pl-4 pr-4 md:pr-8 space-y-4 lg:col-span-5 w-2/5">
                 <h2 className="uppercase text-lg md:text-2xl font-bold leading-snug">
                   {blog[0]?.title}
                 </h2>

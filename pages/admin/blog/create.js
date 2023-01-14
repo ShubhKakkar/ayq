@@ -35,37 +35,15 @@ const Create = () => {
   const [slug, setSlug] = useState("");
   const [category, setCategory] = useState("");
   const [thumbnail, setThumbnail] = useState("");
+  const [previewImage, setPreviewImage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   function convertToSlug(text) {
     return text.toLowerCase().replace(/\s+/g, "-");
   }
 
-  // const uploadThumbnail = async (thumbnail) => {
-  //   console.log(thumbnail);
-  //   // add the file to the FormData object
-  //   const fd = new FormData();
-  //   fd.append("file", thumbnail);
-  //   fd.append("upload_preset", "uploads");
-  //   fd.append("cloud_name", "dndkskewk");
-
-  //   try {
-  //     // send `POST` request
-  //     const res = fetch(
-  //       "https://api.cloudinary.com/v1_1/dndkskewk/image/upload",
-  //       {
-  //         method: "POST",
-  //         body: fd,
-  //       }
-  //     );
-  //     const url = res.json();
-  //     console.log(url);
-  //     return url;
-  //   } catch (err) {
-  //     toast.error(err);
-  //   }
-  // };
-
   const handlePostCreation = async () => {
+    setLoading(true);
     if (!title) {
       toast.error("Please enter a title");
       return null;
@@ -77,7 +55,23 @@ const Create = () => {
 
     const slugData = slug || convertToSlug(title);
 
-    // const thumbnailUrl = await uploadThumbnail(thumbnail);
+    const uploadImage = async (thumbnail) => {
+      const data = new FormData();
+      data.append("file", thumbnail);
+      data.append("upload_preset", "uploads");
+      data.append("cloud_name", "dndkskewk");
+      const ret = await fetch(
+        "https://api.cloudinary.com/v1_1/dndkskewk/image/upload",
+        {
+          method: "POST",
+          body: data,
+        }
+      );
+      const response = await ret.json();
+      return response.url;
+    };
+
+    const url = await uploadImage(thumbnail);
 
     const response = await fetch("/api/blog/create", {
       method: "POST",
@@ -90,13 +84,14 @@ const Create = () => {
         category: category
           .split(/[\s,]+/)
           .map((category) => category.toLowerCase()),
-        thumbnail: thumbnail,
+        thumbnail: url,
         description: content,
         author: session?.user?.name,
         comments: [],
       }),
     });
     const res = await response.json();
+    setLoading(false);
     if (!res.error) {
       toast.success("New Post created successfully");
       router.push("/admin/blog");
@@ -143,14 +138,23 @@ const Create = () => {
             />
           </div>
           <div className="mt-4">
-            {/* <label htmlFor="thumbnail">Upload Thumbnail</label> */}
+            <label htmlFor="thumbnail">Upload Thumbnail</label>
             <input
-              type="url"
+              type="file"
               id="thumbnail"
               placeholder="Thumbnail"
               className="block w-full"
-              value={thumbnail}
-              onChange={(e) => setThumbnail(e.target.value)}
+              accept="images/*"
+              // value={thumbnail}
+              onChange={(e) => {
+                setThumbnail(e.target.files[0]);
+                const file = e.target.files[0];
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                  setPreviewImage(reader.result);
+                };
+                reader.readAsDataURL(file);
+              }}
             />
           </div>
           <div className="mt-4">
@@ -167,7 +171,7 @@ const Create = () => {
             />
           </div>
           <div className="mt-4 mb-4 md:mb-0">
-            <button className="primary-button" onClick={handlePostCreation}>
+            <button className={loading?"loading-button":"primary-button"} onClick={handlePostCreation}>
               Submit
             </button>
           </div>
@@ -184,7 +188,7 @@ const Create = () => {
             <div>
               <img
                 src={
-                  thumbnail ||
+                  previewImage ||
                   "https://images.unsplash.com/photo-1655635949212-1d8f4f103ea1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8M2R8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
                 }
                 className="object-cover w-full h-64 bg-center"

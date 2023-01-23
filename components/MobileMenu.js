@@ -24,7 +24,7 @@ const MobileMenu = ({ setMobileMenu, headerList }) => {
             <Link
               key={index}
               href={tag.link}
-              className="text-2xl relative mr-1 md:mr-0 py-4 border-dark font-semibold"
+              className="text-3xl relative mr-1 md:mr-0 py-4 border-dark font-semibold"
               onClick={() => {
                 setMobileMenu(false);
               }}

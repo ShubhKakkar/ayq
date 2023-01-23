@@ -9,12 +9,14 @@ import VideoBox from "../components/VideoBox";
 
 // Framer-Motion
 import { motion, useMotionValue, useTransform } from "framer-motion";
+import { toast } from "react-toastify";
 
 export async function getServerSideProps() {
   let blog;
   try {
     const res = await fetch(`${process.env.NEXT_AUTH_URL}/api/blog`);
     blog = await res.json();
+    console.log(blog);
   } catch (err) {
     toast.error(err);
   }

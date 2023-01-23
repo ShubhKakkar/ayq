@@ -8,6 +8,7 @@ import LoadingBar from "react-top-loading-bar";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
+import GoogleAnalytics from "@bradgarropy/next-google-analytics";
 
 export default function App({
   Component,
@@ -43,6 +44,7 @@ export default function App({
         </AnimatePresence>
         <ToastContainer />
       </StoreProvider>
+      <GoogleAnalytics measurementId="G-YBER5LMETB" />
     </SessionProvider>
   );
 }

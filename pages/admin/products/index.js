@@ -32,7 +32,7 @@ export async function getServerSideProps(context) {
   };
 }
 
-const index = ({ products }) => {
+const Index = ({ products }) => {
   return (
     <div>
       <Head>
@@ -74,4 +74,4 @@ const index = ({ products }) => {
   );
 };
 
-export default index;
+export default Index;

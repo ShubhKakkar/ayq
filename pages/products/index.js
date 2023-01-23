@@ -45,16 +45,12 @@ const index = ({ products }) => {
             className="h-full w-full object-cover"
           />
           <div className="absolute top-0 left-0 h-full w-full grid place-items-center bg-[rgba(12,12,12,0.20)]">
-            <h2 className="bigTitleWhite text-center">
-              Drink Your AyQ
-            </h2>
+            <h2 className="bigTitleWhite text-center">Drink Your AyQ</h2>
           </div>
         </div>
       </section>
       <section className="min-h-screen md:max-w-7xl md:mx-auto text-center pt-12 md:py-24 px-4 md:px-0">
-        <h2 className="bigTitle mb-4">
-          EXPLORE OUR DELICIOUS PRODUCT LINES
-        </h2>
+        <h2 className="bigTitle mb-4">EXPLORE OUR DELICIOUS PRODUCT LINES</h2>
         <div className="mt-6 md:mt-12">
           <ProductsGallery data={products} />
         </div>

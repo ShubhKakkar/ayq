@@ -70,6 +70,10 @@ p {
   @apply rounded bg-orange-400 py-2 px-4 shadow outline-none hover:bg-orange-500 active:bg-orange-500 ease-in duration-300 text-white;
 }
 
+.danger-button {
+  @apply rounded bg-red-400 py-2 px-4 shadow outline-none hover:bg-red-500 active:bg-red-500 ease-in duration-300 text-white;
+}
+
 .loading-button {
   @apply rounded bg-gray-400 py-2 px-4 shadow outline-none hover:bg-gray-500 active:bg-gray-500 ease-in duration-300 text-white pointer-events-none;
 }
@@ -120,4 +124,8 @@ li {
 .mapboxgl-ctrl-attrib-inner,
 .mapboxgl-ctrl-logo {
   display: none !important;
+}
+
+.batch {
+  clip-path: polygon(10% 0, 100% 0, 100% 100%, 10% 100%, 0 50%);
 }

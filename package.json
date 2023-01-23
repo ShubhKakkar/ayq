@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@bradgarropy/next-google-analytics": "^1.0.2",
     "@headlessui/react": "^1.7.7",
     "@next/font": "^13.0.7",
     "@stripe/stripe-js": "^1.46.0",

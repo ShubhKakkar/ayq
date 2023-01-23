@@ -91,7 +91,7 @@ const NewsLetter = () => {
               }
             }}
           >
-            Submit
+            Subscribe
           </button>
         </div>
         <div>

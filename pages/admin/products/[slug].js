@@ -21,7 +21,9 @@ export async function getServerSideProps(context) {
   const { slug } = context.params;
   let product;
   try {
-    const res = await fetch(`${process.env.NEXT_AUTH_URL}/api/products/${slug}`);
+    const res = await fetch(
+      `${process.env.NEXT_AUTH_URL}/api/products/${slug}`
+    );
     product = await res.json();
   } catch (err) {
     toast.log(err);
@@ -41,7 +43,7 @@ export async function getServerSideProps(context) {
   };
 }
 
-const UpdateProduct = ({product}) => {
+const UpdateProduct = ({ product }) => {
   const { data: session } = useSession();
   const router = useRouter();
   const editor = useRef();
@@ -148,7 +150,7 @@ const UpdateProduct = ({product}) => {
     }
   };
 
-  const handleDeleteProduct = async() => {
+  const handleDeleteProduct = async () => {
     const response = await fetch(`/api/products/${product.slug}`, {
       method: "DELETE",
       headers: {
@@ -165,7 +167,7 @@ const UpdateProduct = ({product}) => {
     } else {
       toast.error(res.error.message);
     }
-  }
+  };
 
   return (
     <div className="pt-24 md:pt-24 min-h-screen mx-auto md:max-w-7xl px-4 md:px-0 md:flex items-start gap-4">
@@ -265,7 +267,10 @@ const UpdateProduct = ({product}) => {
             />
           </div>
           <div className="mt-4 mb-4 md:mb-0 flex items-center gap-2">
-            <button className={loading?"loading-button":"primary-button"} onClick={handleProductUpdation}>
+            <button
+              className={loading ? "loading-button" : "primary-button"}
+              onClick={handleProductUpdation}
+            >
               Submit
             </button>
             <button
@@ -278,11 +283,11 @@ const UpdateProduct = ({product}) => {
         </div>
       </div>
       <div className="basis-1/2">
-          <img
-            src={previewImage || images[0]}
-            alt="product"
-            className="h-full w-full bg-auto object-cover card mt-4 md:mt-0"
-          />
+        <img
+          src={previewImage || images[0]}
+          alt="product"
+          className="h-full w-full bg-auto object-cover card mt-4 md:mt-0"
+        />
       </div>
     </div>
   );

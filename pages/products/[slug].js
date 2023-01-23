@@ -117,10 +117,7 @@ function SingleProduct({ product, reviews }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section className="text-gray-600 body-font overflow-hidden">
-        <div className="p-2">
-          <Link href="/products">back to products</Link>
-        </div>
-        <div className="container md:px-5 py-6 md:py-12 mx-auto">
+        <div className="container md:px-5 py-6 md:py-24 mx-auto">
           <div className="lg:max-w-7xl mx-auto flex flex-wrap">
             <img
               alt="ecommerce"
@@ -182,26 +179,32 @@ function SingleProduct({ product, reviews }) {
                 {parse(product.description)}
               </div>
               <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5"></div>
-              <div className="flex">
+              <div className="flex items-center justify-between">
                 <span className="title-font font-medium text-2xl text-gray-900">
                   ${product.price}
                 </span>
                 {cart.find((item) => {
                   return item.slug === product.slug;
                 }) ? (
-                  <button
-                    className="flex ml-auto text-white bg-orange-400 border-0 py-2 px-6 focus:outline-none hover:bg-orange-500 rounded pointer-events-none ease-in duration-300"
-                    onClick={addCart}
-                  >
-                    Addded to cart
-                  </button>
+                  <div className="flex items-center gap-4">
+                    <Link href="/products" className="flex ml-auto text-white bg-blue-400 border-0 py-2 px-6 focus:outline-none hover:bg-blue-500 rounded ease-in duration-300">back to products</Link>
+                    <button
+                      className="flex ml-auto text-white bg-orange-400 border-0 py-2 px-6 focus:outline-none hover:bg-orange-500 rounded pointer-events-none ease-in duration-300"
+                      onClick={addCart}
+                    >
+                      Addded to cart
+                    </button>
+                  </div>
                 ) : (
-                  <button
-                    className="flex ml-auto text-white bg-orange-400 border-0 py-2 px-6 focus:outline-none hover:bg-orange-500 rounded ease-in duration-300"
-                    onClick={addCart}
-                  >
-                    Add to cart
-                  </button>
+                  <div className="flex items-center gap-4">
+                    <Link href="/products" className="flex ml-auto text-white bg-orange-400 border-0 py-2 px-6 focus:outline-none hover:bg-orange-500 rounded ease-in duration-300">back to products</Link>
+                    <button
+                      className="flex ml-auto text-white bg-orange-400 border-0 py-2 px-6 focus:outline-none hover:bg-orange-500 rounded ease-in duration-300"
+                      onClick={addCart}
+                    >
+                      Add to cart
+                    </button>
+                  </div>
                 )}
               </div>
             </div>
@@ -242,46 +245,48 @@ function SingleProduct({ product, reviews }) {
                     <div key={review?._id} className="mt-4">
                       <div className="flex items-center gap-2">
                         <h3 className="font-semibold">{review?.name}</h3>
-                        <p className="text-xs relative top-[2px]">({moment.utc(review?.createdAt).format("DD-MM-YYYY")})</p>
+                        <p className="text-xs relative top-[2px]">
+                          ({moment.utc(review?.createdAt).format("DD-MM-YYYY")})
+                        </p>
                       </div>
                       <span className="flex items-center mt-1 mb-2">
-                          {[...Array(parseInt(review?.rating))].map(
-                            (rating, index) => {
-                              return (
-                                <svg
-                                  key={index}
-                                  fill="currentColor"
-                                  stroke="currentColor"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth="2"
-                                  className="w-4 h-4 text-orange-400"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                                </svg>
-                              );
-                            }
-                          )}
-                          {[...Array(5 - parseInt(review?.rating))].map(
-                            (rating, index) => {
-                              return (
-                                <svg
-                                  key={index}
-                                  fill="none"
-                                  stroke="currentColor"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth="2"
-                                  className="w-4 h-4 text-orange-500"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                                </svg>
-                              );
-                            }
-                          )}
-                        </span>
+                        {[...Array(parseInt(review?.rating))].map(
+                          (rating, index) => {
+                            return (
+                              <svg
+                                key={index}
+                                fill="currentColor"
+                                stroke="currentColor"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                className="w-4 h-4 text-orange-400"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                              </svg>
+                            );
+                          }
+                        )}
+                        {[...Array(5 - parseInt(review?.rating))].map(
+                          (rating, index) => {
+                            return (
+                              <svg
+                                key={index}
+                                fill="none"
+                                stroke="currentColor"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                className="w-4 h-4 text-orange-500"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                              </svg>
+                            );
+                          }
+                        )}
+                      </span>
                       <p className="text-sm">{review?.description}</p>
                     </div>
                   );

@@ -121,7 +121,7 @@ function SingleProduct({ product, reviews }) {
           <div className="lg:max-w-7xl mx-auto flex flex-wrap">
             <img
               alt="ecommerce"
-              className="lg:w-1/2 w-full h-[50vh] md:h-[75vh] object-cover object-center rounded"
+              className="mt-16 md:mt-0 lg:w-1/2 w-full h-[50vh] md:h-[75vh] object-cover object-center rounded"
               src={product.images[0]}
             />
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
@@ -187,7 +187,12 @@ function SingleProduct({ product, reviews }) {
                   return item.slug === product.slug;
                 }) ? (
                   <div className="flex items-center gap-4">
-                    <Link href="/products" className="flex ml-auto text-white bg-blue-400 border-0 py-2 px-6 focus:outline-none hover:bg-blue-500 rounded ease-in duration-300">back to products</Link>
+                    <Link
+                      href="/products"
+                      className="flex ml-auto text-white bg-blue-400 border-0 py-2 px-6 focus:outline-none hover:bg-blue-500 rounded ease-in duration-300"
+                    >
+                      back to products
+                    </Link>
                     <button
                       className="flex ml-auto text-white bg-orange-400 border-0 py-2 px-6 focus:outline-none hover:bg-orange-500 rounded pointer-events-none ease-in duration-300"
                       onClick={addCart}
@@ -197,7 +202,12 @@ function SingleProduct({ product, reviews }) {
                   </div>
                 ) : (
                   <div className="flex items-center gap-4">
-                    <Link href="/products" className="flex ml-auto text-white bg-orange-400 border-0 py-2 px-6 focus:outline-none hover:bg-orange-500 rounded ease-in duration-300">back to products</Link>
+                    <Link
+                      href="/products"
+                      className="hidden md:flex ml-auto text-white bg-orange-400 border-0 py-2 px-6 focus:outline-none hover:bg-orange-500 rounded ease-in duration-300"
+                    >
+                      back to products
+                    </Link>
                     <button
                       className="flex ml-auto text-white bg-orange-400 border-0 py-2 px-6 focus:outline-none hover:bg-orange-500 rounded ease-in duration-300"
                       onClick={addCart}

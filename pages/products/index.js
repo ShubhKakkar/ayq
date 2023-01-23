@@ -50,7 +50,7 @@ const index = ({ products }) => {
         </div>
       </section>
       <section className="min-h-screen md:max-w-7xl md:mx-auto text-center pt-12 md:py-24 px-4 md:px-0">
-        <h2 className="bigTitle mb-4">EXPLORE OUR DELICIOUS PRODUCT LINES</h2>
+        <h2 className="uppercase text-2xl md:text-5xl font-bold leading-snug mb-4">EXPLORE OUR DELICIOUS PRODUCT LINES</h2>
         <div className="mt-6 md:mt-12">
           <ProductsGallery data={products} />
         </div>

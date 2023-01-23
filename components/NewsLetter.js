@@ -77,12 +77,12 @@ const NewsLetter = () => {
           <input
             type="text"
             placeholder="Enter Email"
-            className="bg-transparent border-white border-2 p-3 text-md tracking-widest placeholder:uppercase pl-8 text-white w-3/4 md:w-[30vw] focus:outline-none placeholder:text-white lowercase"
+            className="bg-transparent border-white border-2 p-3 text-md tracking-widest placeholder:uppercase pl-8 text-white w-full md:w-[30vw] focus:outline-none placeholder:text-white lowercase"
             defaultValue={session?.user?.email}
             ref={emailRef}
           />
           <button
-            className="bg-orange-400 ml-1 px-1 md:ml-2 py-4 md:py-3 md:p-2 md:px-6 text-white text-sm md:text-lg tracking-widest uppercase font-bold o relative bottom-[0px] hover:bg-orange-500 ease-in-out duration-300 border-[1px] md:border-2 border-orange-400 hover:border-orange-500"
+            className="bg-orange-400 w-full md:w-auto mt-2 md:mt-0 px-1 md:ml-2 py-4 md:py-3 md:p-2 md:px-6 text-white text-sm md:text-lg tracking-widest uppercase font-bold relative bottom-[0px] hover:bg-orange-500 ease-in-out duration-300 border-[1px] md:border-2 border-orange-400 hover:border-orange-500"
             onClick={() => {
               if (session) {
                 handleNewsLetter();

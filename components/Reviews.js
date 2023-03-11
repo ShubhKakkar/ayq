@@ -47,7 +47,7 @@ const Reviews = () => {
         <div className="md:flex justify-between gap-12">
           {reviews.map((review, index) => {
             return (
-              <div key={index} className="relative mt-12 md:mb-6 w-1/3">
+              <div key={index} className="relative mt-12 md:mb-6 md:w-1/3">
                 <div className="h-full text-left">
                   <div className="flex items-center justify-between mb-8">
                     <img

@@ -13,7 +13,7 @@ import { motion } from "framer-motion";
 
 const Process = () => {
   const url =
-    "https://res.cloudinary.com/dndkskewk/video/upload/v1678504754/uploads/rqog9ev0wgejqzcpqjmn.mp4";
+    "https://res.cloudinary.com/dndkskewk/video/upload/q_64/v1678504754/uploads/rqog9ev0wgejqzcpqjmn.mp4";
   const urlEnd =
     "https://player.vimeo.com/external/465332121.sd.mp4?s=f2bac128a75c37e0d5809f72983152e0e52e1dcc&profile_id=164&oauth2_token_id=57447761";
   const videoData = {

@@ -74,7 +74,7 @@ const Content = ({ data, children }) => {
           <p className="uppercase md:text-lg font-bold text-orange-400 mt-4 md:mt-12 tracking-widest leading-loose">
             {data.subTitle ? data.subTitle : ""}
           </p>
-          <div className="text-md md:text-lg o font-medium leading-loose mt-4">
+          <div className="text-md md:text-lg font-medium leading-loose mt-4 mb-2 md:mb-0">
             {children}
           </div>
           {data.buttonText ? (

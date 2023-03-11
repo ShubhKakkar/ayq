@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const Content = ({ data }) => {
+const Content = ({ data, children }) => {
   if (!data) {
     return;
   }
@@ -25,7 +25,15 @@ const Content = ({ data }) => {
           }
         >
           <motion.img
-            initial={{y:200, opacity:0}} whileInView={{y:0, opacity: 1}} transition={{duration:1, ease:"easeInOut", bounce:0.2, type:"spring"}} viewport={{ once: true }}
+            initial={{ y: 200, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{
+              duration: 1,
+              ease: "easeInOut",
+              bounce: 0.2,
+              type: "spring",
+            }}
+            viewport={{ once: true }}
             className={
               data.imageType === "contain"
                 ? "object-contain h-72 md:h-full w-full object-center md:mb-0"
@@ -66,7 +74,9 @@ const Content = ({ data }) => {
           <p className="uppercase md:text-lg font-bold text-orange-400 mt-4 md:mt-12 tracking-widest leading-loose">
             {data.subTitle ? data.subTitle : ""}
           </p>
-          <div className="text-md md:text-lg o font-medium leading-loose mt-4" dangerouslySetInnerHTML={{ __html: data.description ? data.description : "" }} />
+          <p className="text-md md:text-lg o font-medium leading-loose mt-4">
+            {children}
+          </p>
           {data.buttonText ? (
             <button className="bg-orange-400 hover:bg-orange-500 ease-in-out duration-300 px-8 py-3 font-bold text-lg tracking-widest text-white uppercase my-4 md:mt-12">
               {data.buttonText}

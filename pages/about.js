@@ -16,7 +16,6 @@ export async function getServerSideProps() {
   try {
     const res = await fetch(`${process.env.NEXT_AUTH_URL}/api/blog`);
     blog = await res.json();
-    console.log(blog);
   } catch (err) {
     toast.error(err);
   }
@@ -53,24 +52,19 @@ const About = ({ blog }) => {
   ];
   const ourStory = {
     url: "https://www.celsius.com/wp-content/uploads/2020/02/Photo-1-e1583171907102.png",
-    title: "Our Story",
-    subTitle: "CLINICALLY PROVEN TO FUNCTION",
-    description:
-      "At our company, we believe that nature has the power to nourish and sustain the body. That's why we've created a range of all-natural energy drinks made with the finest fruits and spices from around the world. Our unique formula is specifically designed to provide sustained energy and support recovery during and after physical activity.",
+    title: "Our origin story",
+    // subTitle: "CLINICALLY PROVEN TO FUNCTION",
     direction: "ltr",
   };
   const ourImpact = {
     url: "https://cdn.shopify.com/s/files/1/1628/8781/files/HOME_Cartons-100_1080x.jpg?v=1649180029",
     title: "Our Impact",
-    subTitle: "CLINICALLY PROVEN TO FUNCTION",
-    description:
-      "Stay active and energized all day long with CELSIUS by your side. CELSIUS powers active lives every day with essential, functional energy. We're different from other energy drinks because we focus on movement. When combined with exercise, our formula is clinically proven to boost your metabolism and help you burn body fat. Whether you need an extra boost at the gym or a delicious pick-me-up to help you hustle through your workday, CELSIUS is here to help you stay active and focused on your goals. Made with only the best ingredients, CELSIUS has no artificial preservatives or flavors, no aspartame or high fructose corn syrup, and it's very low in sodium.",
+    subTitle: "Where flavor meets function",
     direction: "rtl",
   };
   const videoData = {
     url: url,
-    text1: "Refreshingly",
-    text2: "Relaxing",
+    text1: "Spiced Water",
     shopNow: "true",
     shopUrl: "/",
   };
@@ -105,11 +99,35 @@ const About = ({ blog }) => {
           <Services data={productHeroServiceData} />
         </div>
       </section>
-      <section className="p-4 md:p-0 py-6 md:py-0 md:max-w-7xl md:mx-auto">
-        <Content data={ourStory} />
+      <section className="p-4 md:p-0 mx-auto py-6 md:py-0">
+        <Content data={ourStory}>
+          <p className="mb-2">
+            We're Kieran Powell and Emma Everett-Powell: a professional West
+            Indies cricket player and sports agent, and the founders of AyQ.
+          </p>
+          <p>
+            While traveling in Asia, we developed a love of spices like
+            turmeric, cayenne, and cinnamon. We then set out to take that
+            passion and put it into a refreshing beverage that everyone can
+            enjoy. Infused with fruit and spices, you've never seen flavored
+            water like this before.
+          </p>
+        </Content>
       </section>
-      <section className="p-4 md:p-0 mx-auto py-6 md:py-24">
-        <Content data={ourImpact} />
+      <section className="p-4 md:p-0 py-6 md:py-24 md:max-w-7xl md:mx-auto">
+        <Content data={ourImpact}>
+          <p className="mb-2">
+            Stay energized with a can of AyQ. Created by athletes for everyone.
+          </p>
+          <p className="mb-2">
+            Our flavored water gives consumers the functional, replenishing
+            boost they need to stay hydrated and thrive. Our formula is made
+            with natural ingredients, real fruit, and delightful spices—and it's
+            packed with trace minerals, vitamins, and electrolytes that will
+            help you recover faster.
+          </p>
+          <p>Oh, and did we mention our 100% recyclable packaging?</p>
+        </Content>
       </section>
       <section className="p-4 md:p-0 md:pb-24">
         <Reviews />

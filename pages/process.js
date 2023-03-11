@@ -13,7 +13,7 @@ import { motion } from "framer-motion";
 
 const Process = () => {
   const url =
-    "https://videos.ctfassets.net/8roil6amnkw9/6cNiuzHfmR8Un66ZysPI29/1fa433bdb9dce12ca7eea7fb9a0ad003/process-sizzle.minv2.mp4";
+    "https://res.cloudinary.com/dndkskewk/video/upload/v1678504754/uploads/rqog9ev0wgejqzcpqjmn.mp4";
   const urlEnd =
     "https://player.vimeo.com/external/465332121.sd.mp4?s=f2bac128a75c37e0d5809f72983152e0e52e1dcc&profile_id=164&oauth2_token_id=57447761";
   const videoData = {
@@ -45,7 +45,12 @@ const Process = () => {
         <VideoBox data={videoData} />
       </section>
       <section className="max-w-7xl mx-auto py-12 md:py-24">
-        <motion.p initial={{opacity:0}} whileInView={{opacity:1}} transition={{duration:0.3, ease:"easeInOut"}} className="px-4 md:px-0 text-lg md:text-xl o font-medium leading-loose md:mt-4 md:max-w-5xl mx-auto text-center pb-12 md:pb-24">
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="px-4 md:px-0 text-lg md:text-xl o font-medium leading-loose md:mt-4 md:max-w-5xl mx-auto text-center pb-12 md:pb-24"
+        >
           We believe it's possible to drink the highest quality of coffee (that
           actually tastes good) while paying our farmers fairly, using
           sustainable farming methods and protecting our wildlife.
@@ -79,21 +84,39 @@ const Process = () => {
             <p className="text-lg o font-semibold leading-loose mt-4">
               Lifeboost beans are:
             </p>
-            <motion.div initial={{opacity:0, x:-300}} whileInView={{opacity:1, x:0}} transition={{duration:1, ease:"easeInOut"}} viewport={{once: true}} className="flex items-center my-4 o">
+            <motion.div
+              initial={{ opacity: 0, x: -300 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, ease: "easeInOut" }}
+              viewport={{ once: true }}
+              className="flex items-center my-4 o"
+            >
               <BsFillCheckCircleFill className="text-orange-400 text-5xl basis-1/5 md:basis-1/12 relative top-1" />
               <p className="text-lg o font-md leading-loose mt-4 basis-4/5 md:basis-11/12 ml-2 md:ml-8">
                 Single Origin to avoid cross contamination of molds, hand
                 selected, high elevation and shade grown.
               </p>
             </motion.div>
-            <motion.div initial={{opacity:0, x:-300}} whileInView={{opacity:1, x:0}} transition={{duration:1, ease:"easeInOut", delay:0.25}} viewport={{once: true}} className="flex items-center my-4 o">
+            <motion.div
+              initial={{ opacity: 0, x: -300 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, ease: "easeInOut", delay: 0.25 }}
+              viewport={{ once: true }}
+              className="flex items-center my-4 o"
+            >
               <BsFillCheckCircleFill className="text-orange-400 text-5xl basis-1/5 md:basis-1/12 relative top-1" />
               <p className="text-lg o font-md leading-loose mt-4 basis-4/5 md:basis-11/12 ml-2 md:ml-8">
                 Single Origin to avoid cross contamination of molds, hand
                 selected, high elevation and shade grown.
               </p>
             </motion.div>
-            <motion.div initial={{opacity:0, x:-300}} whileInView={{opacity:1, x:0}} transition={{duration:1, ease:"easeInOut", delay:0.5}} viewport={{once: true}} className="flex items-center my-4 o">
+            <motion.div
+              initial={{ opacity: 0, x: -300 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, ease: "easeInOut", delay: 0.5 }}
+              viewport={{ once: true }}
+              className="flex items-center my-4 o"
+            >
               <BsFillCheckCircleFill className="text-orange-400 text-5xl basis-1/5 md:basis-1/12 relative top-1" />
               <p className="text-lg o font-md leading-loose mt-4 basis-4/5 md:basis-11/12 ml-2 md:ml-8">
                 Single Origin to avoid cross contamination of molds, hand
@@ -115,7 +138,13 @@ const Process = () => {
           From the jungles to your table
         </h2>
         <div className="overflow-hidden flex flex-col md:flex-row flex-wrap md:h-[500px] pb-12 md:pb-0 md:pt-12 gap-12 md:gap-0">
-          <motion.div initial={{x:-100, opacity:0}} whileInView={{x:0, opacity:1}} transition={{duration:0.5, ease:"easeInOut"}} viewport={{once: true}} className="basis-1/2 md:text-center md:self-start">
+          <motion.div
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            viewport={{ once: true }}
+            className="basis-1/2 md:text-center md:self-start"
+          >
             <svg
               className="max-h-full w-auto md:mx-auto"
               xmlns="http://www.w3.org/2000/svg"
@@ -695,15 +724,19 @@ const Process = () => {
                 ></path>
               </g>
             </svg>
-            <p className="my-6 text-2xl o font-semibold">
-              Step 1: Sourcing
-            </p>
+            <p className="my-6 text-2xl o font-semibold">Step 1: Sourcing</p>
             <p className="my-6 w-56 md:mx-auto text-lg">
               We source the top 2% of coffee in the world from small farms in or
               near nationally
             </p>
           </motion.div>
-          <motion.div initial={{x:100, opacity:0}} whileInView={{x:0, opacity:1}} transition={{duration:0.5, ease:"easeInOut"}} viewport={{once: true}} className="basis-1/2 text-right md:text-center md:self-end">
+          <motion.div
+            initial={{ x: 100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            viewport={{ once: true }}
+            className="basis-1/2 text-right md:text-center md:self-end"
+          >
             <svg
               className="max-h-full w-auto ml-auto md:mx-auto"
               xmlns="http://www.w3.org/2000/svg"
@@ -966,16 +999,20 @@ const Process = () => {
                 ></path>
               </g>
             </svg>
-            <p className="my-6 text-2xl o font-semibold">
-              Step 2: Roasting
-            </p>
+            <p className="my-6 text-2xl o font-semibold">Step 2: Roasting</p>
             <p className="my-6 w-56 ml-auto md:mx-auto text-lg">
               Lifeboost coffee is roasted fresh in small batches when you order.
             </p>
           </motion.div>
         </div>
         <div className="flex flex-col md:flex-row flex-wrap md:h-[500px] pb-12 gap-12 md:gap-0">
-          <motion.div initial={{x:-100, opacity:0}} whileInView={{x:0, opacity:1}} transition={{duration:0.5, ease:"easeInOut", delay:0.25}} viewport={{once: true}}  className="basis-1/2 md:text-center self-start">
+          <motion.div
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeInOut", delay: 0.25 }}
+            viewport={{ once: true }}
+            className="basis-1/2 md:text-center self-start"
+          >
             <svg
               className="max-h-full w-auto md:mx-auto"
               xmlns="http://www.w3.org/2000/svg"
@@ -1083,15 +1120,19 @@ const Process = () => {
                 </g>
               </g>
             </svg>
-            <p className="my-6 text-2xl o font-semibold">
-              Step 3: Testing
-            </p>
+            <p className="my-6 text-2xl o font-semibold">Step 3: Testing</p>
             <p className="my-6 w-56 md:mx-auto text-lg">
               We 3rd party test our beans for mycotoxins, molds, bacteria,
               pesticides, heavy metals plus 400 other toxins.
             </p>
           </motion.div>
-          <motion.div initial={{x:100, opacity:0}} whileInView={{x:0, opacity:1}} transition={{duration:0.5, ease:"easeInOut", delay:0.25}} viewport={{once: true}} className="basis-1/2 text-right md:text-center self-end overlflow-hidden">
+          <motion.div
+            initial={{ x: 100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeInOut", delay: 0.25 }}
+            viewport={{ once: true }}
+            className="basis-1/2 text-right md:text-center self-end overlflow-hidden"
+          >
             <path
               id="Path_433"
               data-name="Path 433"

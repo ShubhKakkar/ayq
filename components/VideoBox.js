@@ -29,25 +29,17 @@ const VideoBox = ({ data }) => {
       <video
         autoPlay="autoplay"
         loop={true}
-        muted={true}
+        // muted={true}
         className="w-screen h-screen object-cover"
       >
         <source src={url ? url : ""} type="video/mp4" />
       </video>
       <div className="h-screen w-screen absolute top-0 left-0 grid place-items-center text-center p-4 md:p-0">
         <div className="relative bottom-8">
-          <h1
-            className={`${
-              text1Styles ? text1Styles : "bigTitleWhite"
-            }`}
-          >
+          <h1 className={`${text1Styles ? text1Styles : "bigTitleWhite"}`}>
             {text1 ? text1 : ""}
           </h1>
-          <h1
-            className={`${
-              text2Styles ? text2Styles : "bigTitleWhite"
-            }`}
-          >
+          <h1 className={`${text2Styles ? text2Styles : "bigTitleWhite"}`}>
             {text2 ? text2 : ""}
           </h1>
           {shopNow === "true" ? (

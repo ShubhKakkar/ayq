@@ -30,23 +30,23 @@ const About = ({ blog }) => {
   const url = "/video/about-cover.mp4";
   const productHeroServiceData = [
     {
-      icon: "https://cdn.shopify.com/s/files/1/1628/8781/files/Droplets_1000px_180x.png?v=1621883235",
+      icon: "https://res.cloudinary.com/dndkskewk/image/upload/v1678554913/uploads/z9ywwhdjav8gbnq3pnu9.avif",
       text: "Sustainably Sourced",
     },
     {
-      icon: "https://cdn.shopify.com/s/files/1/1628/8781/files/ICON_Naturally_Occurring_Mineral_Content_180x.png?v=1628861791",
+      icon: "https://res.cloudinary.com/dndkskewk/image/upload/v1678554913/uploads/nq3wzfr6wq60are4smmf.avif",
       text: "Naturally Occurring Minerals",
     },
     {
-      icon: "https://cdn.shopify.com/s/files/1/1628/8781/files/Bcorp_1000px_180x.png?v=1621883267",
-      text: "B-Corp Certified",
+      icon: "https://res.cloudinary.com/dndkskewk/image/upload/v1678554913/uploads/hwpzkx18ixdq9hezrqth.avif",
+      text: "Athelete Approved",
     },
     {
-      icon: "https://cdn.shopify.com/s/files/1/1628/8781/files/NationalMinoritySupplierCouncil_1000px_180x.png?v=1621883277",
-      text: "Minority-Owned",
+      icon: "https://res.cloudinary.com/dndkskewk/image/upload/v1678554913/uploads/oojscaxxgd4tnhchy7b6.avif",
+      text: "Nutritious",
     },
     {
-      icon: "https://cdn.shopify.com/s/files/1/1628/8781/files/ICON_Recycleable1_180x.png?v=1629304600",
+      icon: "https://res.cloudinary.com/dndkskewk/image/upload/v1678554913/uploads/ppgzjnnzhgg5zg8vomsb.avif",
       text: "100% Recyclable",
     },
   ];
@@ -91,7 +91,7 @@ const About = ({ blog }) => {
             scale: scale,
             cursor: "grab",
           }}
-          src="https://cdn.shopify.com/s/files/1/1628/8781/files/Bubbles_Cucumber_Hero_Centered_HiRes_800x.png?v=1670812072"
+          src="https://res.cloudinary.com/dndkskewk/image/upload/v1678555477/uploads/pnp74tgksqojn0cuzzdf.png"
           alt="apple-cherry-cinnamon-can"
           className="h-[42vh] mx-auto -mt-56 md:-mt-0 relative z-10 md:left-3 md:-top-48"
         />
@@ -101,7 +101,7 @@ const About = ({ blog }) => {
       </section>
       <section className="p-4 md:p-0 mx-auto py-6 md:py-0">
         <Content data={ourStory}>
-          <p className="mb-2">
+          <p className="mb-4">
             We're Kieran Powell and Emma Everett-Powell: a professional West
             Indies cricket player and sports agent, and the founders of AyQ.
           </p>
@@ -116,10 +116,10 @@ const About = ({ blog }) => {
       </section>
       <section className="p-4 md:p-0 py-6 md:py-24 md:max-w-7xl md:mx-auto">
         <Content data={ourImpact}>
-          <p className="mb-2">
+          <p className="mb-4">
             Stay energized with a can of AyQ. Created by athletes for everyone.
           </p>
-          <p className="mb-2">
+          <p className="mb-4">
             Our flavored water gives consumers the functional, replenishing
             boost they need to stay hydrated and thrive. Our formula is made
             with natural ingredients, real fruit, and delightful spices—and it's

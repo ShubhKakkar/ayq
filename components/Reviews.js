@@ -20,7 +20,7 @@ const reviews = [
     profile:
       "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80",
     description:
-      "Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy 90's cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.",
+      "Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy 90's cronut kinfolk.",
   },
   {
     name: "HOLDEN CAULFIELD",
@@ -28,7 +28,7 @@ const reviews = [
     profile:
       "https://images.unsplash.com/photo-1627087820883-7a102b79179a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cG9ydGFpdHxlbnwwfHwwfHw%3D&w=1000&q=80",
     description:
-      "Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy 90's cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.",
+      "Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy 90's cronut kinfolk.",
   },
 ];
 

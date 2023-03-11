@@ -18,7 +18,7 @@ const BlogWidget = ({ blog }) => {
                   alt={blog.slug}
                   className="object-cover object-center h-full w-full"
                 />
-                <p className="absolute top-0 left-0 h-full w-full grid place-items-center text-3xl text-center p-2 o font-bold opacity-0 hover:opacity-100 ease-out duration-300 text-white z-20 bg-[rgba(12,12,12,0.40)] tracking-wide leading-wide">
+                <p className="absolute top-0 left-0 h-full w-full grid place-items-center text-3xl text-center p-2 o font-bold opacity-0 hover:opacity-100 ease-out duration-300 text-white bg-[rgba(12,12,12,0.40)] tracking-wide leading-wide">
                   {blog.title}
                 </p>
               </div>
@@ -33,7 +33,7 @@ const BlogWidget = ({ blog }) => {
             alt={BlogPosts[3].slug}
             className="object-cover object-center h-full w-full"
           />
-          <p className="absolute top-0 left-0 h-full w-full grid place-items-center text-6xl o font-bold opacity-0 hover:opacity-100 ease-out duration-300 text-white z-20 bg-[rgba(12,12,12,0.40)] text-center tracking-wid leading-wide">
+          <p className="absolute top-0 left-0 h-full w-full grid place-items-center text-6xl font-bold opacity-0 hover:opacity-100 ease-out duration-300 text-white z-10 bg-[rgba(12,12,12,0.40)] text-center tracking-wid leading-wide">
             {BlogPosts[3].title}
           </p>
         </Link>

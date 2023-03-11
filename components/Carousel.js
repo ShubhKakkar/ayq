@@ -6,10 +6,8 @@ import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 const Carousel = () => {
   const [pointer, setPointer] = useState(0);
   const images = [
-    "https://www.celsius.com/wp-content/uploads/2022/04/Arctic-Vibe-Desktop.jpg",
-    "https://www.celsius.com/wp-content/uploads/2022/12/Lemon-Lime-Desktop.jpg",
-    "https://www.celsius.com/wp-content/uploads/2022/04/strawberry-lemonade-desktop.jpg",
-    "https://www.celsius.com/wp-content/uploads/2022/02/1920x980_SW_homepage-1.jpg",
+    "https://res.cloudinary.com/dndkskewk/image/upload/q_76/v1678552731/uploads/nphucbmhnkshvkgpt0up.jpg",
+    "https://res.cloudinary.com/dndkskewk/image/upload/q_76/v1678552894/uploads/xy91pntqiw7cfjxjtmkf.jpg",
   ];
 
   const handlePointerLeft = () => {
@@ -17,12 +15,12 @@ const Carousel = () => {
   };
 
   const handlePointerRight = () => {
-    pointer >= images.length-1 ? setPointer(0) : setPointer(pointer + 1);
+    pointer >= images.length - 1 ? setPointer(0) : setPointer(pointer + 1);
   };
 
   setInterval(() => {
     handlePointerRight;
-  },8000)
+  }, 8000);
 
   return (
     <div className="h-[50vh] md:h-full relative">
@@ -35,7 +33,11 @@ const Carousel = () => {
       <div className="h-full flex overflow-x-hidden relative bg-['/images/apple/apple-bg.jpg'] object-top">
         {images.map((url, index) => {
           return (
-            <div key={index} className="h-full w-screen flex-shrink-0 duration-1000 ease-in-out" style={{transform: `translateX(${-100*pointer}vw)`}}>
+            <div
+              key={index}
+              className="h-full w-screen flex-shrink-0 duration-1000 ease-in-out"
+              style={{ transform: `translateX(${-100 * pointer}vw)` }}
+            >
               <img
                 src={url}
                 alt={`carousel-image-${index}`}

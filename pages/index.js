@@ -5,13 +5,14 @@ import Carousel from "../components/Carousel";
 import NewsLetter from "../components/NewsLetter";
 import VideoBox from "../components/VideoBox";
 
-function HomePage() {
+function HomePage({ products }) {
   const VideoData = {
     url: "https://uploads-ssl.webflow.com/5c0ebe0bc3abf564c79e6c17/5fa5930df47531366c08c392_Mobile-VB-_Homepage-Background-Video-transcode.mp4",
     text1: "The ultimate membership for an extraordinary life.",
-    text2:"We help high performance people unlock the vast potential of their lives in the digital age. Welcome to concierge, reimagined.",
-    text1Styles:"text-4xl font-medium text-white o",
-    text2Styles:"text-md my-4 text-[#afaca8] font-medium o",
+    text2:
+      "We help high performance people unlock the vast potential of their lives in the digital age. Welcome to concierge, reimagined.",
+    text1Styles: "text-4xl font-medium text-white o",
+    text2Styles: "text-md my-4 text-[#afaca8] font-medium o",
     shopNow: "true",
     shopUrl: "/",
     overlay: true,
